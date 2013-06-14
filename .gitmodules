@@ -1,0 +1,3 @@
+[submodule "modules/CocoaLumberjack"]
+	path = modules/CocoaLumberjack
+	url = git@github.com:LittleJoySoftware/CocoaLumberjack.git
