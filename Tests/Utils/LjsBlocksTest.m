@@ -21,16 +21,18 @@
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
 #import "LjsTestCase.h"
+#import "LjsBlocks.h"
 
-@interface OCMockSingletonsWorkingTest : LjsTestCase {}
+@interface LjsBlocksTest : LjsTestCase {}
 @end
 
-@implementation OCMockSingletonsWorkingTest
+@implementation LjsBlocksTest
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -57,14 +59,36 @@
   [super tearDown];
 }  
 
-// possibly causing crashes...
-//- (void)testNSNotificationCenter {
-//  //Call the createMockNotificationCenter or createNiceMockNotificationCenter to return a mock object whenever you call defaultCenter
-//  id mockNotificationCenter = [NSNotificationCenter createMockNotificationCenter];
-//  //Now [NSNotificationCenter defaultCenter] will return the mockNotificationCenter
-//
-//  assertThat(mockNotificationCenter, sameInstance([NSNotificationCenter defaultCenter]));
-//  //Now call releaseInstance so [NSNotificationCenter defaultCenter] will return the original defaultCenter again
-//  [NSNotificationCenter releaseInstance];
-//}
+- (void) test_init {
+  id blocks = [[LjsBlocks alloc] init];
+  GHAssertNil(blocks, @"should not be able to init LjsBlocks");
+}
+
+- (void) test_dotimes {
+  __block NSUInteger counter = 0;
+  dotimes(5, ^{
+    counter++;
+  });
+  GHAssertEquals(counter, (NSUInteger)5, @"counter should have been incremented 5 times");
+}
+
+- (void) test_mapc_type_range {
+  NSRange range = {0, 3};
+  NSArray *expected = @[@(0), @(1), @(2), @(3)];
+  NSMutableArray *actual = [NSMutableArray arrayWithCapacity:4];
+  mapc_type_range(range, ^(NSUInteger idx) {
+    [actual addObject:@(idx)];
+  });
+  GHTestLog(@"expected = %@", expected);
+  GHTestLog(@"actual = %@", actual);
+  [actual enumerateObjectsUsingBlock:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
+    GHAssertTrue([num compare:[expected objectAtIndex:idx]] == NSOrderedSame,
+                 @"should be able to cons up a list from a range");
+
+  }];
+}
+
+
+
+
 @end

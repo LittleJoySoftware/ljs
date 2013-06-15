@@ -23,12 +23,6 @@
 
 #import "LjsTestCase.h"
 #import "Lumberjack.h"
-#import "LjsFileUtilities.h"
-#import "LjsGestalt.h"
-#import "NSObject+SupersequentImplementation.h"
-
-
-
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;

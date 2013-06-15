@@ -23,6 +23,8 @@
 
 
 #import <Foundation/Foundation.h>
+#import "LjsGestalt.h"
+#import "LjsFileUtilities.h"
 
 
 #if TARGET_OS_IPHONE
