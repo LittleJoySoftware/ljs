@@ -160,7 +160,6 @@
 		F5A7F720176C9E700097E147 /* LjsProgressiveMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigrationTest.m; sourceTree = "<group>"; };
 		F5A7F722176C9E700097E147 /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
 		F5A7F726176C9E700097E147 /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
-		F5A7F728176C9E700097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
 		F5A7F72A176C9E700097E147 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
 		F5A7F72D176C9E700097E147 /* LjsBlocksTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsBlocksTest.m; sourceTree = "<group>"; };
 		F5A7F72E176C9E700097E147 /* LjsFileUtiltiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtiltiesTests.m; sourceTree = "<group>"; };
@@ -268,6 +267,10 @@
 		F5807019146C26F100EA4CFB = {
 			isa = PBXGroup;
 			children = (
+				F5A7F742176C9EDB0097E147 /* git-modules */,
+				F5A7F743176C9EFA0097E147 /* Sources */,
+				F5A7F715176C9E700097E147 /* Tests */,
+				F5A7F712176C9E590097E147 /* resources */,
 				F580702E146C26F100EA4CFB /* Tests-MacOS */,
 				F5807027146C26F100EA4CFB /* Frameworks */,
 				F5807025146C26F100EA4CFB /* Products */,
@@ -310,10 +313,6 @@
 		F580702E146C26F100EA4CFB /* Tests-MacOS */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F742176C9EDB0097E147 /* git-modules */,
-				F5A7F743176C9EFA0097E147 /* Sources */,
-				F5A7F712176C9E590097E147 /* resources */,
-				F5A7F715176C9E700097E147 /* Tests */,
 				F580702F146C26F100EA4CFB /* Supporting Files */,
 			);
 			path = "Tests-MacOS";
@@ -389,7 +388,7 @@
 				F5A7F713176C9E590097E147 /* readlines-test.txt */,
 			);
 			name = resources;
-			path = ../../Tests/resources;
+			path = ../Tests/resources;
 			sourceTree = "<group>";
 		};
 		F5A7F715176C9E700097E147 /* Tests */ = {
@@ -399,12 +398,11 @@
 				F5A7F71F176C9E700097E147 /* CoreData */,
 				F5A7F721176C9E700097E147 /* Faker */,
 				F5A7F725176C9E700097E147 /* KeyStore */,
-				F5A7F727176C9E700097E147 /* resources */,
 				F5A7F729176C9E700097E147 /* Security */,
 				F5A7F72C176C9E700097E147 /* Utils */,
 			);
 			name = Tests;
-			path = ../../Tests;
+			path = ../Tests;
 			sourceTree = "<group>";
 		};
 		F5A7F716176C9E700097E147 /* Categories */ = {
@@ -446,14 +444,6 @@
 			path = KeyStore;
 			sourceTree = "<group>";
 		};
-		F5A7F727176C9E700097E147 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				F5A7F728176C9E700097E147 /* readlines-test.txt */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
 		F5A7F729176C9E700097E147 /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +468,7 @@
 				F5A7F6EA176C9E3C0097E147 /* Lumberjack */,
 			);
 			name = "git-modules";
+			path = "Tests-MacOS";
 			sourceTree = "<group>";
 		};
 		F5A7F743176C9EFA0097E147 /* Sources */ = {
@@ -491,7 +482,7 @@
 				F5A7F7B2176C9EFA0097E147 /* Utils */,
 			);
 			name = Sources;
-			path = ../../Sources;
+			path = ../Sources;
 			sourceTree = "<group>";
 		};
 		F5A7F744176C9EFA0097E147 /* Categories */ = {

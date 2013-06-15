@@ -8,6 +8,5 @@
 #import <UIKit/UIKit.h>
 #import <OCMock/OCMock.h>
 #import <GHUnitIOS/GHUnit.h>
-#import "OCMockSingletonExtensions.h"
 #include "TargetConditionals.h"
 #endif

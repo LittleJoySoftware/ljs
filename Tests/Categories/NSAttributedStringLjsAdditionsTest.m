@@ -32,6 +32,7 @@
   [super tearDown];
 }
 
+#if !TARGET_OS_IPHONE
 - (void) test_hyperlink_string {
   NSString *actual = nil;
   NSURL *url = [NSURL URLWithString:@"http://www.google.com"];
@@ -41,5 +42,6 @@
                                          alignment:NSCenterTextAlignment];
   GHAssertNotNil(actual, @"should be able to make an attributed string");
 }
+#endif
 
 @end
