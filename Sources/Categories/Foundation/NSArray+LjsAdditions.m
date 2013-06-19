@@ -89,7 +89,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (NSArray *) mapc:(void (^)(id obj, NSUInteger idx, BOOL *stop)) aBlock concurrent:(BOOL) aConcurrent {
   if (aConcurrent == YES) {
-    [self enumerateObjectsWithOptions:NSEnumerationConcurrent 
+    [self enumerateObjectsWithOptions:NSEnumerationConcurrent
                            usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                              aBlock(obj, idx, stop);
                            }];
@@ -141,6 +141,34 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self enumFromString:strVal default:NSNotFound];
 }
 
+#pragma mark - validation
+
+- (BOOL) containsObjects:(id) aObjects {
+  if ([self has_objects] == NO) { return NO; }
+  
+  if (aObjects == nil) { return NO; }
+  
+  if ([aObjects conformsToProtocol:@protocol(NSFastEnumeration)] == NO) {  return NO; }
+  
+  for (id obj in aObjects) { if ([self containsObject:obj] == NO) { return NO; } }
+  
+  return YES;
+}
+
+- (BOOL) containsObjects:(id) aObjects allowsOthers:(BOOL) aAllowsOthers {
+  BOOL hasAll = [self containsObjects:aObjects];
+  if (hasAll == NO) { return NO; }
+  
+  if (aAllowsOthers == YES) { return hasAll; }
+  
+  if ([aObjects respondsToSelector:@selector(count)] == NO) { return NO; }
+  
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
+  NSUInteger objectCount = [aObjects count];
+#pragma clang diagnostic pop
+  return objectCount == [self count];
+}
 
 
 @end

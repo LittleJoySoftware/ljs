@@ -22,9 +22,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @end
 
 @implementation LjsTextView
-@synthesize placeholder;
-@synthesize placeholderColor;
-@synthesize placeHolderLabel;
 
 #pragma mark Memory Management
 - (void) dealloc {
@@ -103,12 +100,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                     backgroundColor:[UIColor clearColor]];
       self.placeHolderLabel.userInteractionEnabled = NO;
       self.placeHolderLabel.alpha = 0;
-      [self addSubview:placeHolderLabel];
+      [self addSubview:self.placeHolderLabel];
       self.placeHolderLabel.accessibilityIdentifier = @"text view placeholder";
     }    
-    placeHolderLabel.text = self.placeholder;
-    [placeHolderLabel sizeToFit];
-    [self sendSubviewToBack:placeHolderLabel];
+    self.placeHolderLabel.text = self.placeholder;
+    [self.placeHolderLabel sizeToFit];
+    [self sendSubviewToBack:self.placeHolderLabel];
   }
   
   BOOL hasText = [self.text length] != 0;

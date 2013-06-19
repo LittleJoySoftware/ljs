@@ -305,7 +305,7 @@
 - (void) test_date_by_adding_minutes_until_interval_5 {
   BOOL hasError = [LjsVariates flip];
   NSError *error = nil;
-  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSUInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
   NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
   NSUInteger interval = 5;
   NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
@@ -321,7 +321,7 @@
 - (void) test_date_by_adding_minutes_until_interval_10 {
   BOOL hasError = [LjsVariates flip];
   NSError *error = nil;
-  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSUInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
   NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
   NSUInteger interval = 10;
   NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
@@ -337,7 +337,7 @@
 - (void) test_date_by_adding_minutes_until_interval_15 {
   BOOL hasError = [LjsVariates flip];
   NSError *error = nil;
-  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSUInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
   NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
   NSUInteger interval = 15;
   NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
@@ -353,7 +353,7 @@
 - (void) test_date_by_adding_minutes_until_interval_20 {
   BOOL hasError = [LjsVariates flip];
   NSError *error = nil;
-  NSInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
+  NSUInteger seconds = [LjsVariates randomIntegerWithMin:0 max:59];
   NSDate *date = [NSDate dateWithYear:2012 month:11 day:17 hour:23 minute:24 second:seconds];
   NSUInteger interval = 20;
   NSDate *actual = [date dateByAddingMinutesUntilInterval:interval
@@ -370,7 +370,7 @@
 
 - (void) test_weekOfYearWithDate {
   NSDate *date;
-  NSInteger actual, expected;
+  NSUInteger actual, expected;
   
   date = [NSDate dateWithTimeIntervalSince1970:0];
   expected = 1;
@@ -408,7 +408,7 @@
 
 - (void) test_weekOfMonth {
   NSDate *date;
-  NSInteger actual, expected;
+  NSUInteger actual, expected;
   
   
   if ([self.gestalt isMacOs] == YES) {
@@ -498,7 +498,7 @@
   NSDate *start = [NSDate dateWithYear:2012 month:6 day:11 hour:0 minute:0 second:1];
   [array mapc:^(NSDate *actual, NSUInteger idx, BOOL *stop) {
     GHTestLog(@"actual: %@", [actual descriptionWithCurrentLocale]);
-    NSDate *expected = [start dateByAddingDays:idx];
+    NSDate *expected = [start dateByAddingDays:(NSInteger)idx];
     GHAssertTrue([actual isSameDay:expected],
                  @"date actual date: %@ should have the same day as %@. failed at index: %d",
                  actual, expected, idx);

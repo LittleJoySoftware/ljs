@@ -88,34 +88,6 @@ static NSString *const ellipsis = @"...";
   return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (NSString *) makeKeyword {
-  if ([self has_chars] == NO) { return nil; }
-  
-  NSString *firstChar = [self substringToIndex:1];
-  BOOL noSpaces = [self rangeOfString:@" "].location == NSNotFound;
-  if ([firstChar isEqualToString:@":"] && noSpaces) {
-    return self;
-  }
-
-  NSString *trimmed = [[self trimmed] stringByReplacingOccurrencesOfString:@":"
-                                                                withString:@""];
-
-
-  NSArray *tokens = [trimmed componentsSeparatedByString:@" "];
-  NSPredicate *prd = [NSPredicate predicateWithBlock:^BOOL(NSString *str,
-                                                           NSDictionary *bindings) {
-    return [str has_chars];
-  }];
-  
-  tokens = [tokens filteredArrayUsingPredicate:prd];
-  NSString *squeezed = [tokens componentsJoinedByString:@"-"];
-  
-  firstChar = [squeezed substringToIndex:1];
-  return [firstChar isEqualToString:@":"] ? squeezed :
-  [NSString stringWithFormat:@":%@", squeezed];
-}
-
-
 - (NSString *) stringByEscapingDoubleQuotes {
   NSMutableString *mutable = [self mutableCopy];
   
@@ -165,5 +137,27 @@ static NSString *const ellipsis = @"...";
   return truncatedString;
 }
 #endif
+
+#pragma mark - checking string contents
+
+- (BOOL) containsOnlyMembersOfCharacterSet:(NSCharacterSet *) aCharacterSet {
+  if ([self has_chars] == NO) { return NO; }
+  if (aCharacterSet == nil) {  return NO; }
+  NSCharacterSet *inverted = [aCharacterSet invertedSet];
+  NSArray *array = [self componentsSeparatedByCharactersInSet:inverted];
+  return [array count] == 1;
+}
+
+- (BOOL) containsOnlyAlphaNumeric:(NSString *) aString {
+  NSCharacterSet *alphaNumeric = [NSCharacterSet alphanumericCharacterSet];
+  return [self containsOnlyMembersOfCharacterSet:alphaNumeric];
+}
+
+
+- (BOOL) containsOnlyNumbers:(NSString *) aString {
+  NSCharacterSet *decimalSet = [NSCharacterSet decimalDigitCharacterSet];
+  return [self containsOnlyMembersOfCharacterSet:decimalSet];
+}
+
 
 @end

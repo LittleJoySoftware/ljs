@@ -18,6 +18,7 @@
 		F580718C146C2C8300EA4CFB /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807184146C2C0C00EA4CFB /* CoreServices.framework */; };
 		F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807182146C2AF500EA4CFB /* libxml2.dylib */; };
 		F580719C146C328600EA4CFB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F580719B146C328600EA4CFB /* Security.framework */; };
+		F589370E1770B11300D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370D1770B11300D9032D /* LjsVariatesTests.m */; };
 		F5A7F706176C9E3C0097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6EC176C9E3C0097E147 /* DDAbstractDatabaseLogger.m */; };
 		F5A7F707176C9E3C0097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6EE176C9E3C0097E147 /* DDASLLogger.m */; };
 		F5A7F708176C9E3C0097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F0176C9E3C0097E147 /* DDFileLogger.m */; };
@@ -124,6 +125,7 @@
 		F5807186146C2C5300EA4CFB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F5807188146C2C6800EA4CFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F580719B146C328600EA4CFB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F589370D1770B11300D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
 		F5A7F6EB176C9E3C0097E147 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F5A7F6EC176C9E3C0097E147 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F5A7F6ED176C9E3C0097E147 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		F5A7F72C176C9E700097E147 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F589370D1770B11300D9032D /* LjsVariatesTests.m */,
 				F5A7F72D176C9E700097E147 /* LjsBlocksTest.m */,
 				F5A7F72E176C9E700097E147 /* LjsFileUtiltiesTests.m */,
 				F5A7F72F176C9E700097E147 /* LjsGestaltTests.m */,
@@ -770,6 +773,7 @@
 				F5A7F7F6176C9EFA0097E147 /* LjsReasons.m in Sources */,
 				F5A7F7F7176C9EFA0097E147 /* LjsVariates.m in Sources */,
 				F5A7F7FA176CA1AE0097E147 /* LjsUUIDGen.m in Sources */,
+				F589370E1770B11300D9032D /* LjsVariatesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

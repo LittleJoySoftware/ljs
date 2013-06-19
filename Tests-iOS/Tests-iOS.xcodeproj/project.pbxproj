@@ -31,16 +31,18 @@
 		F552F41E15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
+		F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370F1770B11E00D9032D /* LjsVariatesTests.m */; };
+		F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58937111771ADD900D9032D /* LjsReasonsTests.m */; };
 		F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
-		F5A7F818176CB5200097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */; };
-		F5A7F819176CB5200097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F800176CB5200097E147 /* DDASLLogger.m */; };
-		F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F802176CB5200097E147 /* DDFileLogger.m */; };
-		F5A7F81B176CB5200097E147 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F804176CB5200097E147 /* DDLog.m */; };
-		F5A7F81C176CB5200097E147 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F806176CB5200097E147 /* DDTTYLogger.m */; };
-		F5A7F81D176CB5200097E147 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F809176CB5200097E147 /* ContextFilterLogFormatter.m */; };
-		F5A7F81E176CB5200097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80B176CB5200097E147 /* DispatchQueueLogFormatter.m */; };
+		F5A7F818176CB5200097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F819176CB5200097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F800176CB5200097E147 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F802176CB5200097E147 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F81B176CB5200097E147 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F804176CB5200097E147 /* DDLog.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F81C176CB5200097E147 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F806176CB5200097E147 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F81D176CB5200097E147 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F809176CB5200097E147 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F81E176CB5200097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80B176CB5200097E147 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81F176CB5200097E147 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F80C176CB5200097E147 /* README.txt */; };
-		F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */; };
+		F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F821176CB5200097E147 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F811176CB5200097E147 /* LjsDefaultFormatter.m */; };
 		F5A7F822176CB5200097E147 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F814176CB5200097E147 /* LjsLogFileManager.m */; };
 		F5A7F823176CB5200097E147 /* LjsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F816176CB5200097E147 /* LjsLogging.m */; };
@@ -153,6 +155,8 @@
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F589370F1770B11E00D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
+		F58937111771ADD900D9032D /* LjsReasonsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsReasonsTests.m; sourceTree = "<group>"; };
 		F5903F8E151B64A900995AF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F5A7F7FD176CB5200097E147 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
@@ -756,6 +760,8 @@
 		F5A7F8E8176CB6540097E147 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F58937111771ADD900D9032D /* LjsReasonsTests.m */,
+				F589370F1770B11E00D9032D /* LjsVariatesTests.m */,
 				F5A7F8E9176CB6540097E147 /* LjsBlocksTest.m */,
 				F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */,
 				F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */,
@@ -976,6 +982,8 @@
 				F5A7F8FB176CB6540097E147 /* LjsBlocksTest.m in Sources */,
 				F5A7F8FC176CB6540097E147 /* LjsFileUtiltiesTests.m in Sources */,
 				F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */,
+				F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */,
+				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,16 +1004,21 @@
 		F50FE6BF1410C6F60051FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				COPY_PHASE_STRIP = NO;
@@ -1028,16 +1041,21 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
 				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = (
 					"-Xclang",
 					"-fobjc-runtime-has-weak",
@@ -1056,16 +1074,21 @@
 		F50FE6C01410C6F60051FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				COPY_PHASE_STRIP = YES;
@@ -1081,16 +1104,21 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
 				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-Xclang",
@@ -1131,7 +1159,7 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
@@ -1181,7 +1209,7 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
@@ -1214,16 +1242,21 @@
 		F5FD829C1532163C00F5800F /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
@@ -1239,16 +1272,21 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
 				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-Xclang",
@@ -1288,7 +1326,7 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
 					"\"$(SRCROOT)/../ocmock/iOS\"",
@@ -1320,16 +1358,21 @@
 		F5FD82A01532164700F5800F /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
@@ -1345,16 +1388,21 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
 				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-Xclang",
@@ -1394,7 +1442,7 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"${SDK_DIR}/usr/include/libxml2\"",
 					"\"$(SRCROOT)/../ocmock/iOS\"",

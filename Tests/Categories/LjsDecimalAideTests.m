@@ -35,17 +35,6 @@
 
 @implementation LjsDecimalAideTests
 
-@synthesize zero, one, minusOne;
-
-//- (id) init {
-//  self = [super init];
-//  if (self) {
-//    // Initialization code here.
-//  }
-//  return self;
-//}
-//
-
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
   return NO;
@@ -80,13 +69,13 @@
   NSDecimalNumber *b;
   BOOL actual;
   
-  a = zero;
-  b = zero;
+  a = self.zero;
+  b = self.zero;
   actual = [LjsDn dn:a e:b];
   GHAssertTrue(actual, nil);
 
-  a = zero;
-  b = one;
+  a = self.zero;
+  b = self.one;
   actual = [LjsDn dn:a e:b];
   GHAssertFalse(actual, nil);
 
@@ -97,18 +86,17 @@
   NSDecimalNumber *b;
   BOOL actual;
   
-  a = zero;
-  b = zero;
+  a = self.zero;
+  b = self.zero;
   actual = [LjsDn dn:a lt:b];
   GHAssertFalse(actual, nil);
   
-  a = minusOne;
-  b = zero;
+  a = self.minusOne;  b = self.zero;
   actual = [LjsDn dn:a lt:b];
   GHAssertTrue(actual, nil);
 
-  a = one;
-  b = zero;
+  a = self.one;
+  b = self.zero;
   actual = [LjsDn dn:a lt:b];
   GHAssertFalse(actual, nil);
 }
@@ -118,18 +106,17 @@
   NSDecimalNumber *b;
   BOOL actual;
   
-  a = zero;
-  b = zero;
+  a = self.zero;
+  b = self.zero;
   actual = [LjsDn dn:a gt:b];
   GHAssertFalse(actual, nil);
   
-  a = minusOne;
-  b = zero;
+  a = self.minusOne;  b = self.zero;
   actual = [LjsDn dn:a gt:b];
   GHAssertFalse(actual, nil);
   
-  a = one;
-  b = zero;
+  a = self.one;
+  b = self.zero;
   actual = [LjsDn dn:a gt:b];
   GHAssertTrue(actual, nil);
 }
@@ -139,18 +126,17 @@
   NSDecimalNumber *b;
   BOOL actual;
   
-  a = zero;
-  b = zero;
+  a = self.zero;
+  b = self.zero;
   actual = [LjsDn dn:a lte:b];
   GHAssertTrue(actual, nil);
   
-  a = minusOne;
-  b = zero;
+  a = self.minusOne;  b = self.zero;
   actual = [LjsDn dn:a lte:b];
   GHAssertTrue(actual, nil);
   
-  a = one;
-  b = zero;
+  a = self.one;
+  b = self.zero;
   actual = [LjsDn dn:a lte:b];
   GHAssertFalse(actual, nil);
 }
@@ -160,18 +146,17 @@
   NSDecimalNumber *b;
   BOOL actual;
   
-  a = zero;
-  b = zero;
+  a = self.zero;
+  b = self.zero;
   actual = [LjsDn dn:a gte:b];
   GHAssertTrue(actual, nil);
   
-  a = minusOne;
-  b = zero;
+  a = self.minusOne;  b = self.zero;
   actual = [LjsDn dn:a gte:b];
   GHAssertFalse(actual, nil);
   
-  a = one;
-  b = zero;
+  a = self.one;
+  b = self.zero;
   actual = [LjsDn dn:a gte:b];
   GHAssertTrue(actual, nil);
 }
@@ -180,33 +165,27 @@
   NSDecimalNumber *a, *min, *max;
   BOOL actual;
   
-  a = zero;
-  min = minusOne;
-  max = one;
+  a = self.zero;
+  min = self.minusOne;  max = self.one;
   actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertTrue(actual, nil);
   
-  a = minusOne;
-  min = minusOne;
-  max = one;
+  a = self.minusOne;  min = self.minusOne;  max = self.one;
   actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertTrue(actual, nil);
   
-  a = one;
-  min = minusOne;
-  max = one;
+  a = self.one;
+  min = self.minusOne;  max = self.one;
   actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertTrue(actual, nil);
   
-  a = minusOne;
-  min = zero;
-  max = one;
+  a = self.minusOne;  min = self.zero;
+  max = self.one;
   actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertFalse(actual, nil);
   
-  a = one;
-  min = minusOne;
-  max = zero;
+  a = self.one;
+  min = self.minusOne;  max = self.zero;
   actual = [LjsDn dn:a isOnMin:min max:max];
   GHAssertFalse(actual, nil);
 

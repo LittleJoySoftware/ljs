@@ -20,9 +20,6 @@
 
 @implementation LoremIpsum
 
-@synthesize loremIpsumWords;
-
-
 #pragma mark -
 
 - (NSString*) randomWord {
@@ -59,7 +56,7 @@
 - (NSString*) sentences:(NSUInteger) count {
   NSMutableArray *sentences = [NSMutableArray arrayWithCapacity:count];
   for (NSUInteger i = 0; i < count; i++) {
-    NSInteger numberOfWords = [LjsVariates randomIntegerWithMin:5 max:20];
+    NSUInteger numberOfWords = (NSUInteger)[LjsVariates randomIntegerWithMin:5 max:20];
     NSString *firstWord = [[self words:1] capitalizedString];
     
     NSString *sentence = [firstWord stringByAppendingFormat:@"%@.",

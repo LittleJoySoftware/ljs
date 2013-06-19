@@ -37,14 +37,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsLabelAttributes
 
-@synthesize lineHeight;
-@synthesize labelHeight;
-@synthesize numberOfLines;
-@synthesize string;
-@synthesize labelWidth;
-@synthesize linebreakMode;
-@synthesize font;
-
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth {
@@ -122,10 +114,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  
 }
 
-
-/*
-  UILabel labelWithText:<#(NSString *)#> font:<#(UIFont *)#> alignment:<#(UITextAlignment)#> textColor:<#(UIColor *)#> highlightedColor:<#(UIColor *)#> backgroundColor:<#(UIColor *)#> lineBreakMode:<#(UILineBreakMode)#> numberOfLines:<#(NSUInteger)#> originX:<#(CGFloat)#> centeredToRectWithHeight:<#(CGFloat)#> width:<#(CGFloat)#>
- */
 
 
 - (NSString *) description {

@@ -32,6 +32,7 @@
 
 #import "LjsCaesarCipher.h"
 #import "Lumberjack.h"
+#import "LjsReasons.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -47,23 +48,31 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsCaesarCipher
 
-@synthesize encode, decode;
++ (NSOrderedSet *) illegalRotationValues {
+  return [NSOrderedSet orderedSetWithArray:@[@(0), @(95), @(190)]];
+}
 
 #pragma mark Memory Management
 
-- (id) initWithRotate:(NSUInteger)aRotate {
+- (id) initWithRotate:(unichar)aRotate {
   self = [super init];
   if (self) {
-    static unsigned short int const LjsCipherAsciiMaximum = 126;
-    static unsigned short int const LjsCipherAsciiMinimum = 32;
-    NSUInteger rotate = aRotate;
+    LjsReasons *reasons = [LjsReasons new];
+    NSOrderedSet *illegals = [LjsCaesarCipher illegalRotationValues];
+    [reasons ifObject:@(aRotate) inCollection:illegals addReasonWithVarName:@"rotate"];
+    if ([reasons hasReasons]) {
+      DDLogError([reasons explanation:@"could not create caesar cipher" consequence:@"nil"]);
+      return nil;
+    }
+    
+    static u_int8_t const LjsCipherAsciiMaximum = 126;
+    static u_int8_t const LjsCipherAsciiMinimum = 32;
     
     NSMutableDictionary *encodeDict = [NSMutableDictionary dictionary];
     NSMutableDictionary *decodeDict = [NSMutableDictionary dictionary];
-    for (unsigned short int index = 32; index <= LjsCipherAsciiMaximum; index++) {
+    for (unichar index = 32; index <= LjsCipherAsciiMaximum; index++) {
       NSString *key = [NSString stringWithFormat:@"%c", index];
-      unsigned short int shift = index + rotate;
-      // NSUInteger foo = shift;
+      NSUInteger shift = index + aRotate;
       while (shift > LjsCipherAsciiMaximum) {
         shift = LjsCipherAsciiMinimum + (shift - LjsCipherAsciiMaximum) - 1;
       }
@@ -84,7 +93,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSUInteger count = [aString length];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   for (NSUInteger index = 0; index < count; index ++) {
-    unsigned char charAt = [aString characterAtIndex:index];
+    unichar charAt = [aString characterAtIndex:index];
     NSString *key = [NSString stringWithFormat:@"%c", charAt];
     NSString *encoded = [self.encode objectForKey:key];
     if (encoded == nil) {
@@ -99,7 +108,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   NSUInteger count = [aString length];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   for (NSUInteger index = 0; index < count; index ++) {
-    unsigned char charAt = [aString characterAtIndex:index];
+    unichar charAt = [aString characterAtIndex:index];
     NSString *key = [NSString stringWithFormat:@"%c", charAt];
     NSString *decoded = [self.decode objectForKey:key];
     if (decoded == nil) {

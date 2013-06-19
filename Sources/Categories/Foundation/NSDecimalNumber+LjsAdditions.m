@@ -36,9 +36,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsInterval 
 
-@synthesize min;
-@synthesize max;
-
 - (id) initWithMin:(NSDecimalNumber *)aMin 
                max:(NSDecimalNumber *)aMax {
   self = [super init];
@@ -215,10 +212,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @param aInteger a scale (precision)
  */
 + (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger {
+                                                      scale:(short) aScale {
   return [NSDecimalNumberHandler 
           decimalNumberHandlerWithRoundingMode:aMode
-          scale:aInteger
+          scale:aScale
           raiseOnExactness:NO
           raiseOnOverflow:NO
           raiseOnUnderflow:NO
@@ -233,10 +230,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
  @param aInteger a scale (precision)
  */
 + (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger {
-  return  [NSDecimalNumberHandler 
+                                                    scale:(short) aScale {
+  return  [NSDecimalNumberHandler
            decimalNumberHandlerWithRoundingMode:aMode
-           scale:aInteger
+           scale:aScale
            raiseOnExactness:NO
            raiseOnOverflow:NO
            raiseOnUnderflow:NO
@@ -284,7 +281,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [LjsDn round:self withHandler:aHandler];
 }
 
-- (NSDecimalNumber *) dnByRoundingWithScale:(NSUInteger) aScale {
+- (NSDecimalNumber *) dnByRoundingWithScale:(short) aScale {
   NSDecimalNumberHandler *handler = [LjsDn statisticsHandlerWithRoundMode:NSRoundPlain
                                                                     scale:aScale];
   return [self dnByRoundingWithHandler:handler];

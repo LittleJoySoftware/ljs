@@ -7,7 +7,6 @@
 @interface LjsGlassButton : LjsButton 
 
 /** @name Properties */
-@property (nonatomic, strong) CAGradientLayer *glassLayer;
 
 /** @name Initializing Objects */
 

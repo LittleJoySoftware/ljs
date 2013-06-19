@@ -77,17 +77,33 @@
 - (NSString *) stringByEscapingDoubleQuotes;
 - (NSString *) stringByUnescapingDoubleQuotes;
 
-/**
- @return a new string based on the receiver with a ':' on the front
- like Lisp make-keyword
- */
-- (NSString *) makeKeyword;
 
 // http://mobiledevelopertips.com/cocoa/truncate-an-nsstring-and-append-an-ellipsis-respecting-the-font-size.html
 #if TARGET_OS_IPHONE
 - (NSString *) stringByTruncatingToWidth:(CGFloat) width 
                                 withFont:(UIFont *) font;
 #endif
+
+
+/**
+ @returns true iff aString contains only characters from aCharacterSet
+ @param aCharacterSet the set of characters to test against
+ */
+- (BOOL) containsOnlyMembersOfCharacterSet:(NSCharacterSet *) aCharacterSet;
+
+/**
+ @returns true iff aString contains only alpha-numeric characters
+ */
+- (BOOL) containsOnlyAlphaNumeric:(NSString *) aString;
+
+/**
+ Method for checking if a string contains only numbers.  Does not check to see
+ if the number is a valid deciment - e.g. 0454.  Will return false if there are
+ commas or decimal places.
+ @return true iff string contains only numeric characters
+ */
+- (BOOL) containsOnlyNumbers:(NSString *) aString;
+
 
 
 @end

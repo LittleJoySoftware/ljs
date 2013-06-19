@@ -138,11 +138,11 @@ typedef struct LjsDateComps LjsDateComps;
                                    calendar:(NSCalendar *) aCalendar;
 - (LjsDateComps) dateComponentsWithCalendar:(NSCalendar *) aCalendar;
 
-- (NSInteger) dayOfYear;
-- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone;
-- (NSInteger) dayOfYearWithCalendar:(NSCalendar *) aCalendar;
-- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone
-                           calendar:(NSCalendar *) aCalendar;
+- (NSUInteger) dayOfYear;
+- (NSUInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone;
+- (NSUInteger) dayOfYearWithCalendar:(NSCalendar *) aCalendar;
+- (NSUInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone
+                            calendar:(NSCalendar *) aCalendar;
 
 
 + (NSDate *) dateWithComponents:(LjsDateComps) aComponents;

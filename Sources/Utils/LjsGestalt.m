@@ -44,10 +44,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #if !TARGET_OS_IPHONE
 
-@synthesize majorVersion;
-@synthesize minorVersion;
-@synthesize bugVersion;
-
 #endif
 
 #pragma mark Memory Management

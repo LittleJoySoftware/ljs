@@ -82,9 +82,7 @@ static double const LjsE = 2.71828;
 
 
 + (double) randomDouble {
-  // why floorf?
-  double result = (double) arc4random() / ARC4RANDOM_MAX;
-  return result;
+  return (double) arc4random() / ARC4RANDOM_MAX;
 }
 
 + (NSDecimalNumber *) randomDecimalDouble {
@@ -111,25 +109,34 @@ static double const LjsE = 2.71828;
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:random] decimalValue]];
 }
 
-+ (NSInteger) randomInteger {
-  return arc4random();
++ (NSUInteger) randomInteger {
+  return arc4random_uniform(NSUIntegerMax);
 }
 
 + (NSDecimalNumber *) randomDecimalInteger {
-  NSInteger random = [LjsVariates randomInteger];
+  NSInteger random = (NSInteger)[LjsVariates randomInteger];
   return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:random] decimalValue]];
 }
 
-+ (NSInteger) randomIntegerWithMin:(NSInteger) min max:(NSInteger) max {
++ (NSUInteger) _randomIntegerHelperWithMin:(NSUInteger) aMin
+                                       max:(NSUInteger) aMax {
+  return (NSUInteger)(((aMax - aMin + 1) * [LjsVariates randomDouble]) + aMin);
+}
+
++ (NSUInteger) randomIntegerWithMin:(NSUInteger) min max:(NSUInteger) max {
+  if (max <= min) {
+    return max;
+  }
   
-  NSInteger result;
+  // avoid blowing up if the min or max is too high
+  NSUInteger result;
   if (max <= min) {
     result = max;
   } else {
-    result = (NSInteger)(((max - min + 1) * [LjsVariates randomDouble]) + min);
+    result = [LjsVariates _randomIntegerHelperWithMin:min max:max];
+    // sometimes the RNG algorithm produces max + 1; this is expected
     while (result > max) {
-      //DDLogWarn(@"regenerating integer because RNG algorithm produced max + 1 - this is expected.");
-      result = (NSUInteger)(((max - min + 1) * [LjsVariates randomDouble]) + min);
+      result = [LjsVariates _randomIntegerHelperWithMin:min max:max];
     }
   }
   return result;
@@ -138,15 +145,15 @@ static double const LjsE = 2.71828;
 + (NSDecimalNumber *) randomDecimalIntegerWithMin:(NSDecimalNumber *) min
                                               max:(NSDecimalNumber *) max {
   
-  NSInteger random = [LjsVariates randomIntegerWithMin:[min intValue]
-                                                   max:[max intValue]];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:random] decimalValue]];  
+  NSUInteger random = [LjsVariates randomIntegerWithMin:[min unsignedIntegerValue]
+                                                    max:[max unsignedIntegerValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithUnsignedInteger:random] decimalValue]];
 }
 
 + (NSArray *) sampleWithReplacement:(NSArray *) array number:(NSUInteger) number {
   NSMutableArray *sampled = [NSMutableArray new];
-  NSInteger randomIndex;
-  NSInteger maxArrayIndex = [array count] - 1;
+  NSUInteger randomIndex;
+  NSUInteger maxArrayIndex = [array count] - 1;
   for (NSUInteger loopVar = 0; loopVar < number; loopVar++) {
     randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
     [sampled addObject:[array objectAtIndex:randomIndex]];
@@ -186,8 +193,8 @@ static double const LjsE = 2.71828;
     return [array objectAtIndex:0];
   }
   
-  NSInteger max = count - 1;
-  NSInteger index = [LjsVariates randomIntegerWithMin:0 max:max];
+  NSUInteger max = count - 1;
+  NSUInteger index = [LjsVariates randomIntegerWithMin:0 max:max];
   return [array objectAtIndex:index];
 }
 
@@ -201,7 +208,7 @@ static double const LjsE = 2.71828;
 + (NSString *) randomStringWithLength:(NSUInteger) length {
   
   NSString *result = @"";
-  NSInteger random;
+  NSUInteger random;
   
   for(NSUInteger finger = 0; finger < length; finger++) {
     random = [LjsVariates randomIntegerWithMin:0 max:_max_index];
@@ -242,10 +249,10 @@ static double const LjsE = 2.71828;
 
 
 /**
- @return an integer on the range eg. (-1, 5) ==> 5
+ @return an integer on the range eg. (1, 5)
  @param aRange the range to sample
  */
-+ (NSInteger) randomIntegerWithRange:(NSRange) aRange {
++ (NSUInteger) randomIntegerWithRange:(NSRange) aRange {
   return [LjsVariates randomIntegerWithMin:aRange.location max:aRange.length];
 }
 
