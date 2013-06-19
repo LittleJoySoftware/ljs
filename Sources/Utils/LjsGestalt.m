@@ -54,7 +54,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self = [super init];
   if (self) {
 #if !TARGET_OS_IPHONE
-    unsigned tMajor, tMinor, tBug;
+    SInt32 tMajor, tMinor, tBug;
     BOOL success = [self getSystemVersionMajor:&tMajor
                                          minor:&tMinor
                                         bugFix:&tBug];
@@ -78,9 +78,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-- (BOOL)getSystemVersionMajor:(unsigned *)major
-                        minor:(unsigned *)minor
-                       bugFix:(unsigned *)bugFix {
+- (BOOL)getSystemVersionMajor:(SInt32 *)major
+                        minor:(SInt32 *)minor
+                       bugFix:(SInt32 *)bugFix {
   OSErr err;
   SInt32 systemVersion, versionMajor, versionMinor, versionBugFix;
   if ((err = Gestalt(gestaltSystemVersion, &systemVersion)) != noErr) goto fail;

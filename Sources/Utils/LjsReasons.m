@@ -161,8 +161,9 @@ LjsIntegerInterval const LjsIntegerInterval_Invalid = {0, 0};
     NSUInteger count = [aCollection count];
 #pragma clang diagnostic pop
     if (count != aCount) {
-      [self addReasonWithFormat:@"expected '%@' to have count '%d' but found '%d'",
-       aVarName, aCount, count];
+
+      [self addReasonWithFormat:@"expected '%@' to have count '%lu' but found '%lu'",
+       aVarName, (unsigned long)aCount, (unsigned long)count];
     }
   }
 }

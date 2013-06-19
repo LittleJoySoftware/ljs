@@ -19,14 +19,15 @@
 		F580718D146C2C8300EA4CFB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5807182146C2AF500EA4CFB /* libxml2.dylib */; };
 		F580719C146C328600EA4CFB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F580719B146C328600EA4CFB /* Security.framework */; };
 		F589370E1770B11300D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370D1770B11300D9032D /* LjsVariatesTests.m */; };
-		F5A7F706176C9E3C0097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6EC176C9E3C0097E147 /* DDAbstractDatabaseLogger.m */; };
-		F5A7F707176C9E3C0097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6EE176C9E3C0097E147 /* DDASLLogger.m */; };
-		F5A7F708176C9E3C0097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F0176C9E3C0097E147 /* DDFileLogger.m */; };
-		F5A7F709176C9E3C0097E147 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F2176C9E3C0097E147 /* DDLog.m */; };
-		F5A7F70A176C9E3C0097E147 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F4176C9E3C0097E147 /* DDTTYLogger.m */; };
-		F5A7F70B176C9E3C0097E147 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F7176C9E3C0097E147 /* ContextFilterLogFormatter.m */; };
-		F5A7F70C176C9E3C0097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F9176C9E3C0097E147 /* DispatchQueueLogFormatter.m */; };
-		F5A7F70E176C9E3C0097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */; };
+		F58937141771B88600D9032D /* LjsReasonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58937131771B88600D9032D /* LjsReasonsTests.m */; };
+		F5A7F706176C9E3C0097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6EC176C9E3C0097E147 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F707176C9E3C0097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6EE176C9E3C0097E147 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F708176C9E3C0097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F0176C9E3C0097E147 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F709176C9E3C0097E147 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F2176C9E3C0097E147 /* DDLog.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F70A176C9E3C0097E147 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F4176C9E3C0097E147 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F70B176C9E3C0097E147 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F7176C9E3C0097E147 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F70C176C9E3C0097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F9176C9E3C0097E147 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		F5A7F70E176C9E3C0097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F70F176C9E3C0097E147 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6FF176C9E3C0097E147 /* LjsDefaultFormatter.m */; };
 		F5A7F710176C9E3C0097E147 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F702176C9E3C0097E147 /* LjsLogFileManager.m */; };
 		F5A7F711176C9E3C0097E147 /* LjsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F704176C9E3C0097E147 /* LjsLogging.m */; };
@@ -40,7 +41,7 @@
 		F5A7F736176C9E700097E147 /* NSSetLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F71D176C9E700097E147 /* NSSetLjsAdditionsTest.m */; };
 		F5A7F737176C9E700097E147 /* NSStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F71E176C9E700097E147 /* NSStringLjsAdditionsTest.m */; };
 		F5A7F738176C9E700097E147 /* LjsProgressiveMigrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F720176C9E700097E147 /* LjsProgressiveMigrationTest.m */; };
-		F5A7F739176C9E700097E147 /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F722176C9E700097E147 /* LoremIpsumTests.m */; };
+		F5A7F739176C9E700097E147 /* LjsLoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F722176C9E700097E147 /* LjsLoremIpsumTests.m */; };
 		F5A7F73B176C9E700097E147 /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F726176C9E700097E147 /* LjsFileBackedStoreTests.m */; };
 		F5A7F73D176C9E700097E147 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F72A176C9E700097E147 /* LjsCaesarCipherTests.m */; };
 		F5A7F73F176C9E700097E147 /* LjsBlocksTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F72D176C9E700097E147 /* LjsBlocksTest.m */; };
@@ -126,6 +127,7 @@
 		F5807188146C2C6800EA4CFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F580719B146C328600EA4CFB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F589370D1770B11300D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
+		F58937131771B88600D9032D /* LjsReasonsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsReasonsTests.m; sourceTree = "<group>"; };
 		F5A7F6EB176C9E3C0097E147 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F5A7F6EC176C9E3C0097E147 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F5A7F6ED176C9E3C0097E147 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -160,7 +162,7 @@
 		F5A7F71D176C9E700097E147 /* NSSetLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSetLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5A7F71E176C9E700097E147 /* NSStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5A7F720176C9E700097E147 /* LjsProgressiveMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigrationTest.m; sourceTree = "<group>"; };
-		F5A7F722176C9E700097E147 /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
+		F5A7F722176C9E700097E147 /* LjsLoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLoremIpsumTests.m; sourceTree = "<group>"; };
 		F5A7F726176C9E700097E147 /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
 		F5A7F72A176C9E700097E147 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
 		F5A7F72D176C9E700097E147 /* LjsBlocksTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsBlocksTest.m; sourceTree = "<group>"; };
@@ -433,7 +435,7 @@
 		F5A7F721176C9E700097E147 /* Faker */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F722176C9E700097E147 /* LoremIpsumTests.m */,
+				F5A7F722176C9E700097E147 /* LjsLoremIpsumTests.m */,
 			);
 			path = Faker;
 			sourceTree = "<group>";
@@ -457,6 +459,7 @@
 		F5A7F72C176C9E700097E147 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F58937131771B88600D9032D /* LjsReasonsTests.m */,
 				F589370D1770B11300D9032D /* LjsVariatesTests.m */,
 				F5A7F72D176C9E700097E147 /* LjsBlocksTest.m */,
 				F5A7F72E176C9E700097E147 /* LjsFileUtiltiesTests.m */,
@@ -738,7 +741,7 @@
 				F5A7F736176C9E700097E147 /* NSSetLjsAdditionsTest.m in Sources */,
 				F5A7F737176C9E700097E147 /* NSStringLjsAdditionsTest.m in Sources */,
 				F5A7F738176C9E700097E147 /* LjsProgressiveMigrationTest.m in Sources */,
-				F5A7F739176C9E700097E147 /* LoremIpsumTests.m in Sources */,
+				F5A7F739176C9E700097E147 /* LjsLoremIpsumTests.m in Sources */,
 				F5A7F73B176C9E700097E147 /* LjsFileBackedStoreTests.m in Sources */,
 				F5A7F73D176C9E700097E147 /* LjsCaesarCipherTests.m in Sources */,
 				F5A7F73F176C9E700097E147 /* LjsBlocksTest.m in Sources */,
@@ -774,6 +777,7 @@
 				F5A7F7F7176C9EFA0097E147 /* LjsVariates.m in Sources */,
 				F5A7F7FA176CA1AE0097E147 /* LjsUUIDGen.m in Sources */,
 				F589370E1770B11300D9032D /* LjsVariatesTests.m in Sources */,
+				F58937141771B88600D9032D /* LjsReasonsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,8 +801,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -810,11 +818,21 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -833,18 +851,32 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
@@ -877,11 +909,11 @@
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
-				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "Tests-MacOS/Tests-MacOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -920,11 +952,11 @@
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
-				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "Tests-MacOS/Tests-MacOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";

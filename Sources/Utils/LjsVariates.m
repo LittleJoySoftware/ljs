@@ -110,7 +110,7 @@ static double const LjsE = 2.71828;
 }
 
 + (NSUInteger) randomInteger {
-  return arc4random_uniform(NSUIntegerMax);
+  return arc4random_uniform(UINT32_MAX);
 }
 
 + (NSDecimalNumber *) randomDecimalInteger {

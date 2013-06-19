@@ -76,7 +76,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       while (shift > LjsCipherAsciiMaximum) {
         shift = LjsCipherAsciiMinimum + (shift - LjsCipherAsciiMaximum) - 1;
       }
-      NSString *value = [NSString stringWithFormat:@"%c", shift];
+      NSString *value = [NSString stringWithFormat:@"%c", (unichar)shift];
    
       [encodeDict setObject:value forKey:key];
       [decodeDict setObject:key forKey:value];

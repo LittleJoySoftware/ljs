@@ -285,14 +285,13 @@
 
 
 - (void) test_random_integer_on_range_with_max {
-  NSUInteger loc = 0;
-  NSUInteger len = NSIntegerMax;
+  NSUInteger loc = UINT32_MAX - 5;
+  NSUInteger len = UINT32_MAX;
   NSRange range = NSMakeRange(loc, len);
   dotimes(20, ^{
     NSUInteger actual = [LjsVariates randomIntegerWithRange:range];
-    GHTestLog(@"actual = '%u'", actual);
-    GHAssertTrue(actual >= range.location, @"'%d' should be >= '%d'", actual, range.location);
-    GHAssertTrue(actual <= range.length, @"'%d' should be <= '%d'", actual, range.length);
+    GHAssertTrue(actual >= range.location, @"'%u' should be >= '%u'", actual, range.location);
+    GHAssertTrue(actual <= range.length, @"'%u' should be <= '%u'", actual, range.length);
   });
 }
 
@@ -302,9 +301,8 @@
   NSRange range = NSMakeRange(loc, len);
   dotimes(20, ^{
     NSUInteger actual = [LjsVariates randomIntegerWithRange:range];
-    GHTestLog(@"actual = '%u'", actual);
-    GHAssertTrue(actual >= range.location, @"'%d' should be >= '%d'", actual, range.location);
-    GHAssertTrue(actual <= range.length, @"'%d' should be <= '%d'", actual, range.length);
+    GHAssertTrue(actual >= range.location, @"'%u' should be >= '%u'", actual, range.location);
+    GHAssertTrue(actual <= range.length, @"'%u' should be <= '%u'", actual, range.length);
   });
 }
 

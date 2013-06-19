@@ -111,7 +111,7 @@
 		F5A7F8F2176CB6540097E147 /* NSSetLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8D9176CB6540097E147 /* NSSetLjsAdditionsTest.m */; };
 		F5A7F8F3176CB6540097E147 /* NSStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */; };
 		F5A7F8F4176CB6540097E147 /* LjsProgressiveMigrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DC176CB6540097E147 /* LjsProgressiveMigrationTest.m */; };
-		F5A7F8F5176CB6540097E147 /* LoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DE176CB6540097E147 /* LoremIpsumTests.m */; };
+		F5A7F8F5176CB6540097E147 /* LjsLoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DE176CB6540097E147 /* LjsLoremIpsumTests.m */; };
 		F5A7F8F6176CB6540097E147 /* LjsLabelAttributesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8E0176CB6540097E147 /* LjsLabelAttributesTest.m */; };
 		F5A7F8F7176CB6540097E147 /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8E2176CB6540097E147 /* LjsFileBackedStoreTests.m */; };
 		F5A7F8F9176CB6540097E147 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8E6176CB6540097E147 /* LjsCaesarCipherTests.m */; };
@@ -297,7 +297,7 @@
 		F5A7F8D9176CB6540097E147 /* NSSetLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSetLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5A7F8DC176CB6540097E147 /* LjsProgressiveMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigrationTest.m; sourceTree = "<group>"; };
-		F5A7F8DE176CB6540097E147 /* LoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsumTests.m; sourceTree = "<group>"; };
+		F5A7F8DE176CB6540097E147 /* LjsLoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLoremIpsumTests.m; sourceTree = "<group>"; };
 		F5A7F8E0176CB6540097E147 /* LjsLabelAttributesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLabelAttributesTest.m; sourceTree = "<group>"; };
 		F5A7F8E2176CB6540097E147 /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
 		F5A7F8E6176CB6540097E147 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
@@ -727,7 +727,7 @@
 		F5A7F8DD176CB6540097E147 /* Faker */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F8DE176CB6540097E147 /* LoremIpsumTests.m */,
+				F5A7F8DE176CB6540097E147 /* LjsLoremIpsumTests.m */,
 			);
 			path = Faker;
 			sourceTree = "<group>";
@@ -974,7 +974,7 @@
 				F5A7F8F2176CB6540097E147 /* NSSetLjsAdditionsTest.m in Sources */,
 				F5A7F8F3176CB6540097E147 /* NSStringLjsAdditionsTest.m in Sources */,
 				F5A7F8F4176CB6540097E147 /* LjsProgressiveMigrationTest.m in Sources */,
-				F5A7F8F5176CB6540097E147 /* LoremIpsumTests.m in Sources */,
+				F5A7F8F5176CB6540097E147 /* LjsLoremIpsumTests.m in Sources */,
 				F5A7F8F6176CB6540097E147 /* LjsLabelAttributesTest.m in Sources */,
 				F5A7F8F7176CB6540097E147 /* LjsFileBackedStoreTests.m in Sources */,
 				F5A7F8F9176CB6540097E147 /* LjsCaesarCipherTests.m in Sources */,
@@ -1091,7 +1091,7 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
 					LOG_CONFIGURATION_DEBUG,
@@ -1259,7 +1259,7 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
 					LOG_CONFIGURATION_DEBUG,

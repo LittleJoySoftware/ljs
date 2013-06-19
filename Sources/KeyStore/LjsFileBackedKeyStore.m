@@ -190,9 +190,8 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
       }
     }
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:name
-     object:self];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:name object:self];
   }
 }
 
