@@ -24,6 +24,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum : unichar {
+  LjsCaesarCipherIllegalRotation_0 = 0,
+  LjsCaesarCipherIllegalRotation_95 = 95,
+  LjsCaesarCipherIllegalRotation_190 = 190
+} LjsCaesarCipherIllegalRotations;
+
+
 /**
  Documentation
  */
@@ -32,12 +39,12 @@
 /** @name Properties */
 
 /** @name Initializing Objects */
-- (id) initWithRotate:(NSUInteger) aRotate;
+- (id) initWithRotate:(unichar) aRotate;
 
 /** @name Handling Notifications, Requests, and Events */
 
 /** @name Utility */
 - (NSString *) stringByEncodingString:(NSString *) aString;
 - (NSString *) stringByDecodingString:(NSString *) aString;
-
++ (NSOrderedSet *) illegalRotationValues;
 @end

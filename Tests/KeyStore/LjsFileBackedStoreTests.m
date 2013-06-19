@@ -49,8 +49,6 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 @end
 
 @implementation LjsFileBackedStoreTests
-@synthesize store;
-
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -77,7 +75,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
                                                    directoryPath:docDir
                                          shouldPostNotifications:[LjsVariates flip]
                                                            error:&error];
-  if (store == nil) {
+  if (self.store == nil) {
     GHTestLog(@"error == %@", error);
   }
   
@@ -143,8 +141,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
   for (NSString *key in [map allKeys]) {
     [self.store storeObject:[map objectForKey:key] forKey:key];
   }
-  GHAssertTrue([LjsValidator array:[self.store allKeys]
-                   containsStrings:[map keySet] allowsOthers:NO], 
+  GHAssertTrue([[self.store allKeys] containsObjects:[map keySet] allowsOthers:NO],
                @"store should contain %@ keys and no others",
                [map keySet]);
 }

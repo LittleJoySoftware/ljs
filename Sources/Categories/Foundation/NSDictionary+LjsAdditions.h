@@ -40,5 +40,10 @@
 - (NSArray *) mapcar:(id (^)(id key, id val)) aBlock;
 
 
+#pragma mark - Validation
+- (BOOL) containsKeys:(id) aKeys;
+- (BOOL) containsKeys:(id) aKeys allowsOthers:(BOOL) aAllowsOthers;
+
+
 
 @end

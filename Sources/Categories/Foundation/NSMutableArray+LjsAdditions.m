@@ -38,6 +38,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #pragma mark - runtime errors for NSArray methods that are not defined
 
 - (NSArray *) append:(id) object {
+
   DDLogError(@"cannot append to mutable array - use nappend");
   [self doesNotRecognizeSelector:_cmd];
   return nil;

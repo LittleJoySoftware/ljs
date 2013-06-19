@@ -27,6 +27,8 @@
 
 #import "LjsGradientView.h"
 #import "Lumberjack.h"
+#import "NSArray+LjsAdditions.h"
+#import "LjsReasons.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -34,12 +36,19 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+
+@interface LjsGradientView ()
+
+@property (nonatomic, strong) UIColor *highColor;
+@property (nonatomic, strong) UIColor *middleColor;
+@property (nonatomic, strong) UIColor *lowColor;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+
+
+@end
+
 @implementation LjsGradientView
 
-@synthesize highColor;
-@synthesize middleColor;
-@synthesize lowColor;
-@synthesize gradientLayer;
 
 #pragma mark Memory Management
 
@@ -48,44 +57,63 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   self = [super initWithFrame:frame];
   if (self != nil) {
     [self awakeFromNib];
+    self.highColor = nil;
+    self.lowColor = nil;
+    self.middleColor = nil;
   }
   return self;
 }
+
+- (id) initWithFrame:(CGRect)frame
+              colors:(NSArray *) aHighMiddleLowColors {
+  LjsReasons *reasons = [LjsReasons new];
+  [reasons ifCollection:aHighMiddleLowColors doesNotHaveCount:3 addReasonWithVarName:@"array of colors"];
+  if ([reasons hasReasons]) {
+    DDLogError([reasons explanation:@"could not create view" consequence:@"nil"]);
+    return nil;
+  }
+
+  self = [self initWithFrame:frame];
+  if (self != nil) {
+    self.highColor = [aHighMiddleLowColors nth:0];
+    self.middleColor = [aHighMiddleLowColors nth:1];
+    self.lowColor = [aHighMiddleLowColors nth:2];
+  }
+  return self;
+}
+
 
 - (void)awakeFromNib {
   // Initialize the gradient layer
   CAGradientLayer *aGradientLayer = [[CAGradientLayer alloc] init];
   self.gradientLayer = aGradientLayer;
   
+  CGRect myBounds = self.bounds;
+  CGSize mySize = myBounds.size;
   // Set its bounds to be the same of its parent
-  [gradientLayer setBounds:[self bounds]];
+  [aGradientLayer setBounds:myBounds];
   // Center the layer inside the parent layer
-  [gradientLayer setPosition:CGPointMake([self bounds].size.width/2,
-                                         [self bounds].size.height/2)];
+  [aGradientLayer setPosition:CGPointMake(mySize.width/2,
+                                          mySize.height/2)];
   
   // Insert the layer at position zero to make sure the 
   // text of the button is not obscured
-  [[self layer] insertSublayer:gradientLayer atIndex:0];
+  CALayer *myLayer = self.layer;
+  [myLayer insertSublayer:aGradientLayer atIndex:0];
   
-  // Set the layer's corner radius
-  [[self layer] setCornerRadius:6.0f];
-  // Turn on masking
-  [[self layer] setMasksToBounds:YES];
-  // Display a border around the button 
-  [[self layer] setBorderWidth:0.0];
-  
-  
+  [myLayer setCornerRadius:6.0f];
+  [myLayer setMasksToBounds:YES];
+  [myLayer setBorderWidth:0.0];
 }
 
 - (void)drawRect:(CGRect)rect {
-  if (self.highColor && self.lowColor && self.middleColor) {
-    // Set the colors for the gradient to the 
-    // two colors specified for high and low
-    [gradientLayer setColors:[NSArray arrayWithObjects:
-                              (id)[self.highColor CGColor], 
-                              (id)[self.middleColor CGColor],
-                              (id)[self.lowColor CGColor], 
-                              nil]];
+  UIColor *hc = self.highColor;
+  UIColor *mc = self.middleColor;
+  UIColor *lc = self.lowColor;
+  
+  if (hc && mc && lc) {
+    NSArray *colors = @[(id)[hc CGColor], (id)[mc CGColor], (id)[lc CGColor]];
+    [self.gradientLayer setColors:colors];
   }
   [super drawRect:rect];
 }

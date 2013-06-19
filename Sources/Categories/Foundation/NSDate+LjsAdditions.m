@@ -80,7 +80,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-static NSInteger NSDateLjsAdditionsComponentFlags = 
+static NSUInteger NSDateLjsAdditionsComponentFlags =
 (NSMonthCalendarUnit | NSMinuteCalendarUnit | NSYearCalendarUnit | 
 NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | 
 NSSecondCalendarUnit);
@@ -249,7 +249,7 @@ NSSecondCalendarUnit);
   comps.second = 0;
   NSDate *result = [NSDate dateWithComponents:comps];
   
-  NSUInteger minutes = comps.minute;
+  NSInteger minutes = comps.minute;
   NSUInteger count = 0;
   while ((NSUInteger)fmod(minutes, aInterval) != 0) {
     //NSLog(@"invariant = %d", (NSUInteger)fmod(minutes, aInterval));
@@ -340,7 +340,7 @@ NSSecondCalendarUnit);
   LjsDateComps result;
   NSTimeZone *oldTimeZone = aCalendar.timeZone;
   aCalendar.timeZone = aTimeZone;
-  NSInteger flags = NSDateLjsAdditionsComponentFlags;
+  NSUInteger flags = NSDateLjsAdditionsComponentFlags;
   NSDateComponents *comps = [aCalendar components:flags fromDate:self];
   result.day = comps.day;
   result.month = comps.month;
@@ -355,30 +355,30 @@ NSSecondCalendarUnit);
 }
 
 
-- (NSInteger) dayOfYear {
+- (NSUInteger) dayOfYear {
   NSCalendar *current = [NSCalendar currentCalendar];
   NSTimeZone *local = [current timeZone];
   return [self dayOfYearWithTimeZone:local
                             calendar:current];
 }
 
-- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone {
+- (NSUInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone {
   return [self dayOfYearWithTimeZone:aTimeZone
                             calendar:[NSCalendar currentCalendar]];
 }
 
-- (NSInteger) dayOfYearWithCalendar:(NSCalendar *) aCalendar {
+- (NSUInteger) dayOfYearWithCalendar:(NSCalendar *) aCalendar {
   return [self dayOfYearWithTimeZone:[aCalendar timeZone]
                             calendar:aCalendar];
 }
 
-- (NSInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone
+- (NSUInteger) dayOfYearWithTimeZone:(NSTimeZone *) aTimeZone
                            calendar:(NSCalendar *) aCalendar {
   NSTimeZone *oldTimeZone = [aCalendar timeZone];
   [aCalendar setTimeZone:aTimeZone];
-  NSInteger dayOfYear =  [aCalendar ordinalityOfUnit:NSDayCalendarUnit
-                                              inUnit:NSYearCalendarUnit 
-                                             forDate:self];
+  NSUInteger dayOfYear =  [aCalendar ordinalityOfUnit:NSDayCalendarUnit
+                                               inUnit:NSYearCalendarUnit
+                                              forDate:self];
   [aCalendar setTimeZone:oldTimeZone];
   return dayOfYear;
 }
@@ -413,7 +413,7 @@ NSSecondCalendarUnit);
   NSTimeZone *oldTimeZone = aCalendar.timeZone;
   aCalendar.timeZone = aTimeZone;
   
-  NSInteger flags = NSDateLjsAdditionsComponentFlags;
+  NSUInteger flags = NSDateLjsAdditionsComponentFlags;
   NSDate *date = [NSDate date];
   NSDateComponents *comps = [aCalendar components:flags fromDate:date];
   comps.day = aComponents.day;
@@ -494,12 +494,12 @@ NSSecondCalendarUnit);
                  calendar:(NSCalendar *) aCalendar {
   NSDate *date = [NSDate date];
   LjsDateComps comps = [date dateComponents];
-  comps.year = aYear;
-  comps.month = aMonth;
-  comps.day = aDay;
-  comps.hour = aHour;
-  comps.minute = aMinute;
-  comps.second = aSecond;
+  comps.year = (NSInteger)aYear;
+  comps.month = (NSInteger)aMonth;
+  comps.day = (NSInteger)aDay;
+  comps.hour = (NSInteger)aHour;
+  comps.minute = (NSInteger)aMinute;
+  comps.second = (NSInteger)aSecond;
   
   date = [self dateWithComponents:comps timeZone:aTimeZone calendar:aCalendar];
   return date;
@@ -607,20 +607,20 @@ NSSecondCalendarUnit);
   LjsDateComps comps = [date dateComponentsWithCalendar:calendar];
   
   NSUInteger flags = NSYearForWeekOfYearCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekCalendarUnit|NSWeekdayCalendarUnit;
-  comps.year = aYear;
+  comps.year = (NSInteger)aYear;
   NSDate *ref = [NSDate dateWithComponents:comps calendar:calendar];
   NSDateComponents *dc = [calendar components:flags fromDate:ref];
   if ([dc respondsToSelector:@selector(setWeekOfYear:)]) {
-    [dc setWeekOfYear:aWeek];
+    [dc setWeekOfYear:(NSInteger)aWeek];
   } else {
-    [dc setWeek:aWeek];
+    [dc setWeek:(NSInteger)aWeek];
   }
   
   [dc setWeekday:2];
   NSDate *start = [calendar dateFromComponents:dc];
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:7];
   for (NSUInteger index = 0; index < 7; index++) {
-    [result nappend:[start dateByAddingDays:index withCalendar:calendar]];
+    [result nappend:[start dateByAddingDays:(NSInteger)index withCalendar:calendar]];
   }
   
   return [NSArray arrayWithArray:result];
@@ -667,7 +667,7 @@ NSSecondCalendarUnit);
 + (NSDate *) lastDayOfMonthWithDate:(NSDate *) aDate {
   NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   [calendar setTimeZone:[NSTimeZone localTimeZone]];
-  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
+  NSUInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
   | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
   
 	NSDateComponents *components;
@@ -686,7 +686,7 @@ NSSecondCalendarUnit);
 + (NSDate *) firstDayOfMonthWithDate:(NSDate *) aDate {
   NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   [calendar setTimeZone:[NSTimeZone localTimeZone]];
-  NSInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
+  NSUInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
   | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
   
 	NSDateComponents *components;

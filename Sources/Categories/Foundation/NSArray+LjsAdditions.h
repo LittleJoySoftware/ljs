@@ -42,5 +42,8 @@
 - (NSUInteger) enumFromString:(NSString *) strVal default: (NSUInteger) def;
 - (NSUInteger) enumFromString:(NSString *) strVal;
 
+#pragma mark - validation
+- (BOOL) containsObjects:(id) aObjects;
+- (BOOL) containsObjects:(id) aObjects allowsOthers:(BOOL) aAllowsOthers;
 
 @end

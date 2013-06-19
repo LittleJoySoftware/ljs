@@ -31,13 +31,10 @@
 @interface LjsGradientView : UIView 
 
 /** @name Properties */
-@property (nonatomic, strong) UIColor *highColor;
-@property (nonatomic, strong) UIColor *middleColor;
-@property (nonatomic, strong) UIColor *lowColor;
-@property (nonatomic, strong) CAGradientLayer *gradientLayer;
-
 
 /** @name Initializing Objects */
+- (id) initWithFrame:(CGRect)frame
+              colors:(NSArray *) aHighMiddleLowColors;
 
 /** @name Handling Notifications, Requests, and Events */
 

@@ -68,11 +68,9 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 
 @implementation LjsFileBackedKeyStore
 
-@synthesize filepath;
 @synthesize store = _store;
 @synthesize storeDidChangeNotificationName = _storeDidChangeNotificationName;
 @synthesize storeWillChangeNotificationName = _storeWillChangeNotificationName;
-@synthesize shouldPostNotifications;
 
 #pragma mark - Memory Management
 
@@ -192,9 +190,8 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
       }
     }
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:name
-     object:self];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:name object:self];
   }
 }
 

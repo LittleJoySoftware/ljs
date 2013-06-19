@@ -28,22 +28,20 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LoremIpsum.h"
+#import "LjsLoremIpsum.h"
 #import "LjsVariates.h"
 #import "LjsLabelAttributes.h"
 
 @interface LjsLabelAttributesTest : LjsTestCase {}
-@property (strong) LoremIpsum *li;
-
+@property (strong) LjsLoremIpsum *li;
 @end
 
 @implementation LjsLabelAttributesTest
 
-@synthesize li;
 - (id) init {
   self = [super init];
   if (self) {
-    self.li = [[LoremIpsum alloc] init];
+    
   }
   return self;
 }
@@ -56,11 +54,13 @@
 - (void) setUpClass {
   [super setUpClass];
   // Run at start of all tests in the class
+  self.li = [[LjsLoremIpsum alloc] init];
 }
 
 - (void) tearDownClass {
   // Run at end of all tests in the class
   [super tearDownClass];
+  self.li = nil;
 }
 
 - (void) setUp {
@@ -74,7 +74,7 @@
 }  
 
 - (void) test_testAttributes {
-  NSString *text = [li characters:150];
+  NSString *text = [self.li characters:150];
   UIFont *font = [UIFont fontWithName:@"ArialMT" size:14];
   LjsLabelAttributes *attrs = [[LjsLabelAttributes alloc]
                                initWithString:text
@@ -82,7 +82,7 @@
                                labelWidth:200];
   GHTestLog(@"%@", attrs);
   
-  CGFloat ceil = ceilf(5.8);
+  CGFloat ceil = ceilf(5.8f);
   GHTestLog(@"ceiling = %f", ceil);
 }
 

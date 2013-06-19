@@ -29,14 +29,15 @@
 
 #import "LjsTestCase.h"
 #import "NSArray+LjsAdditions.h"
+#import "LjsBlocks.h"
 
 @interface NSArrayLjsAdditionsTests : LjsTestCase {}
 
+- (id) randomCollection;
 
 @end
 
 @implementation NSArrayLjsAdditionsTests
-
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -62,6 +63,25 @@
   // Run after each test method
   [super tearDown];
 }  
+
+
+#pragma mark - helpers
+
+- (id) randomCollection {
+  NSUInteger rand = [LjsVariates randomIntegerWithMin:0 max:2];
+  switch (rand) {
+    case 0: return [self arrayOfAbcStrings];
+    case 1: return [self setOfAbcStrings];
+    case 2: return [NSOrderedSet orderedSetWithArray:[self arrayOfAbcStrings]];
+    default:
+      GHFail(@"should never get here");
+      return nil;
+  }
+}
+
+
+#pragma mark - tests
+
 
 - (void) test_nth {
   NSArray *array;
@@ -340,6 +360,71 @@
   GHAssertNil(actual, @"string should be nil because 1 is out of bounds");
 }
 
+#pragma mark - validation
 
+- (void) test_array_nil_contains_objects {
+  NSArray *array = nil;
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([array containsObjects:[wself randomCollection]],
+                  @"nil arrays should never contain objects");
+  });
+}
+
+- (void) test_array_empty_contains_objects {
+  NSArray *array = @[];
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([array containsObjects:[wself randomCollection]],
+                  @"nil arrays should never contain objects");
+  });
+}
+
+- (void) test_array_contains_objects_yes {
+  NSArray *array = @[@"a", @"b", @"c"];
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertTrue([array containsObjects:[wself randomCollection]],
+                 @"array should contain objects");
+  });
+}
+
+- (void) test_array_contains_objects_no {
+  NSArray *array = @[@"A", @"B"];
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([array containsObjects:[wself randomCollection]],
+                 @"array should not contain objects");
+  });
+}
+
+
+- (void) test_array_contains_objects_allows_others_no {
+  NSArray *array = @[@"a", @"b", @"c"];
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertTrue([array containsObjects:[wself randomCollection] allowsOthers:NO],
+                  @"array should contain objects and no others");
+  });
+}
+
+- (void) test_array_contains_objects_allows_others_yes {
+  NSArray *array = @[@"a", @"b", @"c", @"d"];
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertTrue([array containsObjects:[wself randomCollection] allowsOthers:YES],
+                 @"array should contain objects and no others");
+  });
+}
+
+
+- (void) test_array_contains_objects_no_allows_others {
+  NSArray *array = @[@"a", @"b", @"d"];
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([array containsObjects:[wself randomCollection] allowsOthers:[wself flip]],
+                 @"array should contain objects and no others");
+  });
+}
 
 @end

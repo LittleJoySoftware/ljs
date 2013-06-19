@@ -31,11 +31,7 @@
 
 @interface LjsButton : UIButton
 
-@property (nonatomic, strong) UIColor *_highColor;
-@property (nonatomic, strong) UIColor *_lowColor;
-@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 @property (nonatomic, assign) BOOL isOn;
-
 
 - (void) setHighColor:(UIColor *) aColor;
 - (void) setLowColor:(UIColor * ) aColor;

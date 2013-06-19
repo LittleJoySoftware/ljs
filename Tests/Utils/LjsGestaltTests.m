@@ -31,7 +31,6 @@
 
 
 @implementation LjsGestaltTests
-@synthesize gestalt;
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES

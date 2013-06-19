@@ -72,13 +72,6 @@ static NSString *LjsFakerCitiesUSplist = @"com.littlejoysoftware.faker.cities.us
 
 @implementation LjsFaker
 
-@synthesize firstNames;
-@synthesize lastNames;
-@synthesize domainNames;
-@synthesize companiesUS;
-@synthesize streetAddresesUS;
-@synthesize citiesUS;
-@synthesize statesDictUS;
 
 #pragma mark Memory Management
 

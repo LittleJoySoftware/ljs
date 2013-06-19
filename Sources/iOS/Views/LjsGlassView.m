@@ -47,8 +47,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   CGColorSpaceRef rgbColorspace;
   size_t num_locations = 2;
   CGFloat locations[2] = { 0.0, 1.0 };
-  CGFloat components[8] = { 1.0, 1.0, 1.0, 0.35,  // Start color
-    1.0, 1.0, 1.0, 0.06 }; // End color
+  CGFloat components[8] = { 1.0, 1.0, 1.0, 0.35f,  // Start color
+    1.0, 1.0, 1.0, 0.06f }; // End color
   
   rgbColorspace = CGColorSpaceCreateDeviceRGB();
   glossGradient = CGGradientCreateWithColorComponents(rgbColorspace, components, locations, num_locations);

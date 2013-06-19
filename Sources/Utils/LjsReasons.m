@@ -35,124 +35,15 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-@implementation LjsValidator
+LjsIntegerInterval const LjsIntegerInterval_Invalid = {0, 0};
 
-+ (BOOL) string:(NSString *) aString containsOnlyMembersOfCharacterSet:(NSCharacterSet *) aCharacterSet {
-  BOOL result;
-  if (aCharacterSet == nil) {
-    DDLogError(@"the character set was nil - returning NO");
-    result = NO;
-  } else {
-    if (aString != nil && [aString length] > 0) {
-      NSCharacterSet *inverted = [aCharacterSet invertedSet];
-      NSArray *array = [aString componentsSeparatedByCharactersInSet:inverted];
-      result = [array count] == 1;
-    } else {
-      DDLogWarn(@"the string was nil or empty - return NO");
-      result = NO;
-    }
-  }
-  return result;
-}
+@interface LjsReasons ()
 
-+ (BOOL) stringContainsOnlyAlphaNumeric:(NSString *) aString {
-  BOOL result = NO;
-  if (aString != nil && [aString length] > 0) {
-    NSCharacterSet *alphaNumeric = [NSCharacterSet alphanumericCharacterSet];
-    result = [LjsValidator string:aString containsOnlyMembersOfCharacterSet:alphaNumeric];
-    
-  }
-  return result;
-}
+@property (nonatomic, strong) NSMutableArray *reasons;
 
+@end
 
-+ (BOOL) stringContainsOnlyNumbers:(NSString *) aString {
-  BOOL result = NO;
-  if (aString != nil && [aString length] > 0) {
-    NSCharacterSet *decimalSet = [NSCharacterSet decimalDigitCharacterSet];
-    result = [LjsValidator string:aString containsOnlyMembersOfCharacterSet:decimalSet];
-  }
-  return result;
-}
-
-+ (BOOL) isDictionary:(id) value {
-  return [value respondsToSelector:@selector(objectForKey:)];
-}
-
-+ (BOOL) isArray:(id)value {
-  return [value respondsToSelector:@selector(objectAtIndex:)];
-}
-
-+ (BOOL) isString:(id) value {
-  return [value respondsToSelector:@selector(componentsSeparatedByString:)];
-}
-
-+ (BOOL) array:(NSArray *) aArray hasCount:(NSUInteger) aCount {
-  return [aArray count] == aCount;
-}
-
-+ (BOOL) array:(NSArray *) aArray containsString:(NSString *) aString {
-  return [aArray containsObject:aString];
-}
-
-+ (BOOL) array:(NSArray *) aArray containsStrings:(NSSet *) aSetOfStrings {
-  return [LjsValidator array:aArray containsStrings:aSetOfStrings allowsOthers:YES];
-}
-
-+ (BOOL) array:(NSArray *) aArray containsStrings:(NSSet *) aSetOfStrings
-  allowsOthers:(BOOL) aAllowsOthers {
-  
-  if (aArray == nil || aSetOfStrings == nil) {
-    return NO;
-  }
-  
-  for (NSString *lhs in aSetOfStrings) {
-    if ([LjsValidator array:aArray containsString:lhs] == NO) {
-      return NO;
-    } 
-  }
-  
-  if (aAllowsOthers == NO) {
-    NSSet *nodups = [NSSet setWithArray:aArray];
-    if ([nodups count] != [aSetOfStrings count]) {
-      return NO;
-    }
-  }
-  
-  return YES;
-}
-
-
-+ (BOOL) dictionary:(NSDictionary *) dictionary containsKey:(NSString *) key {
-  return [dictionary objectForKey:key] != nil;
-}
-
-+ (BOOL) dictionary:(NSDictionary *) dictionary containsKeys:(NSArray *)keys {
-  BOOL result = YES;
-  for (NSString *key in keys) {
-    if (![LjsValidator dictionary:dictionary containsKey:key]) {
-      result = NO;
-      break;
-    }
-  }
-  return result;
-}
-
-
-+ (BOOL) dictionary:(NSDictionary *)dictionary 
-       containsKeys:(NSArray *) keys
-       allowsOthers:(BOOL) allowsOthers {
-  BOOL result;
-  if (allowsOthers == NO) {
-    result = ([keys count] == [[dictionary allKeys] count] &&
-              [LjsValidator dictionary:dictionary
-                          containsKeys:keys]);
-  } else {
-    result = [LjsValidator dictionary:dictionary containsKeys:keys];
-  }
-  return result;
-}
-
+@implementation LjsReasons
 
 + (BOOL) isValidEmail:(NSString *)checkString {
   BOOL stricterFilter = YES;
@@ -177,19 +68,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 #endif
 
-@end
-
-#pragma mark LjsReasons
-
-@interface LjsReasons ()
-
-@property (nonatomic, strong) NSMutableArray *reasons;
-
-@end
-
-@implementation LjsReasons
-
-@synthesize reasons;
 
 - (id) init {
   self = [super init];
@@ -210,6 +88,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
   [self.reasons nappend:aReason];
 }
+
+- (void) addReasonWithFormat:(NSString *) aFormat, ... NS_FORMAT_FUNCTION(1,2) {
+  va_list ap;
+	id ret;
+	va_start(ap,  aFormat);
+	ret = [[NSString alloc] initWithFormat: aFormat arguments:ap];
+	va_end(ap);
+	[self addReason:ret];
+}
+
 
 - (void) addReasonWithVarName:(NSString *)aVarName ifNil:(id) aObject {
   if (aObject == nil) {
@@ -260,6 +148,27 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+
+- (void) ifCollection:(id) aCollection
+     doesNotHaveCount:(NSUInteger) aCount
+ addReasonWithVarName:(NSString *) aVarName {
+  if ([aCollection respondsToSelector:@selector(count)] == NO) {
+    [self addReasonWithFormat:@"'%@' = '%@' is not a collection (does not respond to selector 'count')",
+     aVarName, aCollection];
+  } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
+    NSUInteger count = [aCollection count];
+#pragma clang diagnostic pop
+    if (count != aCount) {
+
+      [self addReasonWithFormat:@"expected '%@' to have count '%lu' but found '%lu'",
+       aVarName, (unsigned long)aCount, (unsigned long)count];
+    }
+  }
+}
+
+
 - (void) addReasonWithVarName:(NSString *)aVarName ifElement:(id) aObject notInList:(id) aFirst, ... {
   NSMutableArray *array = [NSMutableArray array];
   va_list args;
@@ -303,9 +212,28 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
-- (void) addReasonWithVarName:(NSString *)aVarName ifInteger:(NSInteger) aValue isNotOnInterval:(NSRange) aRange {
-  NSInteger min = aRange.location;
-  NSInteger max = aRange.length;
+- (void) ifObject:(id) aObject inCollection:(id) aCollection addReasonWithVarName:(NSString *) aVarName {
+  if (aCollection == nil) {
+    [self addReasonWithFormat:@"collection is nil so we cannot search '%@' in it", aCollection];
+    return;
+  }
+  
+  id lookFor = aObject == nil ? [NSNull null] : aObject;
+  if ([aCollection respondsToSelector:@selector(containsObject:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
+    BOOL contains = [aCollection containsObject:lookFor];
+#pragma clang diagnostic pop
+    if (contains == YES) {
+      [self addReasonWithFormat:@"expected '%@': '%@' to _not_ be in collection '%@'",
+       aVarName, aObject, aCollection];
+    }
+  }
+}
+
+- (void) addReasonWithVarName:(NSString *)aVarName ifInteger:(NSInteger) aValue isNotOnInterval:(LjsIntegerInterval) aRange {
+  NSInteger min = aRange.min;
+  NSInteger max = aRange.max;
   if (aValue < min || aValue > max) {
     NSString *reason = [NSString stringWithFormat:@"< %ld > is not on (%ld, %ld)",
                         (long)aValue, (long)min, (long)max];
@@ -316,10 +244,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void) addReasonWithVarName:(NSString *)aVarName
                     ifInteger:(NSInteger) aValue
-              isNotOnInterval:(NSRange) aRange
+              isNotOnInterval:(LjsIntegerInterval) aRange
                     orEqualTo:(NSInteger) aOutOfRangeValue {
-  NSInteger min = aRange.location;
-  NSInteger max = aRange.length;
+  NSInteger min = aRange.min;
+  NSInteger max = aRange.max;
   if ((aValue < min || aValue > max) && aValue != aOutOfRangeValue) {
     NSString *reason = [NSString stringWithFormat:@"< %ld > is not on (%ld, %ld) or equal to %ld",
                         (long)aValue, (long)min, (long)max, (long)aOutOfRangeValue];

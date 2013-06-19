@@ -69,9 +69,9 @@
 
 /** @name common NSDecimalNumberHandler */
 + (NSDecimalNumberHandler *) statisticsHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                      scale:(NSUInteger) aInteger;
+                                                      scale:(short) aScale;
 + (NSDecimalNumberHandler *) locationHandlerWithRoundMode:(NSRoundingMode) aMode
-                                                    scale:(NSUInteger) aInteger;
+                                                    scale:(short) aScale;
 
 @end
 
@@ -93,7 +93,7 @@
 - (BOOL) isNan;
 
 - (NSDecimalNumber *) dnByRoundingWithHandler:(NSDecimalNumberHandler *) aHandler;
-- (NSDecimalNumber *) dnByRoundingWithScale:(NSUInteger) aScale;
+- (NSDecimalNumber *) dnByRoundingWithScale:(short) aScale;
 - (NSDecimalNumber *) dnByRoundingAsLocation;
 
 

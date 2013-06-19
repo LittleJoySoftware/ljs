@@ -35,14 +35,13 @@ int main(int argc, char *argv[]) {
       method_exchangeImplementations(originalWindowCreateContext,
                                      swizzledWindowCreateConext);
       
-      
       portRef = CFMessagePortCreateLocal(NULL,
                                          (CFStringRef) @"PurpleWorkspacePort",
                                          NULL,
                                          NULL,
                                          NULL);
+      
     }
-
     retVal = UIApplicationMain(argc, argv, NSStringFromClass([UIApplication class]), @"GHUnitIOSAppDelegate");
     if (portRef != NULL) { CFRelease(portRef); }
   }

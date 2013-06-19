@@ -84,39 +84,95 @@
 }
 #endif
 
+#pragma mark - contains chars of set
 
-- (void) test_make_keyword_no_spaces_no_colon {
-  NSString *actual = [@"abc" makeKeyword];
-  GHAssertEqualStrings(actual, @":abc", @"strings should be equal");
+- (void) test_stringContiansOnlyMembersOfCharacterSet {
+  NSString *string;
+  BOOL actual;
+  NSCharacterSet *set;
+  
+  string = nil;
+  set = nil;
+  actual = [string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+  string = nil;
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+  string = @"";
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+  string = @"abcde1234";
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [string containsOnlyMembersOfCharacterSet:set];
+  GHAssertTrue(actual, nil);
+  
+  string = @"abc de1234";
+  set = [NSCharacterSet alphanumericCharacterSet];
+  actual = [string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
+  string = @"abcde1234";
+  set = [NSCharacterSet decimalDigitCharacterSet];
+  actual = [string containsOnlyMembersOfCharacterSet:set];
+  GHAssertFalse(actual, nil);
+  
 }
 
-- (void) test_make_keyword_has_spaces {
-  NSString *actual = [@"a b c" makeKeyword];
-  GHAssertEqualStrings(actual, @":a-b-c", @"strings should be equal");
+- (void) test_isAlphaNumeric {
+  NSString *test;
+  BOOL actual;
+  
+  test = nil;
+  actual = [test containsOnlyAlphaNumeric:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"";
+  actual = [test containsOnlyAlphaNumeric:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"530";
+  actual = [test containsOnlyAlphaNumeric:test];
+  GHAssertTrue(actual, nil);
+  
+  test = @"5--";
+  actual = [test containsOnlyAlphaNumeric:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"5adf";
+  actual = [test containsOnlyAlphaNumeric:test];
+  GHAssertTrue(actual, nil);
 }
 
-- (void) test_make_keyword_has_werid_spaces {
-  NSString *actual = [@" a  b     c    " makeKeyword];
-  GHAssertEqualStrings(actual, @":a-b-c", @"strings should be equal");
+
+- (void) test_isNumeric {
+  NSString *test;
+  BOOL actual;
+  
+  test = nil;
+  actual = [test containsOnlyNumbers:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"";
+  actual = [test containsOnlyNumbers:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"530";
+  actual = [test containsOnlyNumbers:test];
+  GHAssertTrue(actual, nil);
+  
+  test = @"5--";
+  actual = [test containsOnlyNumbers:test];
+  GHAssertFalse(actual, nil);
+  
+  test = @"5adf";
+  actual = [test containsOnlyNumbers:test];
+  GHAssertFalse(actual, nil);
 }
-
-- (void) test_make_keyword_already_has_colon {
-  NSString *actual = [@":a  b     c    " makeKeyword];
-  GHAssertEqualStrings(actual, @":a-b-c", @"strings should be equal");
-}
-
-- (void) test_make_keyword_has_funny_first_colon {
-  NSString *actual = [@" :a  b     c    " makeKeyword];
-  GHAssertEqualStrings(actual, @":a-b-c", @"strings should be equal");
-}
-
-- (void) test_make_keyword_has_funnier_first_colon {
-  NSString *actual = [@" : a  b     c    " makeKeyword];
-  GHAssertEqualStrings(actual, @":a-b-c", @"strings should be equal");
-}
-
-
-
 
 
 @end
