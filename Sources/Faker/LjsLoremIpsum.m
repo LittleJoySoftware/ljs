@@ -9,16 +9,16 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-#import "LoremIpsum.h"
+#import "LjsLoremIpsum.h"
 #import "LjsVariates.h"
 
-@interface LoremIpsum ()
+@interface LjsLoremIpsum ()
 
 - (NSString *) randomWord;
 
 @end
 
-@implementation LoremIpsum
+@implementation LjsLoremIpsum
 
 #pragma mark -
 

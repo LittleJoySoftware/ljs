@@ -69,7 +69,7 @@
 		F5A7F8AD176CB64A0097E147 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F853176CB64A0097E147 /* UIView+LjsAdditions.m */; };
 		F5A7F8AE176CB64A0097E147 /* LjsProgressiveMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F856176CB64A0097E147 /* LjsProgressiveMigration.m */; };
 		F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F859176CB64A0097E147 /* LjsFaker.m */; };
-		F5A7F8B0176CB64A0097E147 /* LoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F85B176CB64A0097E147 /* LoremIpsum.m */; };
+		F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F85B176CB64A0097E147 /* LjsLoremIpsum.m */; };
 		F5A7F8B1176CB64A0097E147 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F85D176CB64A0097E147 /* com.littlejoysoftware.faker.addresses.us.plist */; };
 		F5A7F8B2176CB64A0097E147 /* com.littlejoysoftware.faker.cities.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F85E176CB64A0097E147 /* com.littlejoysoftware.faker.cities.us.plist */; };
 		F5A7F8B3176CB64A0097E147 /* com.littlejoysoftware.faker.companies.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F85F176CB64A0097E147 /* com.littlejoysoftware.faker.companies.us.plist */; };
@@ -231,8 +231,8 @@
 		F5A7F856176CB64A0097E147 /* LjsProgressiveMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigration.m; sourceTree = "<group>"; };
 		F5A7F858176CB64A0097E147 /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
 		F5A7F859176CB64A0097E147 /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
-		F5A7F85A176CB64A0097E147 /* LoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoremIpsum.h; sourceTree = "<group>"; };
-		F5A7F85B176CB64A0097E147 /* LoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoremIpsum.m; sourceTree = "<group>"; };
+		F5A7F85A176CB64A0097E147 /* LjsLoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLoremIpsum.h; sourceTree = "<group>"; };
+		F5A7F85B176CB64A0097E147 /* LjsLoremIpsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLoremIpsum.m; sourceTree = "<group>"; };
 		F5A7F85D176CB64A0097E147 /* com.littlejoysoftware.faker.addresses.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.addresses.us.plist; sourceTree = "<group>"; };
 		F5A7F85E176CB64A0097E147 /* com.littlejoysoftware.faker.cities.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.cities.us.plist; sourceTree = "<group>"; };
 		F5A7F85F176CB64A0097E147 /* com.littlejoysoftware.faker.companies.us.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.littlejoysoftware.faker.companies.us.plist; sourceTree = "<group>"; };
@@ -581,8 +581,8 @@
 			children = (
 				F5A7F858176CB64A0097E147 /* LjsFaker.h */,
 				F5A7F859176CB64A0097E147 /* LjsFaker.m */,
-				F5A7F85A176CB64A0097E147 /* LoremIpsum.h */,
-				F5A7F85B176CB64A0097E147 /* LoremIpsum.m */,
+				F5A7F85A176CB64A0097E147 /* LjsLoremIpsum.h */,
+				F5A7F85B176CB64A0097E147 /* LjsLoremIpsum.m */,
 				F5A7F85C176CB64A0097E147 /* plists */,
 			);
 			path = Faker;
@@ -945,7 +945,7 @@
 				F5A7F8AD176CB64A0097E147 /* UIView+LjsAdditions.m in Sources */,
 				F5A7F8AE176CB64A0097E147 /* LjsProgressiveMigration.m in Sources */,
 				F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */,
-				F5A7F8B0176CB64A0097E147 /* LoremIpsum.m in Sources */,
+				F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */,
 				F5A7F8BD176CB64A0097E147 /* LjsKeyboardInfo.m in Sources */,
 				F5A7F8BE176CB64A0097E147 /* LjsLabelAttributes.m in Sources */,
 				F5A7F8C0176CB64A0097E147 /* LjsButton.m in Sources */,

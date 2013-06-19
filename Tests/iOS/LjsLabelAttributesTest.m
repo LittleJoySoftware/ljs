@@ -28,12 +28,12 @@
 #endif
 
 #import "LjsTestCase.h"
-#import "LoremIpsum.h"
+#import "LjsLoremIpsum.h"
 #import "LjsVariates.h"
 #import "LjsLabelAttributes.h"
 
 @interface LjsLabelAttributesTest : LjsTestCase {}
-@property (strong) LoremIpsum *li;
+@property (strong) LjsLoremIpsum *li;
 @end
 
 @implementation LjsLabelAttributesTest
@@ -54,7 +54,7 @@
 - (void) setUpClass {
   [super setUpClass];
   // Run at start of all tests in the class
-  self.li = [[LoremIpsum alloc] init];
+  self.li = [[LjsLoremIpsum alloc] init];
 }
 
 - (void) tearDownClass {

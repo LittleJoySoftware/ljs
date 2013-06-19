@@ -1,7 +1,7 @@
 
 
 #import "LjsTestCase.h"
-#import "LoremIpsum.h"
+#import "LjsLoremIpsum.h"
 
 @interface LoremIpsumTests : LjsTestCase {}
 @end
@@ -35,7 +35,7 @@
 }  
 
 - (void) test_characters {
-  LoremIpsum *li = [[LoremIpsum alloc] init];
+  LjsLoremIpsum *li = [[LjsLoremIpsum alloc] init];
   NSUInteger number, actual;
   NSString *string;
   number = 10;
