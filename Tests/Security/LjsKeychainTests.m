@@ -54,9 +54,6 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 }
 #endif
 
-
-@synthesize km;
-
 - (id) nilOrEmptyString {
   NSString *result;
   if ([LjsVariates flip]) {

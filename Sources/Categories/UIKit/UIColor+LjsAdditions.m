@@ -36,7 +36,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @implementation UIColor (UIColor_LjsAdditions)
 
 + (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b a:(CGFloat) a {
-  return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];
+  return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a];
 }
 
 + (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b {

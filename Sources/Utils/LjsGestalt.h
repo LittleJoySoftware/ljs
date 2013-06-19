@@ -48,9 +48,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSUInteger bugVersion;
 
 
-- (BOOL)getSystemVersionMajor:(unsigned *)major
-                        minor:(unsigned *)minor
-                       bugFix:(unsigned *)bugFix;
+- (BOOL)getSystemVersionMajor:(SInt32 *)major
+                        minor:(SInt32 *)minor
+                       bugFix:(SInt32 *)bugFix;
 
 
 #endif

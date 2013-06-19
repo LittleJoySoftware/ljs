@@ -38,18 +38,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @property (nonatomic, strong) UIImage *isOnImage;
 @property (nonatomic, strong) UIImage *isOffImage;
-
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@property (nonatomic, strong) UIColor *highColor;
+@property (nonatomic, strong) UIColor *lowColor;
 
 - (void) setImageForState;
 
 @end
+
+
 @implementation LjsButton
 
-@synthesize _highColor;
-@synthesize _lowColor;
-@synthesize gradientLayer;
-@synthesize isOn;
-@synthesize isOnImage, isOffImage;
+@synthesize highColor = _highColor;
+@synthesize lowColor = _lowColor;
 
 - (id) initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -64,22 +65,26 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   CAGradientLayer *aGradientLayer = [[CAGradientLayer alloc] init];
   self.gradientLayer = aGradientLayer;
   
+  CGRect myBounds = self.bounds;
+  CGSize mySize = myBounds.size;
+  
   // Set its bounds to be the same of its parent
-  [gradientLayer setBounds:[self bounds]];
+  [aGradientLayer setBounds:myBounds];
   // Center the layer inside the parent layer
-  [gradientLayer setPosition:CGPointMake([self bounds].size.width/2,
-                                         [self bounds].size.height/2)];
+  [aGradientLayer setPosition:CGPointMake(mySize.width/2,
+                                          mySize.height/2)];
   
   // Insert the layer at position zero to make sure the 
   // text of the button is not obscured
-  [[self layer] insertSublayer:gradientLayer atIndex:0];
+  CALayer *myLayer = self.layer;
+  [myLayer insertSublayer:aGradientLayer atIndex:0];
   
   // Set the layer's corner radius
-  [[self layer] setCornerRadius:8.0f];
+  [myLayer setCornerRadius:8.0f];
   // Turn on masking
-  [[self layer] setMasksToBounds:YES];
+  [myLayer setMasksToBounds:YES];
   // Display a border around the button 
-  [[self layer] setBorderWidth:2.0];
+  [myLayer setBorderWidth:2.0];
   
   
   self.showsTouchWhenHighlighted = YES;
@@ -89,40 +94,40 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void)drawRect:(CGRect)rect {
-  if (_highColor && _lowColor) {
-    // Set the colors for the gradient to the 
-    // two colors specified for high and low
-    [gradientLayer setColors:[NSArray arrayWithObjects:(id)[_highColor CGColor], 
-                              (id)[_lowColor CGColor], nil]];
+  UIColor *hc = self.highColor;
+  UIColor *lc = self.lowColor;
+  if (hc && lc) {
+    NSArray *colors = @[(id)[hc CGColor], (id)[lc CGColor]];
+    [self.gradientLayer setColors:colors];
   }
   [super drawRect:rect];
 }
 
 - (void) setHighColor:(UIColor *) aColor {
   // Set the high color and repaint
-  self._highColor = aColor;
+  _highColor = aColor;
   [[self layer] setNeedsDisplay];
 }
 
 - (void) setLowColor:(UIColor * ) aColor {
   // Set the low color and repaint
-  self._lowColor = aColor;
+  _lowColor = aColor;
   [[self layer] setNeedsDisplay];
 }
 
-- (void) setHighColor:(UIColor *) highColor
-             lowColor:(UIColor *) lowColor {
-  self._highColor = highColor;
-  self._lowColor = lowColor;
+- (void) setHighColor:(UIColor *) aHighColor
+             lowColor:(UIColor *) aKowColor {
+  _highColor = aHighColor;
+  _lowColor = aKowColor;
   [[self layer] setNeedsDisplay];
 }
 
-- (void) setBorderColor:(UIColor *) color
-            borderWidth:(CGFloat) width 
-           cornerRadius:(CGFloat) radius {
-  self.layer.borderColor = color.CGColor;
-  self.layer.borderWidth = width;
-  self.layer.cornerRadius = radius;
+- (void) setBorderColor:(UIColor *) aColor
+            borderWidth:(CGFloat) aWidth
+           cornerRadius:(CGFloat) aRadius {
+  self.layer.borderColor = aColor.CGColor;
+  self.layer.borderWidth = aWidth;
+  self.layer.cornerRadius = aRadius;
   [[self layer] setNeedsDisplay];
 }
 

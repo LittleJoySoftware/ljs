@@ -29,8 +29,10 @@
 
 #import "LjsTestCase.h"
 #import "LjsCategories.h"
+#import "LjsBlocks.h"
 
 @interface NSDictionaryLjsAdditionsTests : LjsTestCase {}
+- (id) randomCollection;
 @end
 
 @implementation NSDictionaryLjsAdditionsTests
@@ -59,7 +61,24 @@
 - (void) tearDown {
   // Run after each test method
   [super tearDown];
-}  
+}
+
+
+#pragma mark - helpers
+
+- (id) randomCollection {
+  NSUInteger rand = [LjsVariates randomIntegerWithMin:0 max:2];
+  switch (rand) {
+    case 0: return [self arrayOfAbcStrings];
+    case 1: return [self setOfAbcStrings];
+    case 2: return [NSOrderedSet orderedSetWithArray:[self arrayOfAbcStrings]];
+    default:
+      GHFail(@"should never get here");
+      return nil;
+  }
+}
+
+#pragma mark - tests
 
 - (void) test_emptyp_with_empty_dictionary {
   BOOL actual = [[NSDictionary dictionary] has_objects];
@@ -157,6 +176,84 @@
   GHAssertTrue([[NSSet setWithArray:actual] isEqualToSet:expected], 
                @"mapcar should return an array of upcased strings");
 }
+
+#pragma mark - contains keys
+
+- (void) test_nil_dictionary_contains_keys {
+  NSDictionary *dict = nil;
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([dict containsKeys:[wself arrayOfAbcStrings]], @"nil dictionary should never contain keys");
+  });
+}
+
+- (void) test_dictionary_contains_keys_yes {
+  NSDictionary *dict = @{@"a" : @"0",
+                         @"b" : @"1",
+                         @"c" : @"2",
+                         @"d" : @"3",
+                         @"e" : @"4"};
+
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertTrue([dict containsKeys:[wself arrayOfAbcStrings]], @"dictionary should contain all keys");
+  });
+}
+
+
+- (void) test_dictionary_contains_keys_no {
+  NSDictionary *dict = @{@"0" : @"a",
+                         @"1" : @"b",
+                         @"2" : @"c",
+                         @"a" : @"0",
+                         @"b" : @"1"};
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([dict containsKeys:[wself arrayOfAbcStrings]], @"dictionary does not contain all keys");
+  });
+}
+
+
+- (void) test_dictionary_contains_keys_allows_others_yes {
+  NSDictionary *dict = @{@"a" : @"0",
+                         @"b" : @"1",
+                         @"c" : @"2",
+                         @"d" : @"3",
+                         @"e" : @"4"};
+  
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertTrue([dict containsKeys:[wself arrayOfAbcStrings] allowsOthers:YES], @"dictionary should contain all keys and allow others");
+  });
+}
+
+- (void) test_dictionary_contains_keys_allows_others_no {
+  NSDictionary *dict = @{@"a" : @"0",
+                         @"b" : @"1",
+                         @"c" : @"2",
+                         @"d" : @"3",
+                         @"e" : @"4"};
+  
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    GHAssertFalse([dict containsKeys:[wself arrayOfAbcStrings] allowsOthers:NO], @"dictionary should contain all keys and _not_ allow others");
+  });
+}
+
+- (void) test_dictionary_contains_keys_key_not_a_collection {
+  NSDictionary *dict = @{@"a" : @"0",
+                         @"b" : @"1",
+                         @"c" : @"2",
+                         @"d" : @"3",
+                         @"e" : @"4"};
+  
+  typeof(self) wself = self;
+  dotimes(5, ^{
+    id keys = [wself flip] ? [wself emptyStringOrNil] : @(5);
+    GHAssertFalse([dict containsKeys:keys allowsOthers:NO], @"dictionary should contain all keys and _not_ allow others");
+  });
+}
+
 
 
 @end

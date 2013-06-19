@@ -1,13 +1,13 @@
 
 
 #import "LjsTestCase.h"
-#import "LoremIpsum.h"
+#import "LjsLoremIpsum.h"
 
-@interface LoremIpsumTests : LjsTestCase {}
+@interface LjsLoremIpsumTests : LjsTestCase {}
 @end
 
 
-@implementation LoremIpsumTests
+@implementation LjsLoremIpsumTests
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
@@ -35,7 +35,7 @@
 }  
 
 - (void) test_characters {
-  LoremIpsum *li = [[LoremIpsum alloc] init];
+  LjsLoremIpsum *li = [[LjsLoremIpsum alloc] init];
   NSUInteger number, actual;
   NSString *string;
   number = 10;

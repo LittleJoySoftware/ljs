@@ -29,6 +29,7 @@
 #import "NSArray+LjsAdditions.h"
 #import "LjsVariates.h"
 #import "LjsCaesarCipher.h"
+#import "NSOrderedSet+LjsAdditions.h"
 
 @interface LjsCaesarCipherTests : LjsTestCase {}
 @end
@@ -61,42 +62,27 @@
 }  
 
 
-- (void) test_encode_decode_with_no_rotation {
-  NSUInteger rotate;
-  LjsCaesarCipher *cipher;
-  NSString *original, *encoded, *decoded;
-  
-  rotate = 0;
-  cipher = [[LjsCaesarCipher alloc] initWithRotate:rotate];
-  original = [LjsVariates randomAsciiWithLengthMin:5 lenghtMax:55];;
-  encoded = [cipher stringByEncodingString:original];
-  GHAssertEqualStrings(original, encoded, nil);
-  decoded = [cipher stringByDecodingString:encoded];
-  GHAssertEqualStrings(encoded, decoded, nil);
+- (void) test_encode_decode_with_illegal_rotation {
+  NSOrderedSet *illegals = [LjsCaesarCipher illegalRotationValues];
+  [illegals mapc:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
+    unichar rotate = [num unsignedCharValue];
+    LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc] initWithRotate:rotate];
+    GHAssertNil(cipher, @"cipher should be nil if passed a non-transforming rotation");
+  }];
 }
 
 - (void) test_encode_decode_with_random_rotation {
-
-  NSUInteger rotate;
-  LjsCaesarCipher *cipher;
-  NSString *original, *encoded, *decoded;
-
-  for (NSUInteger index = 0; index < 100; index++) {
-    rotate = [LjsVariates randomIntegerWithMin:1 max:NSUIntegerMax];
-    if (rotate == 0 || rotate == 95) {
-      continue;
-    } else {
-      cipher = [[LjsCaesarCipher alloc] initWithRotate:rotate];
-      original = [LjsVariates randomAsciiWithLengthMin:5 lenghtMax:55];;
-      encoded = [cipher stringByEncodingString:original];
-      GHAssertNotEqualStrings(original, encoded, @"rotate is: %d", rotate);
-      
-      decoded = [cipher stringByDecodingString:encoded];
+  for (unichar index = 0; index <= UCHAR_MAX; index++) {
+    LjsCaesarCipher *cipher = [[LjsCaesarCipher alloc] initWithRotate:index];
+    if (cipher != nil) {
+      NSString *original = [LjsVariates randomAsciiWithLengthMin:5 lenghtMax:55];;
+      NSString *encoded = [cipher stringByEncodingString:original];
+      GHAssertNotEqualStrings(original, encoded, @"encoded string should not equal original rotation is: %d", index);
+      NSString  *decoded = [cipher stringByDecodingString:encoded];
       GHAssertEqualStrings(original, decoded, nil);
     }
   }
 }
-
 
 
 @end

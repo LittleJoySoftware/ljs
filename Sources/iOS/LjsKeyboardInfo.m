@@ -36,14 +36,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsKeyboardInfo
 
-@synthesize frameBegin, frameEnd;
-@synthesize frameChangedByUserInteraction;
-@synthesize animationDuration;
-@synthesize animationCurve;
-@synthesize beginTopOfFrame;
-@synthesize endTopOfFrame;
-@synthesize keyboardHeight;
-
 static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrameChangedByUserInteraction";
 #pragma mark Memory Management
 

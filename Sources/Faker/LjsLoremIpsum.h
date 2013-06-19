@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LoremIpsum : NSObject
+@interface LjsLoremIpsum : NSObject
 
 @property (nonatomic, strong) NSArray *loremIpsumWords;
 

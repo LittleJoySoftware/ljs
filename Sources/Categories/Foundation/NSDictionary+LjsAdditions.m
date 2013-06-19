@@ -33,6 +33,7 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+
 @implementation NSDictionary (NSDictionary_LjsAdditions)
 
 - (BOOL) not_empty {
@@ -75,6 +76,37 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     }
   }
   return array;
+}
+
+#pragma mark - validation
+
+- (BOOL) containsKeys:(id) aKeys {
+  if ([aKeys conformsToProtocol:@protocol(NSFastEnumeration)] == NO) {
+    return NO;
+  }
+  for (id key in aKeys) {
+    if ([self objectForKey:key] == nil) { return NO; }
+  }
+  return YES;
+}
+
+- (BOOL) containsKeys:(id) aKeys allowsOthers:(BOOL) aAllowsOthers {
+  BOOL hasAll = [self containsKeys:aKeys];
+  if (hasAll == NO) { return NO; }
+  
+  if (aAllowsOthers == YES) { return hasAll; }
+
+  if ([aKeys respondsToSelector:@selector(count)] == NO) {
+    return NO;
+  }
+  
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
+  NSUInteger keyCount = [aKeys count];
+#pragma clang diagnostic pop
+
+  BOOL countSame = keyCount == [self count];
+  return hasAll && countSame;
 }
 
 

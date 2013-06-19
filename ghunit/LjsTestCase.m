@@ -78,17 +78,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsTestCase
 
-@synthesize gestalt;
-@synthesize findDocumentDirectoryPathMock, findDocumentDirectoryPathOriginal;
-@synthesize findLibraryDirectoryPathForUserpMock, findLibraryDirectoryPathForUserpOriginal;
-@synthesize findPreferencesPathForUserpMock, findPreferencesPathForUserpOriginal;
-@synthesize findCoreDataStorePathForUserpMock, findCoreDataStorePathForUserpOriginal;
-#if !TARGET_OS_IPHONE
-@synthesize findApplicationSupportDirectoryForUserpMock, findApplicationSupportDirectoryForUserpOriginal;
-#endif
-
-
-
 - (id) init {
   self = [super init];
   if (self) {

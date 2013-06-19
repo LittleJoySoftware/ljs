@@ -180,8 +180,7 @@
 
 /**
  Generates a random integer between two large numbers.  I thought range was
- ( -(2^32) - 1, (2^32) -1 ), but I find the range to be much larger when I
- unit test.
+ ( 0, (2^32) -1 ), but I find the range to be much larger when I unit test.
  
  This is from the docs:  The arc4random() function provides a high quality 
                          32-bit pseudo-random number very quickly. 
@@ -190,11 +189,11 @@
  negative integer and a very large positive integer.
  @return a positive or negative integer
  */
-+ (NSInteger) randomInteger;
++ (NSUInteger) randomInteger;
 
 /**
  Generates a random integer and returns it as an NSDecimalNumber.
- @return a positive or negative integer wrapped as an NSDecimalNumber.
+ @return a positive integer wrapped as an NSDecimalNumber.
  @see randomInteger
  */
 + (NSDecimalNumber *) randomDecimalInteger;
@@ -210,7 +209,7 @@
  @param max the hightest value returned
  @return a random int on (min, max)
  */
-+ (NSInteger) randomIntegerWithMin:(NSInteger) min max:(NSInteger) max;
++ (NSUInteger) randomIntegerWithMin:(NSUInteger) min max:(NSUInteger) max;
 
 /**
  Generates a random int from min to max inclusive = (min, max)
@@ -258,10 +257,10 @@
 + (NSArray *) shuffle:(NSArray *) array;
 
 /**
- @return an integer on the range eg. (-1, 5) ==> 5
+ @return an integer on the range eg. (0, 5) ==> 5
  @param aRange the range to sample
  */
-+ (NSInteger) randomIntegerWithRange:(NSRange) aRange;
++ (NSUInteger) randomIntegerWithRange:(NSRange) aRange;
 
 /**
  returns a string of random alpha-numeric characters
