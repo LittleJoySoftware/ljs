@@ -120,6 +120,8 @@
 		F5A7F8FC176CB6540097E147 /* LjsFileUtiltiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */; };
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
+		F5F4DB60177300BF00525BFB /* NSBundleLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F4DB5F177300BF00525BFB /* NSBundleLjsAdditionsTest.m */; };
+		F5F4DB63177300D600525BFB /* NSBundle+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F4DB62177300D600525BFB /* NSBundle+LjsAdditions.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
 		F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5ED175E2CA70015696C /* OCMockWorkingTest.m */; };
@@ -306,6 +308,9 @@
 		F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtiltiesTests.m; sourceTree = "<group>"; };
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
+		F5F4DB5F177300BF00525BFB /* NSBundleLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBundleLjsAdditionsTest.m; sourceTree = "<group>"; };
+		F5F4DB61177300D600525BFB /* NSBundle+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LjsAdditions.h"; sourceTree = "<group>"; };
+		F5F4DB62177300D600525BFB /* NSBundle+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
 		F5FFC5D1175E2B450015696C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5FFC5D2175E2B450015696C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -513,6 +518,8 @@
 		F5A7F826176CB64A0097E147 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F5F4DB61177300D600525BFB /* NSBundle+LjsAdditions.h */,
+				F5F4DB62177300D600525BFB /* NSBundle+LjsAdditions.m */,
 				F5A7F827176CB64A0097E147 /* LjsFoundationCategories.h */,
 				F5A7F828176CB64A0097E147 /* LjsWebCategories.h */,
 				F5A7F829176CB64A0097E147 /* LjsWebCategories.m */,
@@ -712,6 +719,7 @@
 				F5A7F8D8176CB6540097E147 /* NSErrorLjsAdditions.m */,
 				F5A7F8D9176CB6540097E147 /* NSSetLjsAdditionsTest.m */,
 				F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */,
+				F5F4DB5F177300BF00525BFB /* NSBundleLjsAdditionsTest.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -984,6 +992,8 @@
 				F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */,
 				F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */,
 				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
+				F5F4DB60177300BF00525BFB /* NSBundleLjsAdditionsTest.m in Sources */,
+				F5F4DB63177300D600525BFB /* NSBundle+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
