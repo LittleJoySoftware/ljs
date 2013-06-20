@@ -152,7 +152,6 @@
 		F552F41115DBC0680075258F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		F552F41215DBC0680075258F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		F552F41315DBC0680075258F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
-		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F589370F1770B11E00D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
@@ -376,7 +375,6 @@
 				F54E3A9C1450EAEA0059BF53 /* MobileCoreServices.framework */,
 				F54E3A9A1450EAE10059BF53 /* SystemConfiguration.framework */,
 				F54E3A981450EAD40059BF53 /* CFNetwork.framework */,
-				F56147AC1450BFB800D2653A /* GHUnitIOS.framework */,
 				F50FE7331410D30D0051FC7E /* Security.framework */,
 				F50FE69F1410C6F60051FC7E /* UIKit.framework */,
 				F50FE6A11410C6F60051FC7E /* Foundation.framework */,
