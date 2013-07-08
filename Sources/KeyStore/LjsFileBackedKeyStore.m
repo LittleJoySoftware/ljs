@@ -183,9 +183,9 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
       case kDidChangeNotification: { name = self.storeDidChangeNotificationName; break; }
       case kWillChangeNotification: { name = self.storeWillChangeNotificationName; break; }
       default: {
-        NSArray *types = [[NSArray alloc] initWithObjects:kLjsFileBackedKeyStoreNotificationTypes];
         DDLogError(@"notification type: '%d' was not in %@; will not post notification",
-                   (int)aNotificationType, types);
+                   (int)aNotificationType,
+                   [[NSArray alloc] initWithObjects:kLjsFileBackedKeyStoreNotificationTypes]);
         return;
       }
     }
