@@ -36,7 +36,7 @@
 @property (nonatomic, assign) NSUInteger numberOfLines;
 @property (nonatomic, copy) NSString *string;
 @property (nonatomic, assign) CGFloat labelWidth;
-@property (nonatomic, assign) UILineBreakMode linebreakMode;
+@property (nonatomic, assign) NSLineBreakMode linebreakMode;
 @property (nonatomic, strong) UIFont *font;
 
 - (id) initWithString:(NSString *) aString
@@ -46,14 +46,14 @@
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth
-        linebreakMode:(UILineBreakMode) aLinebreakMode
+        linebreakMode:(NSLineBreakMode) aLinebreakMode
           minFontSize:(CGFloat) aMinFontSize;
 
 - (void) applyAttributesToLabel:(UILabel *) aLabel
       shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight;
 
 - (UILabel *) labelWithFrame:(CGRect) aFrame
-                   alignment:(UITextAlignment) aAlignemnt
+                   alignment:(NSTextAlignment) aAlignemnt
                    textColor:(UIColor *) aTextColor
               highlightColor:(UIColor *) aHighlightColor
              backgroundColor:(UIColor *) aBackgroundColor;

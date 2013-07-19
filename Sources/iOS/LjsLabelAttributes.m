@@ -61,7 +61,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth
-        linebreakMode:(UILineBreakMode)aLinebreakMode 
+        linebreakMode:(NSLineBreakMode)aLinebreakMode
           minFontSize:(CGFloat)aMinFontSize {
   self = [super init];
   if (self != nil) {
@@ -98,7 +98,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (UILabel *) labelWithFrame:(CGRect) aFrame
-                   alignment:(UITextAlignment) aAlignemnt
+                   alignment:(NSTextAlignment) aAlignemnt
                     textColor:(UIColor *) aTextColor
               highlightColor:(UIColor *) aHighlightColor
              backgroundColor:(UIColor *) aBackgroundColor {
