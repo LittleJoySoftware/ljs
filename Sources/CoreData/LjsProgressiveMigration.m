@@ -260,7 +260,13 @@ typedef enum : NSUInteger {
     NSString *sourceVersion = [[[aSourceModel versionIdentifiers] allObjects] first];
     NSString *targetVersion = [[[destMom versionIdentifiers] allObjects] first];
     if ([sourceVersion isEqualToString:targetVersion] == YES) {
-      DDLogDebug(@"model versions are the same: '%@'", targetVersion);
+      DDLogDebug(@"model versions are the same: '%@' so we skip this pair", targetVersion);
+      continue;
+    }
+    
+    if ([sourceVersion integerValue] > [targetVersion integerValue]) {
+      DDLogDebug(@"source model version '%d' is > target model version '%d' so we skip this pair",
+                 [sourceVersion integerValue], [targetVersion integerValue]);
       continue;
     }
 
