@@ -28,6 +28,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   }
 }
 
+- (id) s_nth:(NSInteger) aIndex {
+  return (aIndex < 0) ? nil : [self nth:(NSUInteger)aIndex];
+}
+
 - (id) first {
   return [self nth:0];
 }
