@@ -265,8 +265,8 @@ typedef enum : NSUInteger {
     }
     
     if ([sourceVersion integerValue] > [targetVersion integerValue]) {
-      DDLogDebug(@"source model version '%d' is > target model version '%d' so we skip this pair",
-                 [sourceVersion integerValue], [targetVersion integerValue]);
+      DDLogDebug(@"source model version '%@' is > target model version '%@' so we skip this pair",
+                 sourceVersion, targetVersion);
       continue;
     }
 
