@@ -167,6 +167,10 @@ fail:
   return (screenBounds.size.height == 568);
 }
 
+- (BOOL) isDeviceIos7 {
+  return ljs_ios_version_gte_to(@"7.0");
+}
+
 #endif
 
 

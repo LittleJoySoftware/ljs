@@ -35,6 +35,13 @@ typedef enum : NSUInteger {
   LjsGestaltMinor_v_10_7,
   LjsGestaltMinor_v_10_8
 } LjsGestaltMinorVersion;
+#else
+
+#define ljs_ios_version_eql_to(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define ljs_ios_version_gt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define ljs_ios_version_gte_to(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define ljs_ios_version_lt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define ljs_ios_version_lte(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 #endif
 
@@ -60,6 +67,8 @@ typedef enum : NSUInteger {
 - (BOOL) isDeviceIphone;
 - (BOOL) isDeviceUsingRetina;
 - (BOOL) isDeviceIphone5;
+- (BOOL) isDeviceIos7;
+
 #endif
 
 
