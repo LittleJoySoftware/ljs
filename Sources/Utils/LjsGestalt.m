@@ -42,7 +42,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation LjsGestalt
 
-#if !TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE
+
+NSString *const k_ljs_ios_700 = @"7.0";
 
 #endif
 
@@ -165,10 +167,6 @@ fail:
 - (BOOL) isDeviceIphone5 {
   CGRect screenBounds = [[UIScreen mainScreen] bounds];
   return (screenBounds.size.height == 568);
-}
-
-- (BOOL) isDeviceIos7 {
-  return ljs_ios_version_gte_to(@"7.0");
 }
 
 #endif

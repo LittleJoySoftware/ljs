@@ -37,9 +37,12 @@ typedef enum : NSUInteger {
 } LjsGestaltMinorVersion;
 #else
 
-#define ljs_ios_version_eql_to(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+extern NSString *const k_ljs_ios_700;
+
+#define ljs_is_iphone_5 (((CGRect)[[UIScreen mainScreen] bounds]).size.height == 568)
+#define ljs_ios_version_eql(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define ljs_ios_version_gt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define ljs_ios_version_gte_to(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define ljs_ios_version_gte(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define ljs_ios_version_lt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define ljs_ios_version_lte(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
@@ -67,7 +70,6 @@ typedef enum : NSUInteger {
 - (BOOL) isDeviceIphone;
 - (BOOL) isDeviceUsingRetina;
 - (BOOL) isDeviceIphone5;
-- (BOOL) isDeviceIos7;
 
 #endif
 
