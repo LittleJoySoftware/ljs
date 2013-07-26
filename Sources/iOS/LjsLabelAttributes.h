@@ -22,9 +22,24 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+  #define ljs_textsize(text, font) [text length] > 0 ? [text \
+                                                            sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
+#else
+  #define ljs_textsize(text, font) [text sizeWithFont:font];
 #endif
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+  #define ljs_multiline_textsize(text, font, maxSize, mode) [text length] > 0 ? [text \
+                                                                                     boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) \
+                                                                                     attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
+#else
+#define ljs_multiline_textsize(text, font, maxSize, mode) [text sizeWithFont:font \
+                                                                 constrainedToSize:maxSize lineBreakMode:mode];
+#endif
+
 
 /**
  Documentation
@@ -49,8 +64,18 @@
         linebreakMode:(NSLineBreakMode) aLinebreakMode
           minFontSize:(CGFloat) aMinFontSize;
 
+//#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+//
+//- (id) initWithString:(NSString *) aString
+//                 font:(UIFont *) aFont
+//           labelWidth:(CGFloat) aLabelWidth
+//          labelHeight:(CGFloat) aLabelHeight
+//        linebreakMode:(NSLineBreakMode) aLinebreakMode;
+//#endif
+
 - (void) applyAttributesToLabel:(UILabel *) aLabel
       shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight;
+
 
 - (UILabel *) labelWithFrame:(CGRect) aFrame
                    alignment:(NSTextAlignment) aAlignemnt
