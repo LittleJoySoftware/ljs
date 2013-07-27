@@ -150,6 +150,14 @@ NSSecondCalendarUnit);
   return [self compare:aDate] == NSOrderedSame;
 }
 
+- (BOOL) isFuture {
+  return [self compare:[NSDate date]] == NSOrderedDescending;
+}
+
+- (BOOL) isPast {
+  return ![self isFuture];
+}
+
 - (BOOL) comesBeforeDate:(NSDate *) aDate {
   // this is unexpected.  the semantics are, LjsDateNotFound cannot have
   // a before/after relationship to any date

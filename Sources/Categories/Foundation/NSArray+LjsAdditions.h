@@ -11,7 +11,8 @@
 
 #pragma mark - Lisp
 
-- (id) nth:(NSUInteger) index;
+- (id) nth:(NSUInteger) aIndex;
+- (id) s_nth:(NSInteger) aIndex;
 - (id) first;
 - (id) second;
 - (id) last;

@@ -125,6 +125,14 @@
   GHAssertNil(actual, nil);
 }
 
+
+- (void) test_s_nth {
+  NSArray *array = [self arrayOfAbcStrings];
+  NSInteger index = -1;
+  GHAssertNil([array s_nth:index], @"should return nil if index < 0");
+  GHAssertEqualStrings([array s_nth:0], [array first], @"should return nth if index is > -1");
+}
+
 - (void) test_rest {
   NSArray *array;
   NSArray *actual, *expected;

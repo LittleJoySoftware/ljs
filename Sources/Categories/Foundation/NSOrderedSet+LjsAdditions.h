@@ -12,6 +12,7 @@
 - (id) first;
 - (id) second;
 - (id) last;
+- (NSOrderedSet *) rest;
 - (NSOrderedSet *) append:(id) object;
 - (NSOrderedSet *) reverse;
 - (NSOrderedSet *) mapcar:(id (^)(id obj)) aBlock;
