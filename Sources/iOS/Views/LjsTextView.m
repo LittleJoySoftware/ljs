@@ -93,16 +93,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                    font:self.font
                                    labelWidth:w];
       CGFloat h = attrs.labelHeight;
-      
-      NSInteger alignment;
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
-      alignment = NSTextAlignmentLeft;
-#else
-      alignment = UITextAlignmentLeft;
-#endif
-      
       self.placeHolderLabel = [attrs labelWithFrame:CGRectMake(8, 8, w, h)
-                                          alignment:alignment
+                                          alignment:NSTextAlignmentRight
                                           textColor:self.placeholderColor
                                      highlightColor:self.placeholderColor
                                     backgroundColor:[UIColor clearColor]];

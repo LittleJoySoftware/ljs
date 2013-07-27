@@ -22,6 +22,7 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #import <Foundation/Foundation.h>
 
+
 typedef struct _LjsIntegerInterval {
   NSInteger min;
   NSInteger max;
@@ -37,6 +38,24 @@ NS_INLINE LjsIntegerInterval LjsMakeIntegerInterval(NSInteger min, NSInteger max
   return interval;
 }
 
+NS_INLINE BOOL integer_interval_invalid(LjsIntegerInterval aInterval) {
+  return aInterval.min == NSIntegerMax && aInterval.max == NSIntegerMin;
+}
+
+NS_INLINE NSUInteger integer_interval_count(LjsIntegerInterval aInterval) {
+  if (integer_interval_invalid(aInterval)) { return 0; }
+  if (aInterval.min == aInterval.max) { return 1; }
+  NSInteger max = aInterval.max;
+  NSUInteger count = 0;
+  for (NSInteger index = aInterval.min; index <= max; index++) {
+    count = count + 1;
+  }
+  return count;
+}
+
+
+typedef void (^MapcLjsIntegerIntervalBlock)(LjsIntegerInterval, void(^block)(NSInteger));
+MapcLjsIntegerIntervalBlock mapc_integer_interval;
 
 @interface LjsReasons : NSObject
 

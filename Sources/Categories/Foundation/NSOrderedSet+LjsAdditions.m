@@ -41,7 +41,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return [self lastObject];
 }
 
-- (NSArray *) rest {
+- (NSOrderedSet *) rest {
   NSUInteger count = [self count];
   if (count < 2) {
     return nil;

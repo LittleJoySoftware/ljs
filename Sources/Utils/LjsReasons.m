@@ -35,7 +35,15 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-LjsIntegerInterval const LjsIntegerInterval_Invalid = {0, 0};
+LjsIntegerInterval const LjsIntegerInterval_Invalid = {NSIntegerMax, NSIntegerMin};
+
+
+MapcLjsIntegerIntervalBlock mapc_integer_interval = ^(LjsIntegerInterval aInterval, void(^block)(NSInteger)) {
+  NSInteger stop = aInterval.max;
+  for (NSInteger index = aInterval.min; index <= stop; index++) {
+    block(index);
+  }
+};
 
 @interface LjsReasons ()
 

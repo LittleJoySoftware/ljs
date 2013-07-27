@@ -56,12 +56,83 @@
   GHAssertEquals((NSInteger)interval.max, (NSInteger)1, @"max should be set correctly");
 }
 
-- (void) test_integer_interval_invalid {
+- (void) test_integer_interval_invalid_equality {
   LjsIntegerInterval interval = LjsMakeIntegerInterval(1, -1);
-  GHAssertEquals((NSInteger)interval.min, (NSInteger)0, @"min should be set correctly");
-  GHAssertEquals((NSInteger)interval.max, (NSInteger)0, @"max should be set correctly");
+  GHAssertEquals((NSInteger)interval.min, (NSInteger)NSIntegerMax, @"min should be set correctly");
+  GHAssertEquals((NSInteger)interval.max, (NSInteger)NSIntegerMin, @"max should be set correctly");
   GHAssertEquals((LjsIntegerInterval)interval, (LjsIntegerInterval)LjsIntegerInterval_Invalid,
                  @"should be invalid interval");
+}
+
+/*
+ NS_INLINE BOOL integer_interval_invalid(LjsIntegerInterval aInterval) {
+ return aInterval.min == 0 && aInterval.max == 0;
+ }
+ 
+ NS_INLINE NSUInteger integer_interval_count(LjsIntegerInterval aInterval) {
+ if (aInterval.min == aInterval.max) { return 1; }
+ if (integer_interval_invalid(aInterval)) { return 0; }
+ NSInteger max = aInterval.max;
+ NSUInteger count = 0;
+ for (NSInteger index = aInterval.min; index <= max; index++) {
+ count = count + 1;
+ }
+ return count;
+ }
+
+ */
+
+- (void) test_integer_invalid_YES {
+  GHAssertTrue(integer_interval_invalid(LjsIntegerInterval_Invalid),
+               @"should return true because interval is invalid");
+}
+
+- (void) test_integer_invalid_NO {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(1, 3);
+  GHAssertFalse(integer_interval_invalid(interval),
+               @"should return false because interval is valid");
+}
+
+
+- (void) test_integer_interval_count_0 {
+  GHAssertEquals((NSUInteger)integer_interval_count(LjsIntegerInterval_Invalid),
+                 (NSUInteger)0, @"the invalid interval should have count 0");
+}
+
+- (void) test_integer_interval_count_1 {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(1, 1);
+  GHAssertEquals((NSUInteger)integer_interval_count(interval),
+                 (NSUInteger)1, @"the invalid interval should have count 1");
+}
+
+- (void) test_integer_interval_count_two_negatives {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(-4, -1);
+  GHAssertEquals((NSUInteger)integer_interval_count(interval),
+                 (NSUInteger)4, @"the interval should have count 4");
+}
+
+- (void) test_integer_interval_count_min_negative {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(-2, 1);
+  GHAssertEquals((NSUInteger)integer_interval_count(interval),
+                 (NSUInteger)4, @"the interval should have count 4");
+}
+
+- (void) test_integer_interval_count_min_postive {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(1, 4);
+  GHAssertEquals((NSUInteger)integer_interval_count(interval),
+                 (NSUInteger)4, @"the interval should have count 4");
+}
+
+- (void) test_integer_interval_count_min_zero {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(0, 3);
+  GHAssertEquals((NSUInteger)integer_interval_count(interval),
+                 (NSUInteger)4, @"the interval should have count 4");
+}
+
+- (void) test_integer_interval_count_max_zero {
+  LjsIntegerInterval interval = LjsMakeIntegerInterval(-3, 0);
+  GHAssertEquals((NSUInteger)integer_interval_count(interval),
+                 (NSUInteger)4, @"the interval should have count 4");
 }
 
 

@@ -37,6 +37,8 @@
 #import "NSOrderedSet+LjsAdditions.h"
 #import "NSBundle+LjsAdditions.h"
 
+#import "NSIndexPath+LjsAdditions.h"
+
 // categories on string and dictionary for encoding and url parameters
 #import "LjsWebCategories.h"
 
