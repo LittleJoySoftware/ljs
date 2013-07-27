@@ -11,11 +11,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 + (UILabel *) labelWithFrame:(CGRect) frame
                         text:(NSString *) aText
                         font:(UIFont *) aFont
-                   alignment:(UITextAlignment) aAlignment
+                   alignment:(NSTextAlignment) aAlignment
                    textColor:(UIColor *) aTextColor
             highlightedColor:(UIColor *) aHighlightedColor
              backgroundColor:(UIColor *) aBackgroundColor
-               lineBreakMode:(UILineBreakMode) aLineBreakMode
+               lineBreakMode:(NSLineBreakMode) aLineBreakMode
                numberOfLines:(NSUInteger) aNumberOfLines {
   UILabel *label = [[UILabel alloc] initWithFrame:frame];
   label.text = aText;
@@ -32,11 +32,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 + (UILabel *) labelWithText:(NSString *) aText
                        font:(UIFont *) aFont
-                  alignment:(UITextAlignment) aAlignment
+                  alignment:(NSTextAlignment) aAlignment
                   textColor:(UIColor *) aTextColor
            highlightedColor:(UIColor *) aHighlightedColor
             backgroundColor:(UIColor *) aBackgroundColor
-              lineBreakMode:(UILineBreakMode) aLineBreakMode
+              lineBreakMode:(NSLineBreakMode) aLineBreakMode
               numberOfLines:(NSUInteger) aNumberOfLines
                     originX:(CGFloat) aOriginX
    centeredToRectWithHeight:(CGFloat) aHeight

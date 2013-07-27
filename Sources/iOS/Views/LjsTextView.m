@@ -94,7 +94,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                                    labelWidth:w];
       CGFloat h = attrs.labelHeight;
       self.placeHolderLabel = [attrs labelWithFrame:CGRectMake(8, 8, w, h)
-                                          alignment:UITextAlignmentRight
+                                          alignment:NSTextAlignmentRight
                                           textColor:self.placeholderColor
                                      highlightColor:self.placeholderColor
                                     backgroundColor:[UIColor clearColor]];

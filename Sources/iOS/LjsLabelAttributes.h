@@ -22,9 +22,24 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+  #define ljs_textsize(text, font) [text length] > 0 ? [text \
+                                                            sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
+#else
+  #define ljs_textsize(text, font) [text sizeWithFont:font];
 #endif
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+  #define ljs_multiline_textsize(text, font, maxSize, mode) [text length] > 0 ? [text \
+                                                                                     boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) \
+                                                                                     attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
+#else
+#define ljs_multiline_textsize(text, font, maxSize, mode) [text sizeWithFont:font \
+                                                                 constrainedToSize:maxSize lineBreakMode:mode];
+#endif
+
 
 /**
  Documentation
@@ -36,7 +51,7 @@
 @property (nonatomic, assign) NSUInteger numberOfLines;
 @property (nonatomic, copy) NSString *string;
 @property (nonatomic, assign) CGFloat labelWidth;
-@property (nonatomic, assign) UILineBreakMode linebreakMode;
+@property (nonatomic, assign) NSLineBreakMode linebreakMode;
 @property (nonatomic, strong) UIFont *font;
 
 - (id) initWithString:(NSString *) aString
@@ -46,14 +61,24 @@
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
            labelWidth:(CGFloat) aLabelWidth
-        linebreakMode:(UILineBreakMode) aLinebreakMode
+        linebreakMode:(NSLineBreakMode) aLinebreakMode
           minFontSize:(CGFloat) aMinFontSize;
+
+//#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+//
+//- (id) initWithString:(NSString *) aString
+//                 font:(UIFont *) aFont
+//           labelWidth:(CGFloat) aLabelWidth
+//          labelHeight:(CGFloat) aLabelHeight
+//        linebreakMode:(NSLineBreakMode) aLinebreakMode;
+//#endif
 
 - (void) applyAttributesToLabel:(UILabel *) aLabel
       shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight;
 
+
 - (UILabel *) labelWithFrame:(CGRect) aFrame
-                   alignment:(UITextAlignment) aAlignemnt
+                   alignment:(NSTextAlignment) aAlignemnt
                    textColor:(UIColor *) aTextColor
               highlightColor:(UIColor *) aHighlightColor
              backgroundColor:(UIColor *) aBackgroundColor;
