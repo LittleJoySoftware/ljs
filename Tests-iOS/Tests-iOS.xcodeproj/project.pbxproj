@@ -45,7 +45,6 @@
 		F5A7F81E176CB5200097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80B176CB5200097E147 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81F176CB5200097E147 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F80C176CB5200097E147 /* README.txt */; };
 		F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
-		F5A7F821176CB5200097E147 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F811176CB5200097E147 /* LjsDefaultFormatter.m */; };
 		F5A7F822176CB5200097E147 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F814176CB5200097E147 /* LjsLogFileManager.m */; };
 		F5A7F823176CB5200097E147 /* LjsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F816176CB5200097E147 /* LjsLogging.m */; };
 		F5A7F899176CB64A0097E147 /* LjsWebCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F829176CB64A0097E147 /* LjsWebCategories.m */; };
@@ -122,6 +121,7 @@
 		F5A7F8FC176CB6540097E147 /* LjsFileUtiltiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */; };
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
+		F5C2921C17A71C32005E67BF /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
 		F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5ED175E2CA70015696C /* OCMockWorkingTest.m */; };
@@ -180,8 +180,6 @@
 		F5A7F80C176CB5200097E147 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
-		F5A7F810176CB5200097E147 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
-		F5A7F811176CB5200097E147 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
 		F5A7F812176CB5200097E147 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
 		F5A7F813176CB5200097E147 /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F5A7F814176CB5200097E147 /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
@@ -311,6 +309,8 @@
 		F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtiltiesTests.m; sourceTree = "<group>"; };
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
+		F5C2921A17A71C32005E67BF /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsDefaultLogFormatter.h; path = ../../../../../ljs/modules/CocoaLumberjack/Lumberjack/LJS/LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
+		F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsDefaultLogFormatter.m; path = ../../../../../ljs/modules/CocoaLumberjack/Lumberjack/LJS/LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
 		F5FFC5D1175E2B450015696C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5FFC5D2175E2B450015696C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -476,10 +476,10 @@
 		F5A7F80D176CB5200097E147 /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5C2921A17A71C32005E67BF /* LjsDefaultLogFormatter.h */,
+				F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */,
 				F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */,
 				F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */,
-				F5A7F810176CB5200097E147 /* LjsDefaultFormatter.h */,
-				F5A7F811176CB5200097E147 /* LjsDefaultFormatter.m */,
 				F5A7F812176CB5200097E147 /* LjsLog.h */,
 				F5A7F813176CB5200097E147 /* LjsLogFileManager.h */,
 				F5A7F814176CB5200097E147 /* LjsLogFileManager.m */,
@@ -927,7 +927,6 @@
 				F5A7F81D176CB5200097E147 /* ContextFilterLogFormatter.m in Sources */,
 				F5A7F81E176CB5200097E147 /* DispatchQueueLogFormatter.m in Sources */,
 				F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */,
-				F5A7F821176CB5200097E147 /* LjsDefaultFormatter.m in Sources */,
 				F5A7F822176CB5200097E147 /* LjsLogFileManager.m in Sources */,
 				F5A7F823176CB5200097E147 /* LjsLogging.m in Sources */,
 				F5A7F899176CB64A0097E147 /* LjsWebCategories.m in Sources */,
@@ -994,6 +993,7 @@
 				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
 				F50F18F0179FD9370013852D /* NSIndexPathLjsAdditionsTest.m in Sources */,
 				F50F18F3179FD9710013852D /* NSIndexPath+LjsAdditions.m in Sources */,
+				F5C2921C17A71C32005E67BF /* LjsDefaultLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
