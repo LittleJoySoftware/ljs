@@ -42,16 +42,18 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
            labelWidth:(CGFloat) aLabelWidth {
   self = [super init];
   if (self != nil) {
+    DDLogDebug(@"string = %@", aString);
     self.linebreakMode = NSLineBreakByWordWrapping;
     self.font = aFont;
     CGSize oneLineSize = ljs_textsize(aString, aFont);
+    DDLogDebug(@"one line size = %.2f", oneLineSize.height);
     self.lineHeight = oneLineSize.height;
     
     CGSize max = CGSizeMake(aLabelWidth, CGFLOAT_MAX);
-    CGSize labelSize = ljs_multiline_textsize(aString, aFont, max, self.linebreakMode);
-    
+    CGSize labelSize = ljs_multiline_textsize(aString, aFont, max, NSLineBreakByWordWrapping);
+    DDLogDebug(@"label size = %@", NSStringFromCGSize(labelSize));
     self.labelHeight = labelSize.height;
-    self.numberOfLines = 0;//(NSUInteger) self.labelHeight / self.lineHeight;
+    self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
     self.string = aString;
     self.labelWidth = aLabelWidth;
   }
@@ -78,20 +80,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                           lineBreakMode:aLinebreakMode];
   
     
+
     /**** LOOKS LIKE A BUG ******
     self.lineHeight = size.height;
      ****************************/
-     
+    
     self.font = [UIFont fontWithName:aFont.fontName size:discovered];
     CGSize oneLine = [aString sizeWithFont:self.font];
     self.lineHeight = oneLine.height;
     
-    
     self.linebreakMode = aLinebreakMode;
     self.labelHeight = size.height;
     self.labelWidth = size.width;
-    //self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
-    self.numberOfLines = 0;
+    self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
     self.string = aString;
     self.labelWidth = aLabelWidth;
 
@@ -99,35 +100,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return self;
 }
 
-
-//- (id) initWithString:(NSString *) aString
-//                 font:(UIFont *) aFont
-//           labelWidth:(CGFloat) aLabelWidth
-//          labelHeight:(CGFloat) aLabelHeight
-//        linebreakMode:(NSLineBreakMode) aLinebreakMode {
-//  self = [super init];
-//  if (self) {
-//    CGSize rectSize = CGSizeMake(aLabelWidth, aLabelHeight);
-//    CGSize size = ljs_multiline_textsize(aString, aFont, rectSize, aLinebreakMode);
-//    
-//    //self.lineHeight = size.height;
-//    self.lineHeight = CGFLOAT_MIN;
-//    self.font = aFont;
-//    self.labelHeight = aLabelHeight;
-//    
-//    
-//    self.linebreakMode = aLinebreakMode;
-//  }
-//  return self;
-//}
-
 - (void) applyAttributesToLabel:(UILabel *) aLabel
       shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight {
   aLabel.font = self.font;
   aLabel.text = self.string;
   aLabel.lineBreakMode = self.linebreakMode;
-  //aLabel.numberOfLines = self.numberOfLines;
-  aLabel.numberOfLines = 0;
+  aLabel.numberOfLines = self.numberOfLines;
   if (aShouldApplyWidthAndHeight == YES) {
     [aLabel setHeightWithHeight:self.labelHeight];
     [aLabel setWidthWithWidth:self.labelWidth];
