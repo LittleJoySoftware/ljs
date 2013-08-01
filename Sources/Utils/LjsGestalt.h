@@ -38,6 +38,8 @@ typedef enum : NSUInteger {
 #else
 
 extern NSString *const k_ljs_ios_700;
+extern CGFloat const k_ljs_iphone_5_height;
+
 
 #define ljs_is_iphone_5 (((CGRect)[[UIScreen mainScreen] bounds]).size.height == 568)
 #define ljs_ios_version_eql(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
@@ -45,6 +47,21 @@ extern NSString *const k_ljs_ios_700;
 #define ljs_ios_version_gte(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define ljs_ios_version_lt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define ljs_ios_version_lte(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
+NS_INLINE CGFloat ljs_iphone_screen_height(BOOL tabbar, BOOL navbar, BOOL tallNav) {
+  if (ljs_ios_version_gte(k_ljs_ios_700)) {
+    return ljs_is_iphone_5 ? k_ljs_iphone_5_height : 480;
+  }
+  // max drawable area on iOS 5 + 6
+  CGFloat result = 460;
+  if (tabbar) { result -= 49; }
+  if (navbar) { result -= 44; }
+  if (tallNav) { result -= 30; }
+  if (ljs_is_iphone_5) { result += 88; }
+  return result;
+}
+
 
 #endif
 
