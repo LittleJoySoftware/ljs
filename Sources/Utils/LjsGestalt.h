@@ -49,6 +49,31 @@ extern CGFloat const k_ljs_iphone_5_height;
 #define ljs_ios_version_lte(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 
+NS_INLINE CGFloat ljs_iphone_layout_start_y(BOOL navbar, BOOL tallNav) {
+  if (ljs_ios_version_lt(k_ljs_ios_700)) {
+    return 0;
+  } else {
+    // get us under the status bar
+    CGFloat result = 20;
+    if (navbar) { result += 44; }
+    if (tallNav) { result += 30; }
+    return result;
+  }
+}
+
+
+NS_INLINE CGFloat ljs_iphone_layout_height_btw_bars(BOOL tabbar, BOOL navbar, BOOL tallNav) {
+  // max drawable area on iOS 5 + 6
+  CGFloat result = 460;
+  if (tabbar) { result -= 49; }
+  if (navbar) { result -= 44; }
+  if (tallNav) { result -= 30; }
+  if (ljs_is_iphone_5) { result += 88; }
+  return result;
+}
+
+
+// deprecate...
 NS_INLINE CGFloat ljs_iphone_screen_height(BOOL tabbar, BOOL navbar, BOOL tallNav) {
   if (ljs_ios_version_gte(k_ljs_ios_700)) {
     return ljs_is_iphone_5 ? k_ljs_iphone_5_height : 480;
