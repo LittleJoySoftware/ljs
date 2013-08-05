@@ -39,6 +39,8 @@ typedef enum : NSUInteger {
 
 extern NSString *const k_ljs_ios_700;
 extern CGFloat const k_ljs_iphone_5_height;
+extern CGFloat const k_ljs_iphone_height;
+extern CGFloat const k_ljs_iphone_5_additonal_points;
 
 
 #define ljs_is_iphone_5 (((CGRect)[[UIScreen mainScreen] bounds]).size.height == 568)
@@ -48,6 +50,19 @@ extern CGFloat const k_ljs_iphone_5_height;
 #define ljs_ios_version_lt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define ljs_ios_version_lte(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+
+NS_INLINE BOOL ljs_is_iphone_5_test() {
+  static dispatch_once_t onceToken;
+  static BOOL shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = CGRectGetHeight([[UIScreen mainScreen] bounds]) == k_ljs_iphone_5_height;
+  });
+  return shared;
+}
+
+NS_INLINE CGFloat ljs_iphone_y_max() {
+  return ljs_is_iphone_5 ? k_ljs_iphone_5_height : k_ljs_iphone_height;
+}
 
 NS_INLINE CGFloat ljs_iphone_layout_start_y(BOOL navbar, BOOL tallNav) {
   if (ljs_ios_version_lt(k_ljs_ios_700)) {
