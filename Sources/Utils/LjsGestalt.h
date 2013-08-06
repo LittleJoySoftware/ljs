@@ -97,8 +97,6 @@ NS_INLINE BOOL ljs_ios_version_lte(NSString* v) {
   return shared;
 }
 
-
-
 NS_INLINE BOOL ljs_is_iphone_5() {
   static dispatch_once_t onceToken;
   static BOOL shared = NO;
@@ -111,6 +109,12 @@ NS_INLINE BOOL ljs_is_iphone_5() {
 NS_INLINE CGFloat ljs_iphone_y_max() {
   return ljs_is_iphone_5() ? k_ljs_iphone_5_height : k_ljs_iphone_height;
 }
+
+
+NS_INLINE CGFloat ljs_is_iOS_7() {
+  return ljs_ios_version_gte(k_ljs_ios_700);
+}
+
 
 
 #endif
