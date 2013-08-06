@@ -36,11 +36,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @interface LjsGestalt ()
 
-
-
 @end
 
 @implementation LjsGestalt
+
+
 
 #if TARGET_OS_IPHONE
 
