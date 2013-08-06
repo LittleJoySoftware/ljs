@@ -43,15 +43,63 @@ extern CGFloat const k_ljs_iphone_height;
 extern CGFloat const k_ljs_iphone_5_additonal_points;
 
 
-#define ljs_is_iphone_5 (((CGRect)[[UIScreen mainScreen] bounds]).size.height == 568)
-#define ljs_ios_version_eql(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define ljs_ios_version_gt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define ljs_ios_version_gte(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define ljs_ios_version_lt(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define ljs_ios_version_lte(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+NS_INLINE NSString* ljs_sys_version() {
+  static dispatch_once_t onceToken;
+  static NSString *shared  = nil;
+  dispatch_once(&onceToken, ^{
+    shared = [[UIDevice currentDevice] systemVersion];
+  });
+  return shared;
+}
+
+NS_INLINE BOOL ljs_ios_version_eql(NSString* v) {
+  static dispatch_once_t onceToken;
+  static BOOL shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = [ljs_sys_version() compare:v options:NSNumericSearch] == NSOrderedSame;
+  });
+  return shared;
+}
+
+NS_INLINE BOOL ljs_ios_version_gt(NSString* v) {
+  static dispatch_once_t onceToken;
+  static BOOL shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = [ljs_sys_version() compare:v options:NSNumericSearch] == NSOrderedDescending;
+  });
+  return shared;
+}
+
+NS_INLINE BOOL ljs_ios_version_gte(NSString* v) {
+  static dispatch_once_t onceToken;
+  static BOOL shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = [ljs_sys_version() compare:v options:NSNumericSearch] != NSOrderedAscending;
+  });
+  return shared;
+}
+
+NS_INLINE BOOL ljs_ios_version_lt(NSString* v) {
+  static dispatch_once_t onceToken;
+  static BOOL shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = [ljs_sys_version() compare:v options:NSNumericSearch] == NSOrderedAscending;
+  });
+  return shared;
+}
+
+NS_INLINE BOOL ljs_ios_version_lte(NSString* v) {
+  static dispatch_once_t onceToken;
+  static BOOL shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = [ljs_sys_version() compare:v options:NSNumericSearch] != NSOrderedDescending;
+  });
+  return shared;
+}
 
 
-NS_INLINE BOOL ljs_is_iphone_5_test() {
+
+NS_INLINE BOOL ljs_is_iphone_5() {
   static dispatch_once_t onceToken;
   static BOOL shared = NO;
   dispatch_once(&onceToken, ^{
@@ -61,45 +109,7 @@ NS_INLINE BOOL ljs_is_iphone_5_test() {
 }
 
 NS_INLINE CGFloat ljs_iphone_y_max() {
-  return ljs_is_iphone_5 ? k_ljs_iphone_5_height : k_ljs_iphone_height;
-}
-
-NS_INLINE CGFloat ljs_iphone_layout_start_y(BOOL navbar, BOOL tallNav) {
-  if (ljs_ios_version_lt(k_ljs_ios_700)) {
-    return 0;
-  } else {
-    // get us under the status bar
-    CGFloat result = 20;
-    if (navbar) { result += 44; }
-    if (tallNav) { result += 30; }
-    return result;
-  }
-}
-
-
-NS_INLINE CGFloat ljs_iphone_layout_height_btw_bars(BOOL tabbar, BOOL navbar, BOOL tallNav) {
-  // max drawable area on iOS 5 + 6
-  CGFloat result = 460;
-  if (tabbar) { result -= 49; }
-  if (navbar) { result -= 44; }
-  if (tallNav) { result -= 30; }
-  if (ljs_is_iphone_5) { result += 88; }
-  return result;
-}
-
-
-// deprecate...
-NS_INLINE CGFloat ljs_iphone_screen_height(BOOL tabbar, BOOL navbar, BOOL tallNav) {
-  if (ljs_ios_version_gte(k_ljs_ios_700)) {
-    return ljs_is_iphone_5 ? k_ljs_iphone_5_height : 480;
-  }
-  // max drawable area on iOS 5 + 6
-  CGFloat result = 460;
-  if (tabbar) { result -= 49; }
-  if (navbar) { result -= 44; }
-  if (tallNav) { result -= 30; }
-  if (ljs_is_iphone_5) { result += 88; }
-  return result;
+  return ljs_is_iphone_5() ? k_ljs_iphone_5_height : k_ljs_iphone_height;
 }
 
 

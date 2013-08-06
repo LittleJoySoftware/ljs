@@ -42,16 +42,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
            labelWidth:(CGFloat) aLabelWidth {
   self = [super init];
   if (self != nil) {
-    DDLogDebug(@"string = %@", aString);
     self.linebreakMode = NSLineBreakByWordWrapping;
     self.font = aFont;
     CGSize oneLineSize = ljs_textsize(aString, aFont);
-    DDLogDebug(@"one line size = %.2f", oneLineSize.height);
     self.lineHeight = oneLineSize.height;
     
     CGSize max = CGSizeMake(aLabelWidth, CGFLOAT_MAX);
     CGSize labelSize = ljs_multiline_textsize(aString, aFont, max, NSLineBreakByWordWrapping);
-    DDLogDebug(@"label size = %@", NSStringFromCGSize(labelSize));
+    
     self.labelHeight = labelSize.height;
     self.numberOfLines = (NSUInteger) self.labelHeight / self.lineHeight;
     self.string = aString;
