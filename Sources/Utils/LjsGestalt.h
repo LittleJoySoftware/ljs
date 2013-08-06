@@ -115,6 +115,10 @@ NS_INLINE CGFloat ljs_is_iOS_7() {
   return ljs_ios_version_gte(k_ljs_ios_700);
 }
 
+NS_INLINE CGFloat ljs_is_not_iOS_7() {
+  return ljs_ios_version_lt(k_ljs_ios_700);
+}
+
 
 
 #endif
