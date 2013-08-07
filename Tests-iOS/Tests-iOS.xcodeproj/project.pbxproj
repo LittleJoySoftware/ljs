@@ -13,6 +13,8 @@
 		F50FE6AA1410C6F60051FC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F50FE6A81410C6F60051FC7E /* InfoPlist.strings */; };
 		F50FE6AC1410C6F60051FC7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FE6AB1410C6F60051FC7E /* main.m */; };
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
+		F5102D4717B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */; };
+		F5102D4917B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5102D4817B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m */; };
 		F5450ACD16DE05BD00D9D01C /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACB16DE05BD00D9D01C /* Default~ipad.png */; };
 		F5450ACE16DE05BD00D9D01C /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACC16DE05BD00D9D01C /* Default~iphone.png */; };
 		F5450AD016DE06A300D9D01C /* Default~iphone-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACF16DE06A300D9D01C /* Default~iphone-568h@2x.png */; };
@@ -138,6 +140,9 @@
 		F50FE6AB1410C6F60051FC7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F50FE6AD1410C6F60051FC7E /* Tests-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F5102D4517B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+AccessibilityIdentifier.h"; path = "../../../../ljs/Sources/Categories/UIKit/UIBarButtonItem+AccessibilityIdentifier.h"; sourceTree = "<group>"; };
+		F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+AccessibilityIdentifier.m"; path = "../../../../ljs/Sources/Categories/UIKit/UIBarButtonItem+AccessibilityIdentifier.m"; sourceTree = "<group>"; };
+		F5102D4817B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBarButtonItemAccessibilityIdentifierTest.m; path = ../../../ljs/Tests/Categories/UIBarButtonItemAccessibilityIdentifierTest.m; sourceTree = "<group>"; };
 		F5450ACB16DE05BD00D9D01C /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = SOURCE_ROOT; };
 		F5450ACC16DE05BD00D9D01C /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = SOURCE_ROOT; };
 		F5450ACF16DE06A300D9D01C /* Default~iphone-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone-568h@2x.png"; path = "../Default~iphone-568h@2x.png"; sourceTree = "<group>"; };
@@ -556,6 +561,8 @@
 		F5A7F847176CB64A0097E147 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F5102D4517B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.h */,
+				F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */,
 				F5A7F848176CB64A0097E147 /* UIButton+LjsAdditions.h */,
 				F5A7F849176CB64A0097E147 /* UIButton+LjsAdditions.m */,
 				F5A7F84A176CB64A0097E147 /* UIColor+LjsAdditions.h */,
@@ -718,6 +725,8 @@
 				F5A7F8D8176CB6540097E147 /* NSErrorLjsAdditions.m */,
 				F5A7F8D9176CB6540097E147 /* NSSetLjsAdditionsTest.m */,
 				F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */,
+				F50F18EF179FD9370013852D /* NSIndexPathLjsAdditionsTest.m */,
+				F5102D4817B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -930,6 +939,7 @@
 				F5A7F899176CB64A0097E147 /* LjsWebCategories.m in Sources */,
 				F5A7F89A176CB64A0097E147 /* NSArray+LjsAdditions.m in Sources */,
 				F5A7F89B176CB64A0097E147 /* NSAttributedString+LjsAdditions.m in Sources */,
+				F5102D4917B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */,
 				F5A7F89C176CB64A0097E147 /* NSCalendar+LjsAdditions.m in Sources */,
 				F5A7F89D176CB64A0097E147 /* NSDate+LjsAdditions.m in Sources */,
 				F5A7F89E176CB64A0097E147 /* NSDateFormatter+LjsAdditions.m in Sources */,
@@ -952,6 +962,7 @@
 				F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */,
 				F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */,
 				F5A7F8BD176CB64A0097E147 /* LjsKeyboardInfo.m in Sources */,
+				F5102D4717B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */,
 				F5A7F8BE176CB64A0097E147 /* LjsLabelAttributes.m in Sources */,
 				F5A7F8C0176CB64A0097E147 /* LjsButton.m in Sources */,
 				F5A7F8C1176CB64A0097E147 /* LjsGlassButton.m in Sources */,
