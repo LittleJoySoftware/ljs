@@ -33,4 +33,5 @@
 #import "UIImageView+LjsAdditions.h"
 #import "UIImage+LjsCategory.h"
 #import "UIBarButtonItem+AccessibilityIdentifier.h"
+#import "NString+IOS+SizeOf.h"
 #endif
