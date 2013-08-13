@@ -31,7 +31,8 @@ NS_INLINE BOOL ljs_layout_manager_available() {
   if (ljs_layout_manager_available() == NO) {
     return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
   }
- 
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
   NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:self];
   NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:aSize];
   NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
@@ -42,6 +43,9 @@ NS_INLINE BOOL ljs_layout_manager_available() {
   [textContainer setLineFragmentPadding:0.0];
   (void)[layoutManager glyphRangeForTextContainer:textContainer];
   return [layoutManager usedRectForTextContainer:textContainer].size;
+#else
+  return CGSizeZero;
+#endif
   
 }
 
@@ -58,6 +62,8 @@ NS_INLINE BOOL ljs_layout_manager_available() {
                 lineBreakMode:aLineBreakMode];
   }
   
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+
   CGFloat currentFontSize = aFont.pointSize;
   CGSize targetSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
   CGSize currentSize = CGSizeZero;
@@ -86,6 +92,9 @@ NS_INLINE BOOL ljs_layout_manager_available() {
   } while (currentSize.width > aWidth);
   *aActualFontSize = currentFontSize;
   return CGSizeMake(currentSize.width, lineHeight);
+#else
+  return CGSizeZero;
+#endif
 }
 
 
