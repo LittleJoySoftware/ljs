@@ -144,7 +144,6 @@ NS_INLINE BOOL ljs_is_not_iOS_7() {
 - (BOOL) isDeviceIpad;
 - (BOOL) isDeviceIphone;
 - (BOOL) isDeviceUsingRetina;
-- (BOOL) isDeviceIphone5 __deprecated;
 
 #endif
 
