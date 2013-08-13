@@ -143,6 +143,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 
+- (void) applyAttributesToLabel:(UILabel *) aLabel
+            applyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight
+              centerToViewWithH:(CGFloat) aHeight {
+  [self applyAttributesToLabel:aLabel shouldApplyWidthAndHeight:aShouldApplyWidthAndHeight];
+  CGFloat y = (aHeight/2) - (_labelHeight/2);
+  [aLabel setYWithY:y];
+}
+
+
+
 - (UILabel *) labelWithFrame:(CGRect) aFrame
                    alignment:(NSTextAlignment) aAlignemnt
                     textColor:(UIColor *) aTextColor
