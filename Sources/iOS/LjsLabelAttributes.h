@@ -76,6 +76,10 @@
 - (void) applyAttributesToLabel:(UILabel *) aLabel
       shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight;
 
+- (void) applyAttributesToLabel:(UILabel *) aLabel
+            applyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight
+              centerToViewWithH:(CGFloat) aHeight;
+
 
 - (UILabel *) labelWithFrame:(CGRect) aFrame
                    alignment:(NSTextAlignment) aAlignemnt
