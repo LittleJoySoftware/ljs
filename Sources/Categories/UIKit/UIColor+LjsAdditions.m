@@ -26,6 +26,7 @@
 #endif
 
 #import "Lumberjack.h"
+#import "UIImage+LjsCategory.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
@@ -47,5 +48,28 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   UIImage *image = [UIImage imageNamed:aImageName];
   return [UIColor colorWithPatternImage:image];
 }
+
+
++ (UIColor *) colorByBlendingBlurredSnapshotFromView:(UIView *) aView
+                                              inRect:(CGRect) aFrame
+                                                blur:(CGFloat) aBlur
+                                          blendColor:(UIColor *) aBlendColor {
+  UIImage *image = [UIImage imageByBlendingBlurredSnapshotFromView:aView
+                                                            inRect:aFrame
+                                                              blur:aBlur
+                                                        blendColor:aBlendColor];
+  return [UIColor colorWithPatternImage:image];
+}
+
+
++ (UIColor *) colorByBlendingBlurredSnapshotFromTopViewInRect:(CGRect) aFrame
+                                                         blur:(CGFloat) aBlur
+                                                   blendColor:(UIColor *) aBlendColor {
+  UIImage *image = [UIImage imageByBlendingBlurredSnapshotFromTopViewInRect:aFrame
+                                                                       blur:aBlur
+                                                                 blendColor:aBlendColor];
+  return [UIColor colorWithPatternImage:image];
+}
+
 
 @end
