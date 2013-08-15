@@ -30,4 +30,38 @@
 
 /** @name Task Section */
 - (UIImage *) imageByReszingWithSize:(CGSize) aSize;
+
+/**
+ http://tinyurl.com/lnstbuq
+ http://tinyurl.com/mu7hqgz
+ attributions to: Jake Gundersen and Jeremy Fox
+ */
++ (UIImage *) imageByBlurringSnapshotFromView:(UIView *) aView inRect:(CGRect) aFrame blur:(CGFloat) aBlur;
+- (UIImage *) imageByBlurringWithBlur:(CGFloat) aBlur;
++ (UIImage *) imageWithColor:(UIColor *) aColor size:(CGSize) aSize;
++ (UIImage *) imageByBlendingTop:(UIImage *) aTop bottom:(UIImage *) aBottom;
+
+/*
+ CGRect frame = alertPanel.frame;
+ UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+ UIView *toBlur = topController.view;
+ UIImage *blurred = [self getBlurredImageFromView:toBlur inRect:frame blur:0.9f];
+ UIColor *color = [UIColor colorWithR:243 g:247 b:246 a:0.8f];
+ UIImage *white = [self imageWithColor:color size:frame.size cornerRadius:0];
+ UIImage *blended = [self blendWithTop:white bottom:blurred];
+ 
+ alertPanel.backgroundColor =   [UIColor colorWithPatternImage:blended];
+
+ */
+
++ (UIImage *) imageByBlendingBlurredSnapshotFromView:(UIView *) aView
+                                              inRect:(CGRect) aFrame
+                                                blur:(CGFloat) aBlur
+                                          blendColor:(UIColor *) aBlendColor;
+
++ (UIImage *) imageByBlendingBlurredSnapshotFromTopViewInRect:(CGRect) aFrame
+                                                         blur:(CGFloat) aBlur
+                                                   blendColor:(UIColor *) aBlendColor;
+
+
 @end

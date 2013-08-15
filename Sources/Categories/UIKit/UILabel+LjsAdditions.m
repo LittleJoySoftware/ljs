@@ -23,7 +23,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   label.textAlignment = aAlignment;
   label.textColor = aTextColor;
   label.highlightedTextColor = aHighlightedColor;
-  label.backgroundColor = aBackgroundColor;
+  label.backgroundColor = aBackgroundColor == nil ? [UIColor clearColor] : aBackgroundColor;
   label.lineBreakMode = aLineBreakMode;
   label.numberOfLines = aNumberOfLines;
   return label;

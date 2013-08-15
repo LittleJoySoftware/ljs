@@ -158,13 +158,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                     textColor:(UIColor *) aTextColor
               highlightColor:(UIColor *) aHighlightColorOrNil
              backgroundColor:(UIColor *) aBackgroundColor {
+  UIColor *bkgC = aBackgroundColor == nil ? [UIColor clearColor] : aBackgroundColor;
   return [UILabel labelWithFrame:aFrame
                             text:_string
                             font:_font
                        alignment:aAlignemnt
                        textColor:aTextColor
                 highlightedColor:aHighlightColorOrNil ? aHighlightColorOrNil : aTextColor
-                 backgroundColor:aBackgroundColor
+                 backgroundColor:bkgC
                    lineBreakMode:_linebreakMode
                    numberOfLines:_maxNumberOfLines];
  
