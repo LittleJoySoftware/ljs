@@ -8,7 +8,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 NS_INLINE BOOL ljs_layout_manager_available() {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
   return YES;
 #else
   return NO;
@@ -32,7 +32,7 @@ NS_INLINE BOOL ljs_layout_manager_available() {
     return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
   }
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
   NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:self];
   NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:aSize];
   NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
@@ -62,7 +62,7 @@ NS_INLINE BOOL ljs_layout_manager_available() {
                 lineBreakMode:aLineBreakMode];
   }
   
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
 
   CGFloat currentFontSize = aFont.pointSize;
   CGSize targetSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);

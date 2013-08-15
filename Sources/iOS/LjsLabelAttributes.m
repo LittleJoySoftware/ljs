@@ -173,8 +173,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"#<LjsLabelAttributes line: %.2f height: %.2f lines: %d width: %.2f>",
-          _lineHeight, _labelHeight, _num_lines_computed, _labelWidth];
+  return [NSString stringWithFormat:@"#<LjsLabelAttributes line: %.2f height: %.2f lines: (%d, %d) width: %.2f>",
+          _lineHeight, _labelHeight, _num_lines_computed, _maxNumberOfLines, _labelWidth];
 }
 
 //text label = {{10, 8}, {153, 22}}
