@@ -125,6 +125,7 @@
 		F5A7F8FC176CB6540097E147 /* LjsFileUtiltiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */; };
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
+		F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AF842217C2C16800859330 /* Accelerate.framework */; };
 		F5C2921C17A71C32005E67BF /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
@@ -319,6 +320,7 @@
 		F5A7F8EA176CB6540097E147 /* LjsFileUtiltiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileUtiltiesTests.m; sourceTree = "<group>"; };
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
+		F5AF842217C2C16800859330 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		F5C2921A17A71C32005E67BF /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsDefaultLogFormatter.h; path = ../../../../../ljs/modules/CocoaLumberjack/Lumberjack/LJS/LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
 		F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsDefaultLogFormatter.m; path = ../../../../../ljs/modules/CocoaLumberjack/Lumberjack/LJS/LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */,
 				F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */,
 				F54E3AA11450EB080059BF53 /* libxml2.dylib in Frameworks */,
 				F54E3A9F1450EB000059BF53 /* libz.dylib in Frameworks */,
@@ -383,6 +386,7 @@
 		F50FE69E1410C6F60051FC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5AF842217C2C16800859330 /* Accelerate.framework */,
 				F5903F8E151B64A900995AF1 /* CoreData.framework */,
 				F5724971149F9C00006C62A2 /* QuartzCore.framework */,
 				F58013AC149E080E00692073 /* CoreLocation.framework */,

@@ -7,14 +7,6 @@ static const int ddLogLevel = LOG_LEVEL_DEBUG;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
-NS_INLINE BOOL ljs_layout_manager_available() {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
-  return NO;
-#else
-  return YES;
-#endif
-}
-
 
 @implementation NSString (NString_IOS_SizeOf)
 
@@ -28,11 +20,8 @@ NS_INLINE BOOL ljs_layout_manager_available() {
 }
 
 - (CGSize) sizeOfStringWithFont:(UIFont *) aFont constrainedToSize:(CGSize) aSize lineBreakMode:(NSLineBreakMode) aLineBreakMode {
-  if (ljs_layout_manager_available() == NO) {
-    return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
-  }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
   NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:self];
   NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:aSize];
   NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
@@ -44,7 +33,7 @@ NS_INLINE BOOL ljs_layout_manager_available() {
   (void)[layoutManager glyphRangeForTextContainer:textContainer];
   return [layoutManager usedRectForTextContainer:textContainer].size;
 #else
-  return CGSizeZero;
+  return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
 #endif
   
 }
@@ -54,15 +43,8 @@ NS_INLINE BOOL ljs_layout_manager_available() {
                  actualFontSize:(CGFloat *) aActualFontSize
                        forWidth:(CGFloat) aWidth
                   lineBreakMode:(NSLineBreakMode) aLineBreakMode {
-  if (ljs_layout_manager_available() == NO) {
-    return [self sizeWithFont:aFont
-                  minFontSize:aMinSize
-               actualFontSize:aActualFontSize
-                     forWidth:aWidth
-                lineBreakMode:aLineBreakMode];
-  }
   
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
 
   CGFloat currentFontSize = aFont.pointSize;
   CGSize targetSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
@@ -85,15 +67,20 @@ NS_INLINE BOOL ljs_layout_manager_available() {
     currentSize = [layoutManager usedRectForTextContainer:textContainer].size;
     if (lineHeight == CGFLOAT_MAX) {  lineHeight = currentSize.height; }
 
+    if (currentFontSize - 1.0f < aMinSize) {  break; }
     currentFontSize -= 1.0f;
-    if (currentFontSize < aMinSize) {  break; }
+    
     
     DDLogDebug(@"size = %@", NSStringFromCGSize(currentSize));
   } while (currentSize.width > aWidth);
   *aActualFontSize = currentFontSize;
   return CGSizeMake(currentSize.width, lineHeight);
 #else
-  return CGSizeZero;
+  return [self sizeWithFont:aFont
+                minFontSize:aMinSize
+             actualFontSize:aActualFontSize
+                   forWidth:aWidth
+              lineBreakMode:aLineBreakMode];
 #endif
 }
 

@@ -10,6 +10,8 @@ static NSString *const kLoremImpsum_20_bytes = @"Donec sit amet libero vitae sed
 
 
 @interface NString_IOS_SizeOfTest : LjsTestCase {}
+
+- (UIFont *) fontForTests;
 @end
 
 
@@ -41,67 +43,56 @@ static NSString *const kLoremImpsum_20_bytes = @"Donec sit amet libero vitae sed
   [super tearDown];
 }
 
+- (UIFont *) fontForTests {
+  static UIFont *shared_font = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    // "HelveticaNeue" is an option...
+    static NSString *const fontName = @"HelveticaNeue";
+    shared_font = [UIFont fontWithName:fontName size:18];
+  });
+  return shared_font;
+}
 
 - (void) test_size_of_basic {
   NSString *str = @"foobar";
-  UIFont *font = [UIFont systemFontOfSize:18];
+  UIFont *font = [self fontForTests];
   CGSize catSize = [str sizeOfStringWithFont:font];
-  CGSize attrSize = ljs_textsize(str, font);
-  //      size of str = {52, 21.473999}
-  // attr size of str = {53, 22}
-  GHTestLog(@"category size of str = %@", NSStringFromCGSize(catSize));
-  GHTestLog(@"    attr size of str = %@", NSStringFromCGSize(attrSize));
   
+  GHAssertEqualsWithAccuracy((CGFloat)catSize.width, (CGFloat)52, 1.0, @"width should be equal");
+  GHAssertEqualsWithAccuracy((CGFloat)catSize.height, (CGFloat)22, 2.0, @"height should be equal");
+
 }
 
 - (void) test_size_of_constrained {
   CGSize constraint = CGSizeMake(80, 44);
   NSString *str = kLoremImpsum_20_bytes;
-  UIFont *font = [UIFont systemFontOfSize:18];
+  UIFont *font = [self fontForTests];
   CGSize catSize = [str sizeOfStringWithFont:font constrainedToSize:constraint];
-  CGSize attrSize = ljs_multiline_textsize(str, font, constraint, NSLineBreakByWordWrapping);
   
-  CGFloat discovered = 0;
-  CGSize scaledSize = [str sizeWithFont:font
-                      minFontSize:4
-                   actualFontSize:&discovered
-                         forWidth:constraint.width
-                    lineBreakMode:NSLineBreakByWordWrapping];
+  
+  GHAssertEqualsWithAccuracy((CGFloat)catSize.width, (CGFloat)80.0, 3.0, @"width should be equal");
+  GHAssertEqualsWithAccuracy((CGFloat)catSize.height, (CGFloat)42, 4.0, @"height should be equal");
 
-  
-  GHTestLog(@"category size of str = %@", NSStringFromCGSize(catSize));
-  GHTestLog(@"    attr size of str = %@", NSStringFromCGSize(attrSize));
-  GHTestLog(@"  scaled size of str = %@ ==> '%.2f'", NSStringFromCGSize(scaledSize), discovered);
-  
 }
 
-
-- (void) test_size_of_foo {
+- (void) test_size_of_constraint_discovered {
   CGSize constraint = CGSizeMake(80, 44);
   NSString *str = kLoremImpsum_20_bytes;
-  UIFont *font = [UIFont systemFontOfSize:18];
-  CGFloat discovered0 = 0;
-  CGSize catSize = [str sizeOfStringWithFont:font minFontSize:4
-                              actualFontSize:&discovered0
-                                    forWidth:80
-                               lineBreakMode:NSLineBreakByWordWrapping];
-  
-  //CGSize attrSize = ljs_multiline_textsize(str, font, constraint, NSLineBreakByWordWrapping);
-  
-  CGFloat discovered1 = 0;
-  CGSize scaledSize = [str sizeWithFont:font
-                            minFontSize:4
-                         actualFontSize:&discovered1
-                               forWidth:constraint.width
-                          lineBreakMode:NSLineBreakByWordWrapping];
+  UIFont *font = [self fontForTests];
+  CGFloat discovered = 0.0;
+  CGSize catSize = [str sizeOfStringWithFont:font
+                                 minFontSize:5
+                              actualFontSize:&discovered
+                                    forWidth:constraint.width
+                               lineBreakMode:NSLineBreakByTruncatingTail];
   
   
-  GHTestLog(@"category size of str = %@ ==> '%.2f'", NSStringFromCGSize(catSize), discovered0);
-  GHTestLog(@"  scaled size of str = %@ ==> '%.2f'", NSStringFromCGSize(scaledSize), discovered1);
+  // i don't like the look of this one
+  GHAssertEqualsWithAccuracy((CGFloat)catSize.width, (CGFloat)70.0, 10.0, @"width should be equal");
+  GHAssertEqualsWithAccuracy((CGFloat)catSize.height, (CGFloat)21.5, 2.0, @"height should be equal");
+  GHAssertEqualsWithAccuracy((CGFloat)discovered, (CGFloat)5.5, 0.5, @"font size should be equal");
   
 }
-
-
-
 
 @end
