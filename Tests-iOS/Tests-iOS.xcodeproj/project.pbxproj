@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F50F18F0179FD9370013852D /* NSIndexPathLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F18EF179FD9370013852D /* NSIndexPathLjsAdditionsTest.m */; };
-		F50F18F3179FD9710013852D /* NSIndexPath+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F50F18F2179FD9710013852D /* NSIndexPath+LjsAdditions.m */; };
 		F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
@@ -36,6 +35,7 @@
 		F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370F1770B11E00D9032D /* LjsVariatesTests.m */; };
 		F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58937111771ADD900D9032D /* LjsReasonsTests.m */; };
 		F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
+		F598923917C8B18C00356088 /* NSIndexPath+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F598923817C8B18C00356088 /* NSIndexPath+LjsAdditions.m */; };
 		F5A7F818176CB5200097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F819176CB5200097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F800176CB5200097E147 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F802176CB5200097E147 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
@@ -130,8 +130,6 @@
 
 /* Begin PBXFileReference section */
 		F50F18EF179FD9370013852D /* NSIndexPathLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSIndexPathLjsAdditionsTest.m; path = ../../../ljs/Tests/Categories/NSIndexPathLjsAdditionsTest.m; sourceTree = "<group>"; };
-		F50F18F1179FD9710013852D /* NSIndexPath+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSIndexPath+LjsAdditions.h"; path = "../../../../ljs/Sources/Categories/Foundation/NSIndexPath+LjsAdditions.h"; sourceTree = "<group>"; };
-		F50F18F2179FD9710013852D /* NSIndexPath+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSIndexPath+LjsAdditions.m"; path = "../../../../ljs/Sources/Categories/Foundation/NSIndexPath+LjsAdditions.m"; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50FE69F1410C6F60051FC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F50FE6A11410C6F60051FC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +160,8 @@
 		F589370F1770B11E00D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
 		F58937111771ADD900D9032D /* LjsReasonsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsReasonsTests.m; sourceTree = "<group>"; };
 		F5903F8E151B64A900995AF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F598923717C8B18C00356088 /* NSIndexPath+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+LjsAdditions.h"; sourceTree = "<group>"; };
+		F598923817C8B18C00356088 /* NSIndexPath+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5A7F7FD176CB5200097E147 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F5A7F7FF176CB5200097E147 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -516,6 +516,8 @@
 		F5A7F826176CB64A0097E147 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F598923717C8B18C00356088 /* NSIndexPath+LjsAdditions.h */,
+				F598923817C8B18C00356088 /* NSIndexPath+LjsAdditions.m */,
 				F5A7F827176CB64A0097E147 /* LjsFoundationCategories.h */,
 				F5A7F828176CB64A0097E147 /* LjsWebCategories.h */,
 				F5A7F829176CB64A0097E147 /* LjsWebCategories.m */,
@@ -547,8 +549,6 @@
 				F5A7F843176CB64A0097E147 /* NSSet+LjsAdditions.m */,
 				F5A7F844176CB64A0097E147 /* NSString+LjsAdditions.h */,
 				F5A7F845176CB64A0097E147 /* NSString+LjsAdditions.m */,
-				F50F18F1179FD9710013852D /* NSIndexPath+LjsAdditions.h */,
-				F50F18F2179FD9710013852D /* NSIndexPath+LjsAdditions.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -991,7 +991,7 @@
 				F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */,
 				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
 				F50F18F0179FD9370013852D /* NSIndexPathLjsAdditionsTest.m in Sources */,
-				F50F18F3179FD9710013852D /* NSIndexPath+LjsAdditions.m in Sources */,
+				F598923917C8B18C00356088 /* NSIndexPath+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
