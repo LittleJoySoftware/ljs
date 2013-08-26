@@ -1,5 +1,5 @@
 #import "LjsTestCase.h"
-#import "NString+IOS+SizeOf.h"
+#import "NString+IOSSizeOf.h"
 #import "LjsLabelAttributes.h"
 
 

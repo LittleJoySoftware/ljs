@@ -1,4 +1,4 @@
-#import "NString+IOS+SizeOf.h"
+#import "NString+IOSSizeOf.h"
 #import "LjsGestalt.h"
 #import "Lumberjack.h"
 
