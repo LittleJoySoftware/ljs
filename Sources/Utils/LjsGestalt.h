@@ -38,18 +38,6 @@ typedef enum : NSUInteger {
 #else
 
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
-#define ljs_requires_ios6(...)  { __VA_ARGS__ }
-#else 
-#define ljs_requires_ios6(...)
-#endif
-
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
-#define ljs_requires_ios7(...)  { __VA_ARGS__ }
-#else
-#define ljs_requires_ios7(...)
-#endif
-
 extern NSString *const k_ljs_ios_700;
 extern NSString *const k_ljs_ios_600;
 
