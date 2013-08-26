@@ -45,6 +45,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #if TARGET_OS_IPHONE
 
 NSString *const k_ljs_ios_700 = @"7.0";
+NSString *const k_ljs_ios_600 = @"6.0";
 CGFloat const k_ljs_iphone_5_height = 568;
 CGFloat const k_ljs_iphone_height = 480;
 CGFloat const k_ljs_iphone_5_additonal_points = k_ljs_iphone_5_height - k_ljs_iphone_height;
