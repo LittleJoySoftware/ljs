@@ -21,7 +21,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (CGSize) sizeOfStringWithFont:(UIFont *) aFont constrainedToSize:(CGSize) aSize lineBreakMode:(NSLineBreakMode) aLineBreakMode {
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
   NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:self];
   NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:aSize];
   NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
@@ -44,8 +44,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
                        forWidth:(CGFloat) aWidth
                   lineBreakMode:(NSLineBreakMode) aLineBreakMode {
   
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
-
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
   CGFloat currentFontSize = aFont.pointSize;
   CGSize targetSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
   CGSize currentSize = CGSizeZero;
