@@ -15,8 +15,8 @@
 		F50FE7351410D3160051FC7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE7331410D30D0051FC7E /* Security.framework */; };
 		F5102D4717B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */; };
 		F5102D4917B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5102D4817B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m */; };
-		F51888EE17B25A3B00262237 /* NString+IOS+SizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F51888ED17B25A3B00262237 /* NString+IOS+SizeOf.m */; };
-		F51888F017B25C2F00262237 /* NString+IOS+SizeOfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F51888EF17B25C2F00262237 /* NString+IOS+SizeOfTest.m */; };
+		F51888EE17B25A3B00262237 /* NString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F51888ED17B25A3B00262237 /* NString+IOSSizeOf.m */; };
+		F51888F017B25C2F00262237 /* NString+IOSSizeOfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F51888EF17B25C2F00262237 /* NString+IOSSizeOfTest.m */; };
 		F5450ACD16DE05BD00D9D01C /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACB16DE05BD00D9D01C /* Default~ipad.png */; };
 		F5450ACE16DE05BD00D9D01C /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACC16DE05BD00D9D01C /* Default~iphone.png */; };
 		F5450AD016DE06A300D9D01C /* Default~iphone-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5450ACF16DE06A300D9D01C /* Default~iphone-568h@2x.png */; };
@@ -146,9 +146,9 @@
 		F5102D4517B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+AccessibilityIdentifier.h"; path = "../../../../ljs/Sources/Categories/UIKit/UIBarButtonItem+AccessibilityIdentifier.h"; sourceTree = "<group>"; };
 		F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+AccessibilityIdentifier.m"; path = "../../../../ljs/Sources/Categories/UIKit/UIBarButtonItem+AccessibilityIdentifier.m"; sourceTree = "<group>"; };
 		F5102D4817B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBarButtonItemAccessibilityIdentifierTest.m; path = ../../../ljs/Tests/Categories/UIBarButtonItemAccessibilityIdentifierTest.m; sourceTree = "<group>"; };
-		F51888EC17B25A3B00262237 /* NString+IOS+SizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NString+IOS+SizeOf.h"; path = "../../../../ljs/Sources/Categories/Foundation/NString+IOS+SizeOf.h"; sourceTree = "<group>"; };
-		F51888ED17B25A3B00262237 /* NString+IOS+SizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NString+IOS+SizeOf.m"; path = "../../../../ljs/Sources/Categories/Foundation/NString+IOS+SizeOf.m"; sourceTree = "<group>"; };
-		F51888EF17B25C2F00262237 /* NString+IOS+SizeOfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NString+IOS+SizeOfTest.m"; path = "../../../ljs/Tests/Categories/NString+IOS+SizeOfTest.m"; sourceTree = "<group>"; };
+		F51888EC17B25A3B00262237 /* NString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NString+IOSSizeOf.h"; path = "../../../../ljs/Sources/Categories/Foundation/NString+IOSSizeOf.h"; sourceTree = "<group>"; };
+		F51888ED17B25A3B00262237 /* NString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NString+IOSSizeOf.m"; path = "../../../../ljs/Sources/Categories/Foundation/NString+IOSSizeOf.m"; sourceTree = "<group>"; };
+		F51888EF17B25C2F00262237 /* NString+IOSSizeOfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NString+IOSSizeOfTest.m"; path = "../../../ljs/Tests/Categories/NString+IOSSizeOfTest.m"; sourceTree = "<group>"; };
 		F5450ACB16DE05BD00D9D01C /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = SOURCE_ROOT; };
 		F5450ACC16DE05BD00D9D01C /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = SOURCE_ROOT; };
 		F5450ACF16DE06A300D9D01C /* Default~iphone-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone-568h@2x.png"; path = "../Default~iphone-568h@2x.png"; sourceTree = "<group>"; };
@@ -565,8 +565,8 @@
 				F5A7F843176CB64A0097E147 /* NSSet+LjsAdditions.m */,
 				F5A7F844176CB64A0097E147 /* NSString+LjsAdditions.h */,
 				F5A7F845176CB64A0097E147 /* NSString+LjsAdditions.m */,
-				F51888EC17B25A3B00262237 /* NString+IOS+SizeOf.h */,
-				F51888ED17B25A3B00262237 /* NString+IOS+SizeOf.m */,
+				F51888EC17B25A3B00262237 /* NString+IOSSizeOf.h */,
+				F51888ED17B25A3B00262237 /* NString+IOSSizeOf.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -740,7 +740,7 @@
 				F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */,
 				F50F18EF179FD9370013852D /* NSIndexPathLjsAdditionsTest.m */,
 				F5102D4817B1DB1100589176 /* UIBarButtonItemAccessibilityIdentifierTest.m */,
-				F51888EF17B25C2F00262237 /* NString+IOS+SizeOfTest.m */,
+				F51888EF17B25C2F00262237 /* NString+IOSSizeOfTest.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -940,7 +940,7 @@
 				F50FE6AC1410C6F60051FC7E /* main.m in Sources */,
 				F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */,
 				F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */,
-				F51888F017B25C2F00262237 /* NString+IOS+SizeOfTest.m in Sources */,
+				F51888F017B25C2F00262237 /* NString+IOSSizeOfTest.m in Sources */,
 				F5A7F818176CB5200097E147 /* DDAbstractDatabaseLogger.m in Sources */,
 				F5A7F819176CB5200097E147 /* DDASLLogger.m in Sources */,
 				F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */,
@@ -1016,7 +1016,7 @@
 				F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */,
 				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
 				F50F18F0179FD9370013852D /* NSIndexPathLjsAdditionsTest.m in Sources */,
-				F51888EE17B25A3B00262237 /* NString+IOS+SizeOf.m in Sources */,
+				F51888EE17B25A3B00262237 /* NString+IOSSizeOf.m in Sources */,
 				F50F18F3179FD9710013852D /* NSIndexPath+LjsAdditions.m in Sources */,
 				F5C2921C17A71C32005E67BF /* LjsDefaultLogFormatter.m in Sources */,
 			);
