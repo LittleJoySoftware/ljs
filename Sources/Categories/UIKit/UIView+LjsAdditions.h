@@ -49,5 +49,7 @@
                 h:(CGFloat) aHeight
       centeredToH:(CGFloat) aCenterH;
 
-- (BOOL) containsSubviewWithTag:(NSInteger) aTag;
+- (BOOL) hasSubviewWithTag:(NSInteger) aTag;
+- (BOOL) doesNotHaveSubviewWithTag:(NSInteger) aTag;
+
 @end
