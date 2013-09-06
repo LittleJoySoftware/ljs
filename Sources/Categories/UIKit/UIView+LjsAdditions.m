@@ -142,8 +142,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   return NSStringFromCGRect(self.bounds);
 }
 
-- (BOOL) containsSubviewWithTag:(NSInteger) aTag {
+- (BOOL) hasSubviewWithTag:(NSInteger) aTag {
   return [self viewWithTag:aTag] != nil;
+}
+
+- (BOOL) doesNotHaveSubviewWithTag:(NSInteger) aTag {
+  return ![self hasSubviewWithTag:aTag];
 }
 
 + (CGRect) frameX:(CGFloat) aX
