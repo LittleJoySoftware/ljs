@@ -1,4 +1,4 @@
-#import "NString+IOSSizeOf.h"
+#import "NSString+IOSSizeOf.h"
 #import "LjsGestalt.h"
 #import "Lumberjack.h"
 
@@ -9,7 +9,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
 
-@implementation NSString (NString_IOS_SizeOf)
+@implementation NSString (NSString_IOS_SizeOf)
 
 
 - (CGSize) sizeOfStringWithFont:(UIFont *) aFont {

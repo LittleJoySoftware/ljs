@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A65C843717CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843417CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m */; };
-		A65C843817CB8A45007D42FD /* NString+IOSSizeOfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843517CB8A45007D42FD /* NString+IOSSizeOfTest.m */; };
+		A65C843817CB8A45007D42FD /* NSString+IOSSizeOfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843517CB8A45007D42FD /* NSString+IOSSizeOfTest.m */; };
 		A65C843917CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843617CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m */; };
 		A65C843C17CB8AA6007D42FD /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843B17CB8AA6007D42FD /* LjsDefaultLogFormatter.m */; };
 		A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843E17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m */; };
-		A65C844217CB8B1A007D42FD /* NString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C844017CB8B1A007D42FD /* NString+IOSSizeOf.m */; };
 		F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
 		F50FE6A41410C6F60051FC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A31410C6F60051FC7E /* CoreGraphics.framework */; };
@@ -35,6 +34,7 @@
 		F552F41A15DBC0680075258F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41115DBC0680075258F /* Icon.png */; };
 		F552F41C15DBC0680075258F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41215DBC0680075258F /* Icon@2x.png */; };
 		F552F41E15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
+		F56DF5B317DBC94600260FC3 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370F1770B11E00D9032D /* LjsVariatesTests.m */; };
@@ -134,14 +134,12 @@
 
 /* Begin PBXFileReference section */
 		A65C843417CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSIndexPathLjsAdditionsTest.m; sourceTree = "<group>"; };
-		A65C843517CB8A45007D42FD /* NString+IOSSizeOfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NString+IOSSizeOfTest.m"; sourceTree = "<group>"; };
+		A65C843517CB8A45007D42FD /* NSString+IOSSizeOfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IOSSizeOfTest.m"; sourceTree = "<group>"; };
 		A65C843617CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBarButtonItemAccessibilityIdentifierTest.m; sourceTree = "<group>"; };
 		A65C843A17CB8AA6007D42FD /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
 		A65C843B17CB8AA6007D42FD /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		A65C843D17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+LjsAdditions.h"; sourceTree = "<group>"; };
 		A65C843E17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+LjsAdditions.m"; sourceTree = "<group>"; };
-		A65C843F17CB8B1A007D42FD /* NString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NString+IOSSizeOf.h"; sourceTree = "<group>"; };
-		A65C844017CB8B1A007D42FD /* NString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NString+IOSSizeOf.m"; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50FE69F1410C6F60051FC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F50FE6A11410C6F60051FC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +168,8 @@
 		F552F41215DBC0680075258F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		F552F41315DBC0680075258F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
+		F56DF5B117DBC94600260FC3 /* NSString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IOSSizeOf.h"; path = "../../../../ljs/Sources/Categories/Foundation/NSString+IOSSizeOf.h"; sourceTree = "<group>"; };
+		F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IOSSizeOf.m"; path = "../../../../ljs/Sources/Categories/Foundation/NSString+IOSSizeOf.m"; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F589370F1770B11E00D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
@@ -531,10 +531,10 @@
 		F5A7F826176CB64A0097E147 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F56DF5B117DBC94600260FC3 /* NSString+IOSSizeOf.h */,
+				F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */,
 				A65C843D17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.h */,
 				A65C843E17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m */,
-				A65C843F17CB8B1A007D42FD /* NString+IOSSizeOf.h */,
-				A65C844017CB8B1A007D42FD /* NString+IOSSizeOf.m */,
 				F5A7F827176CB64A0097E147 /* LjsFoundationCategories.h */,
 				F5A7F828176CB64A0097E147 /* LjsWebCategories.h */,
 				F5A7F829176CB64A0097E147 /* LjsWebCategories.m */,
@@ -729,7 +729,7 @@
 			isa = PBXGroup;
 			children = (
 				A65C843417CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m */,
-				A65C843517CB8A45007D42FD /* NString+IOSSizeOfTest.m */,
+				A65C843517CB8A45007D42FD /* NSString+IOSSizeOfTest.m */,
 				A65C843617CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m */,
 				F5A7F8D3176CB6540097E147 /* LjsDecimalAideTests.m */,
 				F5A7F8D4176CB6540097E147 /* NSArrayLjsAdditionsTests.m */,
@@ -1011,11 +1011,11 @@
 				F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */,
 				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
 				A65C843717CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m in Sources */,
-				A65C843817CB8A45007D42FD /* NString+IOSSizeOfTest.m in Sources */,
+				A65C843817CB8A45007D42FD /* NSString+IOSSizeOfTest.m in Sources */,
 				A65C843917CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */,
 				A65C843C17CB8AA6007D42FD /* LjsDefaultLogFormatter.m in Sources */,
 				A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */,
-				A65C844217CB8B1A007D42FD /* NString+IOSSizeOf.m in Sources */,
+				F56DF5B317DBC94600260FC3 /* NSString+IOSSizeOf.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 /**
  https://gist.github.com/chrene/6158025
  */
-@interface NSString (NString_IOS_SizeOf)
+@interface NSString (NSString_IOS_SizeOf)
 
 - (CGSize) sizeOfStringWithFont:(UIFont *) aFont;
 - (CGSize) sizeOfStringWithFont:(UIFont *) aFont constrainedToSize:(CGSize) aSize;
