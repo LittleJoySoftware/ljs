@@ -1,5 +1,5 @@
 #import "LjsTestCase.h"
-#import "NString+IOSSizeOf.h"
+#import "NSString+IOSSizeOf.h"
 #import "LjsLabelAttributes.h"
 
 
@@ -9,14 +9,14 @@ static NSString *const kLoremImpsum_20_bytes = @"Donec sit amet libero vitae sed
 
 
 
-@interface NString_IOS_SizeOfTest : LjsTestCase {}
+@interface NSString_IOS_SizeOfTest : LjsTestCase {}
 
 - (UIFont *) fontForTests;
 @end
 
 
 
-@implementation NString_IOS_SizeOfTest
+@implementation NSString_IOS_SizeOfTest
 
 - (BOOL)shouldRunOnMainThread {
   // By default NO, but if you have a UI test or test dependent on running on the main thread return YES
