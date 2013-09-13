@@ -2,12 +2,15 @@
 #import "LjsGestalt.h"
 #import "Lumberjack.h"
 
+/*
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int ddLogLevel = LOG_LEVEL_DEBUG;
 #else
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+*/
 
+static const int ddLogLevel = LOG_LEVEL_WARN;
 
 @implementation NSString (NSString_IOS_SizeOf)
 
@@ -24,7 +27,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
   if (ljs_is_iOS_7()) {
-    NSLog(@"Xcode 5 - iOS 7: using layout manager");
+    DDLogDebug(@"Xcode 5 - iOS 7: using layout manager");
     NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString:self];
     NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:aSize];
     NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
@@ -36,11 +39,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     (void)[layoutManager glyphRangeForTextContainer:textContainer];
     return [layoutManager usedRectForTextContainer:textContainer].size;
   } else {
-    NSLog(@"Xcode 5 - iOS < 7: using constrained to size");
+    DDLogDebug(@"Xcode 5 - iOS < 7: using constrained to size");
     return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
   }
 #else
-  NSLog(@"Xcode 4.6: using constrained to size");
+  DDLogDebug(@"Xcode 4.6: using constrained to size");
   return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
 #endif
   
@@ -77,8 +80,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       
       if (currentFontSize - 1.0f < aMinSize) {  break; }
       currentFontSize -= 1.0f;
-      
-      
+    
       DDLogDebug(@"size = %@", NSStringFromCGSize(currentSize));
     } while (currentSize.width > aWidth);
     *aActualFontSize = currentFontSize;
