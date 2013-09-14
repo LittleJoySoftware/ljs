@@ -34,8 +34,8 @@
 		F552F41A15DBC0680075258F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41115DBC0680075258F /* Icon.png */; };
 		F552F41C15DBC0680075258F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41215DBC0680075258F /* Icon@2x.png */; };
 		F552F41E15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
-		F56DF5B317DBC94600260FC3 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
+		F57CEABB17E3E8DC0095BDAC /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370F1770B11E00D9032D /* LjsVariatesTests.m */; };
 		F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58937111771ADD900D9032D /* LjsReasonsTests.m */; };
@@ -936,6 +936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F57CEABB17E3E8DC0095BDAC /* NSString+IOSSizeOf.m in Sources */,
 				F50FE6AC1410C6F60051FC7E /* main.m in Sources */,
 				F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */,
 				F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */,
@@ -1016,7 +1017,6 @@
 				A65C843917CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */,
 				A65C843C17CB8AA6007D42FD /* LjsDefaultLogFormatter.m in Sources */,
 				A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */,
-				F56DF5B317DBC94600260FC3 /* NSString+IOSSizeOf.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
