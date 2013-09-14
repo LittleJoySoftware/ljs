@@ -35,7 +35,6 @@
 		F552F41C15DBC0680075258F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F552F41215DBC0680075258F /* Icon@2x.png */; };
 		F552F41E15DBC0680075258F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F552F41315DBC0680075258F /* iTunesArtwork */; };
 		F5724972149F9C00006C62A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5724971149F9C00006C62A2 /* QuartzCore.framework */; };
-		F57CEABB17E3E8DC0095BDAC /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370F1770B11E00D9032D /* LjsVariatesTests.m */; };
 		F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58937111771ADD900D9032D /* LjsReasonsTests.m */; };
@@ -126,6 +125,7 @@
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
 		F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AF842217C2C16800859330 /* Accelerate.framework */; };
+		F5BDA07717E3EACE00B49422 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
 		F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5ED175E2CA70015696C /* OCMockWorkingTest.m */; };
@@ -169,7 +169,7 @@
 		F552F41315DBC0680075258F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
 		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F56DF5B117DBC94600260FC3 /* NSString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IOSSizeOf.h"; path = "../../../../ljs/Sources/Categories/Foundation/NSString+IOSSizeOf.h"; sourceTree = "<group>"; };
-		F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IOSSizeOf.m"; path = "../../../../ljs/Sources/Categories/Foundation/NSString+IOSSizeOf.m"; sourceTree = "<group>"; };
+		F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IOSSizeOf.m"; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F589370F1770B11E00D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
@@ -935,7 +935,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F57CEABB17E3E8DC0095BDAC /* NSString+IOSSizeOf.m in Sources */,
 				F50FE6AC1410C6F60051FC7E /* main.m in Sources */,
 				F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */,
 				F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */,
@@ -952,6 +951,7 @@
 				F5A7F899176CB64A0097E147 /* LjsWebCategories.m in Sources */,
 				F5A7F89A176CB64A0097E147 /* NSArray+LjsAdditions.m in Sources */,
 				F5A7F89B176CB64A0097E147 /* NSAttributedString+LjsAdditions.m in Sources */,
+				A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */,
 				F5A7F89C176CB64A0097E147 /* NSCalendar+LjsAdditions.m in Sources */,
 				F5A7F89D176CB64A0097E147 /* NSDate+LjsAdditions.m in Sources */,
 				F5A7F89E176CB64A0097E147 /* NSDateFormatter+LjsAdditions.m in Sources */,
@@ -976,6 +976,7 @@
 				F5A7F8BD176CB64A0097E147 /* LjsKeyboardInfo.m in Sources */,
 				F5A7F8BE176CB64A0097E147 /* LjsLabelAttributes.m in Sources */,
 				F5A7F8C0176CB64A0097E147 /* LjsButton.m in Sources */,
+				F5BDA07717E3EACE00B49422 /* NSString+IOSSizeOf.m in Sources */,
 				F5A7F8C1176CB64A0097E147 /* LjsGlassButton.m in Sources */,
 				F5A7F8C2176CB64A0097E147 /* LjsGlassView.m in Sources */,
 				F5A7F8C3176CB64A0097E147 /* LjsGradientView.m in Sources */,
@@ -1015,7 +1016,6 @@
 				A65C843817CB8A45007D42FD /* NSString+IOSSizeOfTest.m in Sources */,
 				A65C843917CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */,
 				A65C843C17CB8AA6007D42FD /* LjsDefaultLogFormatter.m in Sources */,
-				A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
