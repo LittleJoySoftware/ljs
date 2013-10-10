@@ -37,7 +37,10 @@ typedef enum : NSUInteger {
 } LjsGestaltMinorVersion;
 #else
 
+
 extern NSString *const k_ljs_ios_700;
+extern NSString *const k_ljs_ios_600;
+
 extern CGFloat const k_ljs_iphone_5_height;
 extern CGFloat const k_ljs_iphone_height;
 extern CGFloat const k_ljs_iphone_5_additonal_points;
@@ -117,6 +120,10 @@ NS_INLINE BOOL ljs_is_iOS_7() {
 
 NS_INLINE BOOL ljs_is_not_iOS_7() {
   return ljs_ios_version_lt(k_ljs_ios_700);
+}
+
+NS_INLINE BOOL ljs_is_iOS_5() {
+  return ljs_ios_version_lt(@"6.0");
 }
 
 
