@@ -126,7 +126,7 @@
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
 		F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AF842217C2C16800859330 /* Accelerate.framework */; };
-		F5C2921C17A71C32005E67BF /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */; };
+		F5DAA6AC1806E07600232294 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6AB1806E07600232294 /* LjsDefaultFormatter.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
 		F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5ED175E2CA70015696C /* OCMockWorkingTest.m */; };
@@ -321,8 +321,8 @@
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
 		F5AF842217C2C16800859330 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		F5C2921A17A71C32005E67BF /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsDefaultLogFormatter.h; path = ../../../../../ljs/modules/CocoaLumberjack/Lumberjack/LJS/LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
-		F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsDefaultLogFormatter.m; path = ../../../../../ljs/modules/CocoaLumberjack/Lumberjack/LJS/LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
+		F5DAA6AA1806E07600232294 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
+		F5DAA6AB1806E07600232294 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
 		F5FFC5D1175E2B450015696C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5FFC5D2175E2B450015696C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -490,8 +490,8 @@
 		F5A7F80D176CB5200097E147 /* LJS */ = {
 			isa = PBXGroup;
 			children = (
-				F5C2921A17A71C32005E67BF /* LjsDefaultLogFormatter.h */,
-				F5C2921B17A71C32005E67BF /* LjsDefaultLogFormatter.m */,
+				F5DAA6AA1806E07600232294 /* LjsDefaultFormatter.h */,
+				F5DAA6AB1806E07600232294 /* LjsDefaultFormatter.m */,
 				F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */,
 				F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */,
 				F5A7F812176CB5200097E147 /* LjsLog.h */,
@@ -972,6 +972,7 @@
 				F5A7F8AB176CB64A0097E147 /* UIImageView+LjsAdditions.m in Sources */,
 				F5A7F8AC176CB64A0097E147 /* UILabel+LjsAdditions.m in Sources */,
 				F5A7F8AD176CB64A0097E147 /* UIView+LjsAdditions.m in Sources */,
+				F5DAA6AC1806E07600232294 /* LjsDefaultFormatter.m in Sources */,
 				F5A7F8AE176CB64A0097E147 /* LjsProgressiveMigration.m in Sources */,
 				F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */,
 				F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */,
@@ -1017,7 +1018,6 @@
 				F50F18F0179FD9370013852D /* NSIndexPathLjsAdditionsTest.m in Sources */,
 				F51888EE17B25A3B00262237 /* NString+IOS+SizeOf.m in Sources */,
 				F50F18F3179FD9710013852D /* NSIndexPath+LjsAdditions.m in Sources */,
-				F5C2921C17A71C32005E67BF /* LjsDefaultLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
