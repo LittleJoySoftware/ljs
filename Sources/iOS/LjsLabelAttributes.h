@@ -22,7 +22,10 @@
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+
 #import <UIKit/UIKit.h>
+
+// maybe deprecate...
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
   #define ljs_textsize(text, font) [text length] > 0 ? [text \
@@ -46,13 +49,19 @@
  */
 @interface LjsLabelAttributes : NSObject
 
-@property (nonatomic, assign) CGFloat lineHeight;
-@property (nonatomic, assign) CGFloat labelHeight;
-@property (nonatomic, assign) NSUInteger numberOfLines;
-@property (nonatomic, copy) NSString *string;
-@property (nonatomic, assign) CGFloat labelWidth;
-@property (nonatomic, assign) NSLineBreakMode linebreakMode;
-@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, assign, readonly) CGFloat lineHeight;
+@property (nonatomic, assign, readonly) CGFloat labelHeight;
+@property (nonatomic, copy, readonly) NSString *string;
+@property (nonatomic, assign, readonly) CGFloat labelWidth;
+@property (nonatomic, assign, readonly) NSLineBreakMode linebreakMode;
+@property (nonatomic, strong, readonly) UIFont *font;
+
+// in some cases you want to cap the number of lines
+@property (nonatomic, assign) NSUInteger maxNumberOfLines;
+
+// if maxNumberOfLines != 0, will return maxNumberOfLines
+// else will return the number of lines computed using line and label height
+- (NSUInteger) numberOfLines;
 
 - (id) initWithString:(NSString *) aString
                  font:(UIFont *) aFont
@@ -64,17 +73,12 @@
         linebreakMode:(NSLineBreakMode) aLinebreakMode
           minFontSize:(CGFloat) aMinFontSize;
 
-//#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
-//
-//- (id) initWithString:(NSString *) aString
-//                 font:(UIFont *) aFont
-//           labelWidth:(CGFloat) aLabelWidth
-//          labelHeight:(CGFloat) aLabelHeight
-//        linebreakMode:(NSLineBreakMode) aLinebreakMode;
-//#endif
-
 - (void) applyAttributesToLabel:(UILabel *) aLabel
       shouldApplyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight;
+
+- (void) applyAttributesToLabel:(UILabel *) aLabel
+            applyWidthAndHeight:(BOOL) aShouldApplyWidthAndHeight
+              centerToViewWithH:(CGFloat) aHeight;
 
 
 - (UILabel *) labelWithFrame:(CGRect) aFrame

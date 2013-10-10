@@ -33,6 +33,15 @@
 + (UIColor *) colorWithR:(CGFloat) r g:(CGFloat) g b:(CGFloat) b;
 + (UIColor *) colorWithImageNamed:(NSString *) aImageName;
 
++ (UIColor *) colorByBlendingBlurredSnapshotFromView:(UIView *) aView
+                                              inRect:(CGRect) aFrame
+                                                blur:(CGFloat) aBlur
+                                          blendColor:(UIColor *) aBlendColor;
+
+
++ (UIColor *) colorByBlendingBlurredSnapshotFromTopViewInRect:(CGRect) aFrame
+                                                         blur:(CGFloat) aBlur
+                                                   blendColor:(UIColor *) aBlendColor;
 
 
 @end

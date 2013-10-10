@@ -32,4 +32,6 @@
 #import "UILabel+LjsAdditions.h"
 #import "UIImageView+LjsAdditions.h"
 #import "UIImage+LjsCategory.h"
+#import "UIBarButtonItem+AccessibilityIdentifier.h"
+#import "NSString+IOSSizeOf.h"
 #endif

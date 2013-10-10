@@ -30,7 +30,6 @@
 		F5A7F70B176C9E3C0097E147 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F7176C9E3C0097E147 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F70C176C9E3C0097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6F9176C9E3C0097E147 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F70E176C9E3C0097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
-		F5A7F70F176C9E3C0097E147 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F6FF176C9E3C0097E147 /* LjsDefaultFormatter.m */; };
 		F5A7F710176C9E3C0097E147 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F702176C9E3C0097E147 /* LjsLogFileManager.m */; };
 		F5A7F711176C9E3C0097E147 /* LjsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F704176C9E3C0097E147 /* LjsLogging.m */; };
 		F5A7F714176C9E590097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F713176C9E590097E147 /* readlines-test.txt */; };
@@ -90,6 +89,7 @@
 		F5A7F7F6176C9EFA0097E147 /* LjsReasons.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7BA176C9EFA0097E147 /* LjsReasons.m */; };
 		F5A7F7F7176C9EFA0097E147 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7BD176C9EFA0097E147 /* LjsVariates.m */; };
 		F5A7F7FA176CA1AE0097E147 /* LjsUUIDGen.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7F9176CA1AE0097E147 /* LjsUUIDGen.m */; };
+		F5DAA6A91806DFE900232294 /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6A81806DFE900232294 /* LjsDefaultLogFormatter.m */; };
 		F5FFC55C175DFD990015696C /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC55B175DFD990015696C /* OCMock.framework */; };
 		F5FFC561175DFDB30015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC55E175DFDB30015696C /* LjsTestCase.m */; };
 		F5FFC563175DFDB30015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC560175DFDB30015696C /* OCMockWorkingTest.m */; };
@@ -149,8 +149,6 @@
 		F5A7F6F9176C9E3C0097E147 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		F5A7F6FC176C9E3C0097E147 /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
-		F5A7F6FE176C9E3C0097E147 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
-		F5A7F6FF176C9E3C0097E147 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
 		F5A7F700176C9E3C0097E147 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
 		F5A7F701176C9E3C0097E147 /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F5A7F702176C9E3C0097E147 /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
@@ -247,6 +245,8 @@
 		F5A7F7BD176C9EFA0097E147 /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
 		F5A7F7F8176CA1AE0097E147 /* LjsUUIDGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUUIDGen.h; sourceTree = "<group>"; };
 		F5A7F7F9176CA1AE0097E147 /* LjsUUIDGen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUUIDGen.m; sourceTree = "<group>"; };
+		F5DAA6A71806DFE900232294 /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
+		F5DAA6A81806DFE900232294 /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC55B175DFD990015696C /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = ../../ocmock/OSX/OCMock.framework; sourceTree = "<group>"; };
 		F5FFC55D175DFDB30015696C /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../ghunit/LjsTestCase.h; sourceTree = "<group>"; };
 		F5FFC55E175DFDB30015696C /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../ghunit/LjsTestCase.m; sourceTree = "<group>"; };
@@ -377,10 +377,10 @@
 		F5A7F6FB176C9E3C0097E147 /* LJS */ = {
 			isa = PBXGroup;
 			children = (
+				F5DAA6A71806DFE900232294 /* LjsDefaultLogFormatter.h */,
+				F5DAA6A81806DFE900232294 /* LjsDefaultLogFormatter.m */,
 				F5A7F6FC176C9E3C0097E147 /* DDFileLogger+CurrentFile.h */,
 				F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */,
-				F5A7F6FE176C9E3C0097E147 /* LjsDefaultFormatter.h */,
-				F5A7F6FF176C9E3C0097E147 /* LjsDefaultFormatter.m */,
 				F5A7F700176C9E3C0097E147 /* LjsLog.h */,
 				F5A7F701176C9E3C0097E147 /* LjsLogFileManager.h */,
 				F5A7F702176C9E3C0097E147 /* LjsLogFileManager.m */,
@@ -659,7 +659,7 @@
 		F580701B146C26F100EA4CFB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Little Joy Software";
 			};
 			buildConfigurationList = F580701E146C26F100EA4CFB /* Build configuration list for PBXProject "Tests-MacOS" */;
@@ -736,8 +736,8 @@
 				F5A7F70A176C9E3C0097E147 /* DDTTYLogger.m in Sources */,
 				F5A7F70B176C9E3C0097E147 /* ContextFilterLogFormatter.m in Sources */,
 				F5A7F70C176C9E3C0097E147 /* DispatchQueueLogFormatter.m in Sources */,
+				F5DAA6A91806DFE900232294 /* LjsDefaultLogFormatter.m in Sources */,
 				F5A7F70E176C9E3C0097E147 /* DDFileLogger+CurrentFile.m in Sources */,
-				F5A7F70F176C9E3C0097E147 /* LjsDefaultFormatter.m in Sources */,
 				F5A7F710176C9E3C0097E147 /* LjsLogFileManager.m in Sources */,
 				F5A7F711176C9E3C0097E147 /* LjsLogging.m in Sources */,
 				F5A7F730176C9E700097E147 /* LjsDecimalAideTests.m in Sources */,
@@ -809,9 +809,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -844,7 +844,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
@@ -859,9 +859,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -888,7 +888,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wunreachable-code",
