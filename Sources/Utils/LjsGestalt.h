@@ -126,7 +126,14 @@ NS_INLINE BOOL ljs_is_iOS_5() {
   return ljs_ios_version_lt(@"6.0");
 }
 
-
+NS_INLINE CGFloat ljs_screen_scale() {
+  static dispatch_once_t onceToken;
+  static CGFloat shared = NO;
+  dispatch_once(&onceToken, ^{
+    shared = [UIScreen mainScreen].scale;
+  });
+  return shared;
+}
 
 #endif
 
