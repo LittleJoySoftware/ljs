@@ -34,6 +34,8 @@
 #endif
 
 #import "LjsVariates.h"
+#import "LjsBlocks.h"
+#import "LjsCategories.h"
 #import <objc/runtime.h>
 
 // hamcrest
@@ -45,8 +47,6 @@
 [self failWithException:[NSException ghu_failureInFile: [NSString stringWithUTF8String:__FILE__] \
 atLine: __LINE__ \
 withDescription: GHComposeString(description, nil)]]
-
-
 
 #if TARGET_OS_IPHONE
 

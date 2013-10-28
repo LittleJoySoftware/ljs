@@ -181,7 +181,7 @@
 
 - (void) test_nil_dictionary_contains_keys {
   NSDictionary *dict = nil;
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([dict containsKeys:[wself arrayOfAbcStrings]], @"nil dictionary should never contain keys");
   });
@@ -194,7 +194,7 @@
                          @"d" : @"3",
                          @"e" : @"4"};
 
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertTrue([dict containsKeys:[wself arrayOfAbcStrings]], @"dictionary should contain all keys");
   });
@@ -207,7 +207,7 @@
                          @"2" : @"c",
                          @"a" : @"0",
                          @"b" : @"1"};
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([dict containsKeys:[wself arrayOfAbcStrings]], @"dictionary does not contain all keys");
   });
@@ -221,7 +221,7 @@
                          @"d" : @"3",
                          @"e" : @"4"};
   
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertTrue([dict containsKeys:[wself arrayOfAbcStrings] allowsOthers:YES], @"dictionary should contain all keys and allow others");
   });
@@ -234,7 +234,7 @@
                          @"d" : @"3",
                          @"e" : @"4"};
   
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([dict containsKeys:[wself arrayOfAbcStrings] allowsOthers:NO], @"dictionary should contain all keys and _not_ allow others");
   });
@@ -247,7 +247,7 @@
                          @"d" : @"3",
                          @"e" : @"4"};
   
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     id keys = [wself flip] ? [wself emptyStringOrNil] : @(5);
     GHAssertFalse([dict containsKeys:keys allowsOthers:NO], @"dictionary should contain all keys and _not_ allow others");

@@ -372,7 +372,7 @@
 
 - (void) test_array_nil_contains_objects {
   NSArray *array = nil;
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([array containsObjects:[wself randomCollection]],
                   @"nil arrays should never contain objects");
@@ -381,7 +381,7 @@
 
 - (void) test_array_empty_contains_objects {
   NSArray *array = @[];
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([array containsObjects:[wself randomCollection]],
                   @"nil arrays should never contain objects");
@@ -390,7 +390,7 @@
 
 - (void) test_array_contains_objects_yes {
   NSArray *array = @[@"a", @"b", @"c"];
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertTrue([array containsObjects:[wself randomCollection]],
                  @"array should contain objects");
@@ -399,7 +399,7 @@
 
 - (void) test_array_contains_objects_no {
   NSArray *array = @[@"A", @"B"];
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([array containsObjects:[wself randomCollection]],
                  @"array should not contain objects");
@@ -409,7 +409,7 @@
 
 - (void) test_array_contains_objects_allows_others_no {
   NSArray *array = @[@"a", @"b", @"c"];
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertTrue([array containsObjects:[wself randomCollection] allowsOthers:NO],
                   @"array should contain objects and no others");
@@ -418,7 +418,7 @@
 
 - (void) test_array_contains_objects_allows_others_yes {
   NSArray *array = @[@"a", @"b", @"c", @"d"];
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertTrue([array containsObjects:[wself randomCollection] allowsOthers:YES],
                  @"array should contain objects and no others");
@@ -428,7 +428,7 @@
 
 - (void) test_array_contains_objects_no_allows_others {
   NSArray *array = @[@"a", @"b", @"d"];
-  typeof(self) wself = self;
+  __weak typeof(self) wself = self;
   dotimes(5, ^{
     GHAssertFalse([array containsObjects:[wself randomCollection] allowsOthers:[wself flip]],
                  @"array should contain objects and no others");
