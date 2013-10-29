@@ -23,9 +23,9 @@
 
 
 #import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 #import "LjsGestalt.h"
 #import "LjsFileUtilities.h"
-
 #import "LjsVariates.h"
 #import "LjsBlocks.h"
 #import "LjsCategories.h"
@@ -41,17 +41,10 @@
 atLine: __LINE__ \
 withDescription: GHComposeString(description, nil)]]
 
-#if TARGET_OS_IPHONE
-
-
-@interface UIView (UIView_TESTING)
-- (NSMutableDictionary *)fullDescription;
-@end
-#endif
 
 @class LjsGestalt;
 
-@interface LjsTestCase : GHTestCase
+@interface XCLjsTestCase : XCTestCase
 
 
 @property (nonatomic, strong) LjsGestalt *gestalt;

@@ -1,3 +1,9 @@
 [submodule "modules/CocoaLumberjack"]
 	path = modules/CocoaLumberjack
 	url = git@github.com:LittleJoySoftware/CocoaLumberjack.git
+[submodule "xctool"]
+	path = xctool
+	url = git@github.com:jmoody/xctool.git
+[submodule "xctest-additions"]
+	path = xctest-additions
+	url = git@github.com:jmoody/xctest-additions.git
