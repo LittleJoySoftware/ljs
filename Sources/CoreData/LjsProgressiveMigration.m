@@ -51,8 +51,6 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, copy) NSString *timestampedDirectory;
 @property (nonatomic, strong) NSArray *ignorableModels;
-@property (nonatomic, strong) NSMutableArray *managers;
-@property (nonatomic, strong) NSMutableArray *pairs;
 
 /** @name Utilitiy */
 - (NSArray *) collectModelVersions;
@@ -81,9 +79,9 @@ typedef enum : NSUInteger {
 #pragma mark Memory Management
 
 - (void) dealloc {
-//  for (NSMigrationManager *man in [self managers]) {
-//    [man reset];
-//  }
+  //  for (NSMigrationManager *man in [self managers]) {
+  //    [man reset];
+  //  }
 }
 
 - (NSError *) errorWithMessage:(NSString *) aMessage {
@@ -100,17 +98,14 @@ typedef enum : NSUInteger {
     NSDateFormatter *df = [NSDateFormatter orderedDateFormatterWithMillis];
     NSString *dateStr = [df stringFromDate:[NSDate date]];
     self.timestampedDirectory = [NSString stringWithFormat:@"migration-%@", dateStr];
-    self.managers = [NSMutableArray array];
-    self.pairs = [NSMutableArray array];
-    
     
     //    NSString *mappingModelPath = [[NSBundle mainBundle] pathForResource:@"Ru_v27_v28_MappingModel" ofType:@"cdm"];
     //   NSMappingModel *mappingModel = [[NSMappingModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:mappingModelPath]];
     
-//    for (NSEntityMapping *entityMapping in mappingModel.entityMappings) {
-//      NSLog(@"%@: %@", entityMapping.sourceEntityName, entityMapping.sourceEntityVersionHash);
-//      NSLog(@"%@: %@", entityMapping.destinationEntityName, entityMapping.destinationEntityVersionHash);
-//    }
+    //    for (NSEntityMapping *entityMapping in mappingModel.entityMappings) {
+    //      NSLog(@"%@: %@", entityMapping.sourceEntityName, entityMapping.sourceEntityVersionHash);
+    //      NSLog(@"%@: %@", entityMapping.destinationEntityName, entityMapping.destinationEntityVersionHash);
+    //    }
   }
   return self;
 }
@@ -139,21 +134,24 @@ typedef enum : NSUInteger {
                            error:(NSError **) aError {
   
   
+  
   NSLog(@"PMU START");
+  NSError *metadataError = nil;
   NSDictionary *sourceMetadata =
   [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:aStoreType
                                                              URL:aSourceStoreURL
-                                                           error:aError];
+                                                           error:&metadataError];
   // no metadata - return nil
   if (sourceMetadata == nil) {
     NSLog(@"no source metadata");
+    if (aError != NULL) {  *aError = metadataError; }
     return NO;
   }
   
   // compatible model - nil the error and return YES
   if ([aFinalModel isConfiguration:nil compatibleWithStoreMetadata:sourceMetadata]) {
     NSLog(@"compatible model - returning YES!");
-    if (aError != NULL) *aError = nil;
+    if (aError != NULL) { *aError = nil; }
     return YES;
   }
   
@@ -197,42 +195,46 @@ typedef enum : NSUInteger {
                                  initWithSourceModel:sourceModel
                                  destinationModel:destinationModel];
   
-  [self.managers addObject:manager];
-  
+  //[self.managers addObject:manager];
+  NSError *urlError = nil;
   NSString *modelName = [[modelPath lastPathComponent] stringByDeletingPathExtension];
   NSString *storeExtension = [[aSourceStoreURL path] pathExtension];
   NSURL *destinationStoreURL = [self URLforDestinationStoreWithSourceStoreURL:aSourceStoreURL
                                                                     modelName:modelName
                                                                storeExtension:storeExtension
-                                                                        error:aError];
+                                                                        error:&urlError];
   if (destinationStoreURL == nil) {
     // error populated in the URLforDestinationStore
     NSLog(@"destination URL is NIL!");
+    if (aError != nil) { *aError = urlError; }
+    manager = nil;
     return NO;
   }
   
   
-  NSArray *newEntityMappings = [NSArray arrayWithArray:mappingModel.entityMappings];
-  for (NSEntityMapping *entityMapping in newEntityMappings) {
-    
-    [entityMapping setSourceEntityVersionHash:[sourceModel.entityVersionHashesByName
-                                               valueForKey:entityMapping.sourceEntityName]];
-    [entityMapping setDestinationEntityVersionHash:[destinationModel.entityVersionHashesByName
-                                                    valueForKey:entityMapping.destinationEntityName]];
-  }
-  mappingModel.entityMappings = newEntityMappings;
+  //  NSArray *newEntityMappings = [NSArray arrayWithArray:mappingModel.entityMappings];
+  //  for (NSEntityMapping *entityMapping in newEntityMappings) {
+  //
+  //    [entityMapping setSourceEntityVersionHash:[sourceModel.entityVersionHashesByName
+  //                                               valueForKey:entityMapping.sourceEntityName]];
+  //    [entityMapping setDestinationEntityVersionHash:[destinationModel.entityVersionHashesByName
+  //                                                    valueForKey:entityMapping.destinationEntityName]];
+  //  }
+  //  mappingModel.entityMappings = newEntityMappings;
   
   
-//  NSString * const NSIgnorePersistentStoreVersioningOption;
-//  NSString * const NSMigratePersistentStoresAutomaticallyOption;
+  //  NSString * const NSIgnorePersistentStoreVersioningOption;
+  //  NSString * const NSMigratePersistentStoresAutomaticallyOption;
   //NSString * const NSInferMappingModelAutomaticallyOption;
   
-//  NSDictionary *options = @{NSIgnorePersistentStoreVersioningOption : @(NO),
-//                            NSMigratePersistentStoresAutomaticallyOption : @(YES)};
-
+  //  NSDictionary *options = @{NSIgnorePersistentStoreVersioningOption : @(NO),
+  //                            NSMigratePersistentStoresAutomaticallyOption : @(YES)};
+  
   NSDictionary *options = nil;
   
+  
   // do migration - if returns NO, then we return NO
+  NSError *migrationError = nil;
   if ([manager migrateStoreFromURL:aSourceStoreURL
                               type:aStoreType
                            options:options
@@ -240,29 +242,33 @@ typedef enum : NSUInteger {
                   toDestinationURL:destinationStoreURL
                    destinationType:aStoreType
                 destinationOptions:options
-                             error:aError] == NO) {
+                             error:&migrationError] == NO) {
     NSLog(@"could not migrate!");
-    
-    //manager = nil;
+    if (aError != NULL) { *aError = migrationError; }
+    manager = nil;
     return NO;
   }
   
+  manager = nil;
   
   //NSLog(@"managers = %@", self.managers);
-  NSLog(@"progress = %.2f", manager.migrationProgress);
+  //NSLog(@"progress = %.2f", manager.migrationProgress);
   
   //    NSLog(@"resetting the manager");
   //    [manager reset];
   //NSLog(@"nil'ing the manager!");
   //manager = nil;
+  //manager = nil;
   
   //Migration was successful, move the files around to preserve the source
+  NSError *backupError = nil;
   if ([self makeBackupsToPreserveSourceWithSourceStoreURL:aSourceStoreURL
                                       destinationStoreURL:destinationStoreURL
                                                 modelName:modelName
                                            storeExtension:storeExtension
-                                                    error:aError] == NO) {
+                                                    error:&backupError] == NO) {
     NSLog(@"could not make backup!");
+    if (aError != nil) { *aError = backupError; }
     return NO;
   }
   
@@ -276,7 +282,6 @@ typedef enum : NSUInteger {
   //  sourceMetadata = nil;
   
   NSLog(@"PMU RECURSE!");
-  
   
   //We may not be at the "current" model yet, so recurse
   return [self progressivelyMigrateURL:aSourceStoreURL

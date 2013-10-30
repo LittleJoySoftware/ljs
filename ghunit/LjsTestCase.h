@@ -23,6 +23,10 @@
 
 
 #import <Foundation/Foundation.h>
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
+#import <OCMock/OCMock.h>
+#import <GHUnitIOS/GHUnit.h>
+
 #import "LjsGestalt.h"
 #import "LjsFileUtilities.h"
 
