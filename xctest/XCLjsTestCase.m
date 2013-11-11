@@ -151,6 +151,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //  [super tearDownClass];
 //}
 
+- (void) setUpClass {
+  
+}
+
+- (void) tearDownClass {
+  
+}
+
 - (void) setUp {
   [super setUp];
   if (getenv("GHUNIT_CLI")) {

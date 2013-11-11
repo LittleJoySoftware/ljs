@@ -20,7 +20,9 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 // OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 // IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
@@ -65,6 +67,12 @@ withDescription: GHComposeString(description, nil)]]
 @property (assign) Method findApplicationSupportDirectoryForUserpOriginal;
 @property (assign) Method findApplicationSupportDirectoryForUserpMock;
 #endif
+
+
+#pragma mark - GHUnit Style - *cough* typical unit test style
+
+- (void) setUpClass;
+- (void) tearDownClass;
 
 
 - (NSString *) findDocumentDirectoryPathSwizzled;
@@ -120,5 +128,6 @@ withDescription: GHComposeString(description, nil)]]
 - (void) compareArray:(NSArray *) aActual
               toArray:(NSArray *) aExpected
             asStrings:(BOOL) aCompareElementsAsStrings;
+
 
 @end
