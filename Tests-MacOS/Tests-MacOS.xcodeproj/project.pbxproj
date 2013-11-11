@@ -41,7 +41,6 @@
 		F5A7F735176C9E700097E147 /* NSErrorLjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F71C176C9E700097E147 /* NSErrorLjsAdditions.m */; };
 		F5A7F736176C9E700097E147 /* NSSetLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F71D176C9E700097E147 /* NSSetLjsAdditionsTest.m */; };
 		F5A7F737176C9E700097E147 /* NSStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F71E176C9E700097E147 /* NSStringLjsAdditionsTest.m */; };
-		F5A7F738176C9E700097E147 /* LjsProgressiveMigrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F720176C9E700097E147 /* LjsProgressiveMigrationTest.m */; };
 		F5A7F739176C9E700097E147 /* LjsLoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F722176C9E700097E147 /* LjsLoremIpsumTests.m */; };
 		F5A7F73B176C9E700097E147 /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F726176C9E700097E147 /* LjsFileBackedStoreTests.m */; };
 		F5A7F73D176C9E700097E147 /* LjsCaesarCipherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F72A176C9E700097E147 /* LjsCaesarCipherTests.m */; };
@@ -63,7 +62,6 @@
 		F5A7F7CA176C9EFA0097E147 /* NSOrderedSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F760176C9EFA0097E147 /* NSOrderedSet+LjsAdditions.m */; };
 		F5A7F7CB176C9EFA0097E147 /* NSSet+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F762176C9EFA0097E147 /* NSSet+LjsAdditions.m */; };
 		F5A7F7CC176C9EFA0097E147 /* NSString+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F764176C9EFA0097E147 /* NSString+LjsAdditions.m */; };
-		F5A7F7D3176C9EFA0097E147 /* LjsProgressiveMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F775176C9EFA0097E147 /* LjsProgressiveMigration.m */; };
 		F5A7F7D4176C9EFA0097E147 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F778176C9EFA0097E147 /* LjsFaker.m */; };
 		F5A7F7D5176C9EFA0097E147 /* LjsLoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F77A176C9EFA0097E147 /* LjsLoremIpsum.m */; };
 		F5A7F7D6176C9EFA0097E147 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F77C176C9EFA0097E147 /* com.littlejoysoftware.faker.addresses.us.plist */; };
@@ -89,7 +87,9 @@
 		F5A7F7F6176C9EFA0097E147 /* LjsReasons.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7BA176C9EFA0097E147 /* LjsReasons.m */; };
 		F5A7F7F7176C9EFA0097E147 /* LjsVariates.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7BD176C9EFA0097E147 /* LjsVariates.m */; };
 		F5A7F7FA176CA1AE0097E147 /* LjsUUIDGen.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7F9176CA1AE0097E147 /* LjsUUIDGen.m */; };
-		F5DAA6A91806DFE900232294 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6A81806DFE900232294 /* LjsDefaultFormatter.m */; };
+		F5BF2FAC18310BA6003F3696 /* LjsCoreDataMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BF2FAB18310BA6003F3696 /* LjsCoreDataMigration.m */; };
+		F5BF2FAE18311590003F3696 /* LjsCoreDataMigrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BF2FAD18311590003F3696 /* LjsCoreDataMigrationTest.m */; };
+		F5DAA6A91806DFE900232294 /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6A81806DFE900232294 /* LjsDefaultLogFormatter.m */; };
 		F5FFC55C175DFD990015696C /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC55B175DFD990015696C /* OCMock.framework */; };
 		F5FFC561175DFDB30015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC55E175DFDB30015696C /* LjsTestCase.m */; };
 		F5FFC563175DFDB30015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC560175DFDB30015696C /* OCMockWorkingTest.m */; };
@@ -164,7 +164,6 @@
 		F5A7F71C176C9E700097E147 /* NSErrorLjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorLjsAdditions.m; sourceTree = "<group>"; };
 		F5A7F71D176C9E700097E147 /* NSSetLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSetLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5A7F71E176C9E700097E147 /* NSStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLjsAdditionsTest.m; sourceTree = "<group>"; };
-		F5A7F720176C9E700097E147 /* LjsProgressiveMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigrationTest.m; sourceTree = "<group>"; };
 		F5A7F722176C9E700097E147 /* LjsLoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLoremIpsumTests.m; sourceTree = "<group>"; };
 		F5A7F726176C9E700097E147 /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
 		F5A7F72A176C9E700097E147 /* LjsCaesarCipherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCaesarCipherTests.m; sourceTree = "<group>"; };
@@ -203,8 +202,6 @@
 		F5A7F763176C9EFA0097E147 /* NSString+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5A7F764176C9EFA0097E147 /* NSString+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5A7F765176C9EFA0097E147 /* LjsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCategories.h; sourceTree = "<group>"; };
-		F5A7F774176C9EFA0097E147 /* LjsProgressiveMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsProgressiveMigration.h; sourceTree = "<group>"; };
-		F5A7F775176C9EFA0097E147 /* LjsProgressiveMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigration.m; sourceTree = "<group>"; };
 		F5A7F777176C9EFA0097E147 /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
 		F5A7F778176C9EFA0097E147 /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
 		F5A7F779176C9EFA0097E147 /* LjsLoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLoremIpsum.h; sourceTree = "<group>"; };
@@ -245,8 +242,11 @@
 		F5A7F7BD176C9EFA0097E147 /* LjsVariates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariates.m; sourceTree = "<group>"; };
 		F5A7F7F8176CA1AE0097E147 /* LjsUUIDGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsUUIDGen.h; sourceTree = "<group>"; };
 		F5A7F7F9176CA1AE0097E147 /* LjsUUIDGen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsUUIDGen.m; sourceTree = "<group>"; };
-		F5DAA6A71806DFE900232294 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
-		F5DAA6A81806DFE900232294 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
+		F5BF2FAA18310BA6003F3696 /* LjsCoreDataMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCoreDataMigration.h; sourceTree = "<group>"; };
+		F5BF2FAB18310BA6003F3696 /* LjsCoreDataMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCoreDataMigration.m; sourceTree = "<group>"; };
+		F5BF2FAD18311590003F3696 /* LjsCoreDataMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCoreDataMigrationTest.m; sourceTree = "<group>"; };
+		F5DAA6A71806DFE900232294 /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
+		F5DAA6A81806DFE900232294 /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC55B175DFD990015696C /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = ../../ocmock/OSX/OCMock.framework; sourceTree = "<group>"; };
 		F5FFC55D175DFDB30015696C /* LjsTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsTestCase.h; path = ../../ghunit/LjsTestCase.h; sourceTree = "<group>"; };
 		F5FFC55E175DFDB30015696C /* LjsTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsTestCase.m; path = ../../ghunit/LjsTestCase.m; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 		F5A7F71F176C9E700097E147 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F720176C9E700097E147 /* LjsProgressiveMigrationTest.m */,
+				F5BF2FAD18311590003F3696 /* LjsCoreDataMigrationTest.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -549,8 +549,8 @@
 		F5A7F773176C9EFA0097E147 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F774176C9EFA0097E147 /* LjsProgressiveMigration.h */,
-				F5A7F775176C9EFA0097E147 /* LjsProgressiveMigration.m */,
+				F5BF2FAA18310BA6003F3696 /* LjsCoreDataMigration.h */,
+				F5BF2FAB18310BA6003F3696 /* LjsCoreDataMigration.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -748,8 +748,8 @@
 				F5A7F735176C9E700097E147 /* NSErrorLjsAdditions.m in Sources */,
 				F5A7F736176C9E700097E147 /* NSSetLjsAdditionsTest.m in Sources */,
 				F5A7F737176C9E700097E147 /* NSStringLjsAdditionsTest.m in Sources */,
-				F5A7F738176C9E700097E147 /* LjsProgressiveMigrationTest.m in Sources */,
 				F5A7F739176C9E700097E147 /* LjsLoremIpsumTests.m in Sources */,
+				F5BF2FAE18311590003F3696 /* LjsCoreDataMigrationTest.m in Sources */,
 				F5A7F73B176C9E700097E147 /* LjsFileBackedStoreTests.m in Sources */,
 				F5A7F73D176C9E700097E147 /* LjsCaesarCipherTests.m in Sources */,
 				F5A7F73F176C9E700097E147 /* LjsBlocksTest.m in Sources */,
@@ -763,6 +763,7 @@
 				F5A7F7C3176C9EFA0097E147 /* NSDateFormatter+LjsAdditions.m in Sources */,
 				F5A7F7C4176C9EFA0097E147 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 				F5A7F7C5176C9EFA0097E147 /* NSDictionary+LjsAdditions.m in Sources */,
+				F5BF2FAC18310BA6003F3696 /* LjsCoreDataMigration.m in Sources */,
 				F5A7F7C6176C9EFA0097E147 /* NSError+LjsAdditions.m in Sources */,
 				F5A7F7C7176C9EFA0097E147 /* NSLocale+LjsAdditions.m in Sources */,
 				F5A7F7C8176C9EFA0097E147 /* NSMutableArray+LjsAdditions.m in Sources */,
@@ -770,7 +771,6 @@
 				F5A7F7CA176C9EFA0097E147 /* NSOrderedSet+LjsAdditions.m in Sources */,
 				F5A7F7CB176C9EFA0097E147 /* NSSet+LjsAdditions.m in Sources */,
 				F5A7F7CC176C9EFA0097E147 /* NSString+LjsAdditions.m in Sources */,
-				F5A7F7D3176C9EFA0097E147 /* LjsProgressiveMigration.m in Sources */,
 				F5A7F7D4176C9EFA0097E147 /* LjsFaker.m in Sources */,
 				F5A7F7D5176C9EFA0097E147 /* LjsLoremIpsum.m in Sources */,
 				F5A7F7EB176C9EFA0097E147 /* LjsFileBackedKeyStore.m in Sources */,
@@ -815,7 +815,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -844,7 +844,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
@@ -865,7 +865,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
@@ -888,7 +888,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 				WARNING_CFLAGS = (
 					"-Wunreachable-code",
@@ -931,7 +931,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -974,7 +974,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../ocmock/OSX\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

@@ -1,3 +1,4 @@
+
 // Copyright 2012 Little Joy Software. All rights reserved.
 // All rights reserved.
 //
@@ -113,7 +114,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   pixelBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
   
-  if (pixelBuffer == NULL) { DDLogError(@"no pixel buffer!"); return nil; }
+  if (pixelBuffer == NULL) {
+    DDLogError(@"no pixel buffer!");
+    if (inBitmapData != NULL) { CFRelease(inBitmapData); }
+    return nil;
+  }
   
   outBuffer.data = pixelBuffer;
   outBuffer.width = CGImageGetWidth(img);
@@ -122,7 +127,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
   
-  if (error) { DDLogError(@"JFDepthView: error from convolution '%ld'", error);  return nil;}
+  if (error) {
+    DDLogError(@"JFDepthView: error from convolution '%ld'", error);
+    if (inBitmapData != NULL) { CFRelease(inBitmapData); }
+    return nil;
+  }
   
   
   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -157,7 +166,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   
   free(pixelBuffer);
   CFRelease(inBitmapData);
-  
   CGImageRelease(imageRef);
   
   return [returnImage resizableImageWithCapInsets:UIEdgeInsetsZero];

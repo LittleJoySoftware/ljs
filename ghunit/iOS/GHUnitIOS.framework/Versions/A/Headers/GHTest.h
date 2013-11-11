@@ -68,16 +68,16 @@ extern BOOL GHTestStatusEnded(GHTestStatus status);
  Test stats.
  */
 typedef struct {
-  short succeedCount; // Number of succeeded tests
-  short failureCount; // Number of failed tests
-  short cancelCount; // Number of aborted tests
-  short testCount; // Total number of tests
+  NSInteger succeedCount; // Number of succeeded tests
+  NSInteger failureCount; // Number of failed tests
+  NSInteger cancelCount; // Number of aborted tests
+  NSInteger testCount; // Total number of tests 
 } GHTestStats;
 
 /*!
  Create GHTestStats.
  */
-extern GHTestStats GHTestStatsMake(short succeedCount, short failureCount, short cancelCount, short testCount);
+extern GHTestStats GHTestStatsMake(NSInteger succeedCount, NSInteger failureCount, NSInteger cancelCount, NSInteger testCount);
 
 extern const GHTestStats GHTestStatsEmpty;
 
@@ -164,7 +164,7 @@ extern NSString *NSStringFromGHTestStats(GHTestStats stats);
 /*!
  @result The number of disabled tests
  */
-- (short)disabledCount;
+- (NSInteger)disabledCount;
 
 @end
 

@@ -67,11 +67,12 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 - (NSString *) swizzledSFHFgetPasswordForUsername:(NSString *) aIgnored0
                                    andServiceName:(NSString *) aIgnored1
                                             error:(NSError **) aError {
-  NSError __autoreleasing __unused *error = nil;
+  
+  //NSError __autoreleasing __unused *error = nil;
   // known analyzer warning - not sure what to do here
 //#pragma clang diagnostic push
 //#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-  aError = &error;
+// aError = &error;
 //#pragma clang diagnostic pop
 
   

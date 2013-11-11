@@ -73,7 +73,6 @@
 		F5A7F8AB176CB64A0097E147 /* UIImageView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F84F176CB64A0097E147 /* UIImageView+LjsAdditions.m */; };
 		F5A7F8AC176CB64A0097E147 /* UILabel+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F851176CB64A0097E147 /* UILabel+LjsAdditions.m */; };
 		F5A7F8AD176CB64A0097E147 /* UIView+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F853176CB64A0097E147 /* UIView+LjsAdditions.m */; };
-		F5A7F8AE176CB64A0097E147 /* LjsProgressiveMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F856176CB64A0097E147 /* LjsProgressiveMigration.m */; };
 		F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F859176CB64A0097E147 /* LjsFaker.m */; };
 		F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F85B176CB64A0097E147 /* LjsLoremIpsum.m */; };
 		F5A7F8B1176CB64A0097E147 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F85D176CB64A0097E147 /* com.littlejoysoftware.faker.addresses.us.plist */; };
@@ -116,7 +115,7 @@
 		F5A7F8F1176CB6540097E147 /* NSErrorLjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8D8176CB6540097E147 /* NSErrorLjsAdditions.m */; };
 		F5A7F8F2176CB6540097E147 /* NSSetLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8D9176CB6540097E147 /* NSSetLjsAdditionsTest.m */; };
 		F5A7F8F3176CB6540097E147 /* NSStringLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */; };
-		F5A7F8F4176CB6540097E147 /* LjsProgressiveMigrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DC176CB6540097E147 /* LjsProgressiveMigrationTest.m */; };
+		F5A7F8F4176CB6540097E147 /* LjsCoreDataMigrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DC176CB6540097E147 /* LjsCoreDataMigrationTest.m */; };
 		F5A7F8F5176CB6540097E147 /* LjsLoremIpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8DE176CB6540097E147 /* LjsLoremIpsumTests.m */; };
 		F5A7F8F6176CB6540097E147 /* LjsLabelAttributesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8E0176CB6540097E147 /* LjsLabelAttributesTest.m */; };
 		F5A7F8F7176CB6540097E147 /* LjsFileBackedStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8E2176CB6540097E147 /* LjsFileBackedStoreTests.m */; };
@@ -127,7 +126,9 @@
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
 		F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AF842217C2C16800859330 /* Accelerate.framework */; };
-		F5DAA6AC1806E07600232294 /* LjsDefaultFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6AB1806E07600232294 /* LjsDefaultFormatter.m */; };
+		F5BDA07717E3EACE00B49422 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
+		F5BF2FA91831087C003F3696 /* LjsCoreDataMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BF2FA81831087C003F3696 /* LjsCoreDataMigration.m */; };
+		F5DAA6AF1806E1B900232294 /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6AE1806E1B900232294 /* LjsDefaultLogFormatter.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
 		F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5ED175E2CA70015696C /* OCMockWorkingTest.m */; };
@@ -169,7 +170,6 @@
 		F552F41115DBC0680075258F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		F552F41215DBC0680075258F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		F552F41315DBC0680075258F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
-		F56147AC1450BFB800D2653A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../gh-unit/Project-iOS/build/Framework/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		F56DF5B117DBC94600260FC3 /* NSString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IOSSizeOf.h"; path = "../../../../ljs/Sources/Categories/Foundation/NSString+IOSSizeOf.h"; sourceTree = "<group>"; };
 		F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IOSSizeOf.m"; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -244,8 +244,6 @@
 		F5A7F851176CB64A0097E147 /* UILabel+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LjsAdditions.m"; sourceTree = "<group>"; };
 		F5A7F852176CB64A0097E147 /* UIView+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LjsAdditions.h"; sourceTree = "<group>"; };
 		F5A7F853176CB64A0097E147 /* UIView+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LjsAdditions.m"; sourceTree = "<group>"; };
-		F5A7F855176CB64A0097E147 /* LjsProgressiveMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsProgressiveMigration.h; sourceTree = "<group>"; };
-		F5A7F856176CB64A0097E147 /* LjsProgressiveMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigration.m; sourceTree = "<group>"; };
 		F5A7F858176CB64A0097E147 /* LjsFaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsFaker.h; sourceTree = "<group>"; };
 		F5A7F859176CB64A0097E147 /* LjsFaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFaker.m; sourceTree = "<group>"; };
 		F5A7F85A176CB64A0097E147 /* LjsLoremIpsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLoremIpsum.h; sourceTree = "<group>"; };
@@ -313,7 +311,7 @@
 		F5A7F8D8176CB6540097E147 /* NSErrorLjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorLjsAdditions.m; sourceTree = "<group>"; };
 		F5A7F8D9176CB6540097E147 /* NSSetLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSetLjsAdditionsTest.m; sourceTree = "<group>"; };
 		F5A7F8DA176CB6540097E147 /* NSStringLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLjsAdditionsTest.m; sourceTree = "<group>"; };
-		F5A7F8DC176CB6540097E147 /* LjsProgressiveMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsProgressiveMigrationTest.m; sourceTree = "<group>"; };
+		F5A7F8DC176CB6540097E147 /* LjsCoreDataMigrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCoreDataMigrationTest.m; sourceTree = "<group>"; };
 		F5A7F8DE176CB6540097E147 /* LjsLoremIpsumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLoremIpsumTests.m; sourceTree = "<group>"; };
 		F5A7F8E0176CB6540097E147 /* LjsLabelAttributesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLabelAttributesTest.m; sourceTree = "<group>"; };
 		F5A7F8E2176CB6540097E147 /* LjsFileBackedStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsFileBackedStoreTests.m; sourceTree = "<group>"; };
@@ -324,8 +322,10 @@
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
 		F5AF842217C2C16800859330 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		F5DAA6AA1806E07600232294 /* LjsDefaultFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultFormatter.h; sourceTree = "<group>"; };
-		F5DAA6AB1806E07600232294 /* LjsDefaultFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultFormatter.m; sourceTree = "<group>"; };
+		F5BF2FA71831087C003F3696 /* LjsCoreDataMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsCoreDataMigration.h; path = ../../../ljs/Sources/CoreData/LjsCoreDataMigration.h; sourceTree = "<group>"; };
+		F5BF2FA81831087C003F3696 /* LjsCoreDataMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsCoreDataMigration.m; path = ../../../ljs/Sources/CoreData/LjsCoreDataMigration.m; sourceTree = "<group>"; };
+		F5DAA6AD1806E1B900232294 /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
+		F5DAA6AE1806E1B900232294 /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
 		F5FFC5D1175E2B450015696C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5FFC5D2175E2B450015696C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -597,8 +597,8 @@
 		F5A7F854176CB64A0097E147 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F855176CB64A0097E147 /* LjsProgressiveMigration.h */,
-				F5A7F856176CB64A0097E147 /* LjsProgressiveMigration.m */,
+				F5BF2FA71831087C003F3696 /* LjsCoreDataMigration.h */,
+				F5BF2FA81831087C003F3696 /* LjsCoreDataMigration.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -749,7 +749,7 @@
 		F5A7F8DB176CB6540097E147 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F8DC176CB6540097E147 /* LjsProgressiveMigrationTest.m */,
+				F5A7F8DC176CB6540097E147 /* LjsCoreDataMigrationTest.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -958,6 +958,7 @@
 				F5A7F89C176CB64A0097E147 /* NSCalendar+LjsAdditions.m in Sources */,
 				F5A7F89D176CB64A0097E147 /* NSDate+LjsAdditions.m in Sources */,
 				F5A7F89E176CB64A0097E147 /* NSDateFormatter+LjsAdditions.m in Sources */,
+				F5BF2FA91831087C003F3696 /* LjsCoreDataMigration.m in Sources */,
 				F5A7F89F176CB64A0097E147 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 				F5A7F8A0176CB64A0097E147 /* NSDictionary+LjsAdditions.m in Sources */,
 				F5A7F8A1176CB64A0097E147 /* NSError+LjsAdditions.m in Sources */,
@@ -973,8 +974,6 @@
 				F5A7F8AB176CB64A0097E147 /* UIImageView+LjsAdditions.m in Sources */,
 				F5A7F8AC176CB64A0097E147 /* UILabel+LjsAdditions.m in Sources */,
 				F5A7F8AD176CB64A0097E147 /* UIView+LjsAdditions.m in Sources */,
-				F5DAA6AC1806E07600232294 /* LjsDefaultFormatter.m in Sources */,
-				F5A7F8AE176CB64A0097E147 /* LjsProgressiveMigration.m in Sources */,
 				F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */,
 				F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */,
 				F5A7F8BD176CB64A0097E147 /* LjsKeyboardInfo.m in Sources */,
@@ -1005,7 +1004,7 @@
 				F5A7F8F1176CB6540097E147 /* NSErrorLjsAdditions.m in Sources */,
 				F5A7F8F2176CB6540097E147 /* NSSetLjsAdditionsTest.m in Sources */,
 				F5A7F8F3176CB6540097E147 /* NSStringLjsAdditionsTest.m in Sources */,
-				F5A7F8F4176CB6540097E147 /* LjsProgressiveMigrationTest.m in Sources */,
+				F5A7F8F4176CB6540097E147 /* LjsCoreDataMigrationTest.m in Sources */,
 				F5A7F8F5176CB6540097E147 /* LjsLoremIpsumTests.m in Sources */,
 				F5A7F8F6176CB6540097E147 /* LjsLabelAttributesTest.m in Sources */,
 				F5A7F8F7176CB6540097E147 /* LjsFileBackedStoreTests.m in Sources */,
@@ -1175,6 +1174,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1229,6 +1229,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joshua Moody (8QEQJFT59F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1342,6 +1343,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1457,6 +1459,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

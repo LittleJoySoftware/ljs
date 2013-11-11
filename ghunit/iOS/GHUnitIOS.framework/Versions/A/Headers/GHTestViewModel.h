@@ -39,11 +39,10 @@
 - (void)testNodeDidChange:(GHTestNode *)node;
 @end
 
-typedef enum : unsigned short {
+typedef enum {
   GHTestNodeFilterNone = 0,
   GHTestNodeFilterFailed = 1
 } GHTestNodeFilter;
-
 
 /*!
  Test view model for use in a tree view.
@@ -118,14 +117,14 @@ typedef enum : unsigned short {
 /*!
  @result Returns the number of test groups.
  */
-- (NSUInteger)numberOfGroups;
+- (NSInteger)numberOfGroups;
 
 /*!
  Returns the number of tests in group.
  @param group Group number
  @result The number of tests in group.
  */
-- (NSUInteger)numberOfTestsInGroup:(NSUInteger)group;
+- (NSInteger)numberOfTestsInGroup:(NSInteger)group;
 
 /*!
  Search for path to test.
