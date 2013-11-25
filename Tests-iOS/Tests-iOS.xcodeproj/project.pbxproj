@@ -38,6 +38,9 @@
 		F58013AD149E080E00692073 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58013AC149E080E00692073 /* CoreLocation.framework */; };
 		F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F589370F1770B11E00D9032D /* LjsVariatesTests.m */; };
 		F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58937111771ADD900D9032D /* LjsReasonsTests.m */; };
+		F589F54D184381DA0087A461 /* LjsCoreDataMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F589F54B184381DA0087A461 /* LjsCoreDataMigration.m */; };
+		F589F553184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = F589F552184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m */; };
+		F589F5561843822D0087A461 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F589F5551843822D0087A461 /* NSString+IOSSizeOf.m */; };
 		F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
 		F598923917C8B18C00356088 /* NSIndexPath+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F598923817C8B18C00356088 /* NSIndexPath+LjsAdditions.m */; };
 		F598923B17C8B3C300356088 /* NSIndexPathLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F598923A17C8B3C300356088 /* NSIndexPathLjsAdditionsTest.m */; };
@@ -126,8 +129,6 @@
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
 		F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AF842217C2C16800859330 /* Accelerate.framework */; };
-		F5BDA07717E3EACE00B49422 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */; };
-		F5BF2FA91831087C003F3696 /* LjsCoreDataMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BF2FA81831087C003F3696 /* LjsCoreDataMigration.m */; };
 		F5DAA6AF1806E1B900232294 /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6AE1806E1B900232294 /* LjsDefaultLogFormatter.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
@@ -152,8 +153,6 @@
 		F50FE6AB1410C6F60051FC7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F50FE6AD1410C6F60051FC7E /* Tests-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		F50FE7331410D30D0051FC7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		F5102D4517B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+AccessibilityIdentifier.h"; path = "../../../../ljs/Sources/Categories/UIKit/UIBarButtonItem+AccessibilityIdentifier.h"; sourceTree = "<group>"; };
-		F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+AccessibilityIdentifier.m"; path = "../../../../ljs/Sources/Categories/UIKit/UIBarButtonItem+AccessibilityIdentifier.m"; sourceTree = "<group>"; };
 		F5450ACB16DE05BD00D9D01C /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = SOURCE_ROOT; };
 		F5450ACC16DE05BD00D9D01C /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = SOURCE_ROOT; };
 		F5450ACF16DE06A300D9D01C /* Default~iphone-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone-568h@2x.png"; path = "../Default~iphone-568h@2x.png"; sourceTree = "<group>"; };
@@ -170,12 +169,16 @@
 		F552F41115DBC0680075258F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		F552F41215DBC0680075258F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		F552F41315DBC0680075258F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = SOURCE_ROOT; };
-		F56DF5B117DBC94600260FC3 /* NSString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IOSSizeOf.h"; path = "../../../../ljs/Sources/Categories/Foundation/NSString+IOSSizeOf.h"; sourceTree = "<group>"; };
-		F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IOSSizeOf.m"; sourceTree = "<group>"; };
 		F5724971149F9C00006C62A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F58013AC149E080E00692073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F589370F1770B11E00D9032D /* LjsVariatesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsVariatesTests.m; sourceTree = "<group>"; };
 		F58937111771ADD900D9032D /* LjsReasonsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsReasonsTests.m; sourceTree = "<group>"; };
+		F589F54B184381DA0087A461 /* LjsCoreDataMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsCoreDataMigration.m; sourceTree = "<group>"; };
+		F589F54C184381DA0087A461 /* LjsCoreDataMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsCoreDataMigration.h; sourceTree = "<group>"; };
+		F589F551184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AccessibilityIdentifier.h"; sourceTree = "<group>"; };
+		F589F552184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AccessibilityIdentifier.m"; sourceTree = "<group>"; };
+		F589F5541843822D0087A461 /* NSString+IOSSizeOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IOSSizeOf.h"; sourceTree = "<group>"; };
+		F589F5551843822D0087A461 /* NSString+IOSSizeOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IOSSizeOf.m"; sourceTree = "<group>"; };
 		F5903F8E151B64A900995AF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F5A7F7FD176CB5200097E147 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
@@ -322,8 +325,6 @@
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
 		F5AF842217C2C16800859330 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		F5BF2FA71831087C003F3696 /* LjsCoreDataMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LjsCoreDataMigration.h; path = ../../../ljs/Sources/CoreData/LjsCoreDataMigration.h; sourceTree = "<group>"; };
-		F5BF2FA81831087C003F3696 /* LjsCoreDataMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LjsCoreDataMigration.m; path = ../../../ljs/Sources/CoreData/LjsCoreDataMigration.m; sourceTree = "<group>"; };
 		F5DAA6AD1806E1B900232294 /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
 		F5DAA6AE1806E1B900232294 /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
@@ -534,8 +535,8 @@
 		F5A7F826176CB64A0097E147 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				F56DF5B117DBC94600260FC3 /* NSString+IOSSizeOf.h */,
-				F56DF5B217DBC94600260FC3 /* NSString+IOSSizeOf.m */,
+				F589F5541843822D0087A461 /* NSString+IOSSizeOf.h */,
+				F589F5551843822D0087A461 /* NSString+IOSSizeOf.m */,
 				A65C843D17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.h */,
 				A65C843E17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m */,
 				F5A7F827176CB64A0097E147 /* LjsFoundationCategories.h */,
@@ -576,8 +577,8 @@
 		F5A7F847176CB64A0097E147 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				F5102D4517B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.h */,
-				F5102D4617B1DAE600589176 /* UIBarButtonItem+AccessibilityIdentifier.m */,
+				F589F551184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.h */,
+				F589F552184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m */,
 				F5A7F848176CB64A0097E147 /* UIButton+LjsAdditions.h */,
 				F5A7F849176CB64A0097E147 /* UIButton+LjsAdditions.m */,
 				F5A7F84A176CB64A0097E147 /* UIColor+LjsAdditions.h */,
@@ -597,8 +598,8 @@
 		F5A7F854176CB64A0097E147 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F5BF2FA71831087C003F3696 /* LjsCoreDataMigration.h */,
-				F5BF2FA81831087C003F3696 /* LjsCoreDataMigration.m */,
+				F589F54B184381DA0087A461 /* LjsCoreDataMigration.m */,
+				F589F54C184381DA0087A461 /* LjsCoreDataMigration.h */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -944,6 +945,7 @@
 				F5A7F818176CB5200097E147 /* DDAbstractDatabaseLogger.m in Sources */,
 				F5A7F819176CB5200097E147 /* DDASLLogger.m in Sources */,
 				F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */,
+				F589F553184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */,
 				F5A7F81B176CB5200097E147 /* DDLog.m in Sources */,
 				F5A7F81C176CB5200097E147 /* DDTTYLogger.m in Sources */,
 				F5A7F81D176CB5200097E147 /* ContextFilterLogFormatter.m in Sources */,
@@ -957,8 +959,9 @@
 				A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */,
 				F5A7F89C176CB64A0097E147 /* NSCalendar+LjsAdditions.m in Sources */,
 				F5A7F89D176CB64A0097E147 /* NSDate+LjsAdditions.m in Sources */,
+				F589F5561843822D0087A461 /* NSString+IOSSizeOf.m in Sources */,
 				F5A7F89E176CB64A0097E147 /* NSDateFormatter+LjsAdditions.m in Sources */,
-				F5BF2FA91831087C003F3696 /* LjsCoreDataMigration.m in Sources */,
+				F589F54D184381DA0087A461 /* LjsCoreDataMigration.m in Sources */,
 				F5A7F89F176CB64A0097E147 /* NSDecimalNumber+LjsAdditions.m in Sources */,
 				F5A7F8A0176CB64A0097E147 /* NSDictionary+LjsAdditions.m in Sources */,
 				F5A7F8A1176CB64A0097E147 /* NSError+LjsAdditions.m in Sources */,
@@ -979,7 +982,6 @@
 				F5A7F8BD176CB64A0097E147 /* LjsKeyboardInfo.m in Sources */,
 				F5A7F8BE176CB64A0097E147 /* LjsLabelAttributes.m in Sources */,
 				F5A7F8C0176CB64A0097E147 /* LjsButton.m in Sources */,
-				F5BDA07717E3EACE00B49422 /* NSString+IOSSizeOf.m in Sources */,
 				F5A7F8C1176CB64A0097E147 /* LjsGlassButton.m in Sources */,
 				F5A7F8C2176CB64A0097E147 /* LjsGlassView.m in Sources */,
 				F5A7F8C3176CB64A0097E147 /* LjsGradientView.m in Sources */,
