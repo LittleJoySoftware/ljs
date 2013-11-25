@@ -23,5 +23,4 @@
                          toModel:(NSManagedObjectModel *) aFinalModel 
                            error:(NSError **) aError;
 
-
 @end

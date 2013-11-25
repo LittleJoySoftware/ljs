@@ -95,21 +95,13 @@ typedef enum : NSUInteger {
                                       storeExtension:(NSString *) aStoreExtention
                                                error:(NSError **) aError;
 
-- (BOOL) makeBackupsToPreserveSourceWithSourceStoreURL:(NSURL *) aSourceStoreURL
-                                   destinationStoreURL:(NSURL *) aDestinationStoreURL
-                                             modelName:(NSString *) aModelName
-                                        storeExtension:(NSString *) aStoreExtension
-                                                 error:(NSError **) aError;
+- (BOOL) swapSourceStoreURL:(NSURL *) aSourceStoreURL
+    withDestinationStoreURL:(NSURL *) aDestinationStoreURL
+                  modelName:(NSString *) aModelName
+             storeExtension:(NSString *) aStoreExtension
+                      error:(NSError **) aError;
 
 - (NSError *) errorWithMessage:(NSString *) aMessage;
-
-
-// not working
-- (BOOL) migrateURL:(NSURL *) aSourceStoreURL
-          storeType:(NSString *) aStoreType
-            toModel:(NSManagedObjectModel *) aFinalModel
-              error:(NSError **) aError;
-
 
 
 @end
@@ -123,14 +115,10 @@ typedef enum : NSUInteger {
 @synthesize ignorableModels = _ignorableModels;
 @synthesize availableModelVersions = _availableModelVersions;
 
-- (void) dealloc {
-  
-}
 
 - (NSError *) errorWithMessage:(NSString *) aMessage {
   return [NSError errorWithDomain:kErrorDomain code:kErrorCode localizedDescription:aMessage];
 }
-
 
 - (NSArray *) availableModelVersions {
   if (_availableModelVersions != nil)  { return _availableModelVersions; }
@@ -197,9 +185,9 @@ typedef enum : NSUInteger {
  be indicated by a return value of NO
  */
 - (BOOL) recursivelyMigrateURL:(NSURL *) aSourceStoreURL
-                       storeType:(NSString *) aStoreType
-                         toModel:(NSManagedObjectModel *) aFinalModel
-                           error:(NSError **) aError {
+                     storeType:(NSString *) aStoreType
+                       toModel:(NSManagedObjectModel *) aFinalModel
+                         error:(NSError **) aError {
   
   
   NSError *metadataError = nil;
@@ -232,18 +220,18 @@ typedef enum : NSUInteger {
     return NO;
   }
   
-  //Find all of the mom and momd files in the Resources directory
+  // find all of the mom and momd files in the Resources directory
   NSArray *modelPaths = [self availableModelVersions];
-  // this check only needs to be done once...
   if ([modelPaths has_objects] == NO) {
     NSString *message = @"No models found in bundle.";
     DDLogError(message); if (aError != NULL) { *aError = [self errorWithMessage:message]; }
     return NO;
   }
-
-
+  
   LjsCompatMapping *compat = [self compatibleMappingWithModelPaths:modelPaths
                                                        sourceModel:sourceModel];
+  
+  modelPaths = nil;
   
   if (compat == nil) {
     NSString *message = @"Could not find matching destination MOM and mapping.";
@@ -255,13 +243,14 @@ typedef enum : NSUInteger {
   NSManagedObjectModel *destinationModel = compat.objectModel;
   NSString *modelPath = compat.modelPath;
   
+  compat = nil;
   
   //We have a mapping model and a destination model.  Time to migrate
   NSMigrationManager *manager = [[NSMigrationManager alloc]
                                  initWithSourceModel:sourceModel
                                  destinationModel:destinationModel];
   
-
+  
   //[self.managers addObject:manager];
   NSError *urlError = nil;
   NSString *modelName = [[modelPath lastPathComponent] stringByDeletingPathExtension];
@@ -299,24 +288,34 @@ typedef enum : NSUInteger {
   
   //Migration was successful, move the files around to preserve the source
   NSError *backupError = nil;
-  if ([self makeBackupsToPreserveSourceWithSourceStoreURL:aSourceStoreURL
-                                      destinationStoreURL:destinationStoreURL
-                                                modelName:modelName
-                                           storeExtension:storeExtension
-                                                    error:&backupError] == NO) {
-    DDLogError(@"could not make backup!");
+  if ([self swapSourceStoreURL:aSourceStoreURL
+       withDestinationStoreURL:destinationStoreURL
+                     modelName:modelName
+                storeExtension:storeExtension
+                         error:&backupError] == NO) {
+    DDLogError(@"could not make swap source and destination");
     if (aError != nil) { *aError = backupError; }
     return NO;
   }
   
-  //We may not be at the "current" model yet, so recurse
+  
+  manager = nil;
+  modelName = nil;
+  destinationModel = nil;
+  
+  destinationStoreURL = nil;
+  modelName = nil;
+  storeExtension = nil;
+  
+  sourceMetadata = nil;
+  sourceModel = nil;
+  
   return [self recursivelyMigrateURL:aSourceStoreURL
-                             storeType:aStoreType
-                               toModel:aFinalModel
-                                 error:aError];
-
+                           storeType:aStoreType
+                             toModel:aFinalModel
+                               error:aError];
+  
 }
-
 
 /*
  @return a dictionary that contains an NSMappingModel, an NSManagedObjectModel,
@@ -326,7 +325,7 @@ typedef enum : NSUInteger {
  @param aSourceModel the model we are trying to migration _from_
  */
 - (LjsCompatMapping *) compatibleMappingWithModelPaths:(NSArray *) aModelPaths
-                                  sourceModel:(NSManagedObjectModel *) aSourceModel {
+                                           sourceModel:(NSManagedObjectModel *) aSourceModel {
   LjsCompatMapping *mapping = nil;
   for (NSString *path in aModelPaths) {
     NSURL *url = [NSURL fileURLWithPath:path];
@@ -341,7 +340,7 @@ typedef enum : NSUInteger {
     
     if ([sourceVersion integerValue] > [targetVersion integerValue]) {
       DDLogDebug(@"source model version '%@' is > target model version '%@' so we skip this pair",
-            sourceVersion, targetVersion);
+                 sourceVersion, targetVersion);
       continue;
     }
     
@@ -380,17 +379,18 @@ typedef enum : NSUInteger {
                                       storeExtension:(NSString *) aStoreExtention
                                                error:(NSError **) aError {
   NSString *baseDirPath = [[aSourceStoreURL path] stringByDeletingLastPathComponent];
-  NSString *timestampDirPath = [baseDirPath stringByAppendingPathComponent:self.timestampedDirectory];
+  NSString *timestampedDir = self.timestampedDirectory;
+  NSString *timestampDirPath = [baseDirPath stringByAppendingPathComponent:timestampedDir];
   
   NSString *lastPathDir = [baseDirPath lastPathComponent];
-  if ([lastPathDir isEqualToString:self.timestampedDirectory] == NO) {
+  if ([lastPathDir isEqualToString:timestampedDir] == NO) {
     if ([[NSFileManager defaultManager] fileExistsAtPath:timestampDirPath] == NO) {
       if ([[NSFileManager defaultManager] createDirectoryAtPath:timestampDirPath
                                     withIntermediateDirectories:YES
                                                      attributes:nil error:aError] == NO) {
         NSString *message = [@"Could not create tmp directory "
                              stringByAppendingFormat:@"%@ at path %@",
-                             self.timestampedDirectory, timestampDirPath];
+                             timestampedDir, timestampDirPath];
         DDLogError(message);  if (aError != NULL) { *aError = [self errorWithMessage:message]; }
         return nil;
       }
@@ -406,202 +406,64 @@ typedef enum : NSUInteger {
 
 
 /*
- @return YES if the backup process was success and NO otherwise.  if the backup
+ @return YES if the swapping was success and NO otherwise.  if the swap
  fails, the aError will be populated if it is non-NULL
  @param aSourceStoreURL the source store
  @param aDestinationStoreURL the destination store
  @param aModelName the name of the model we are migrating
  @param aStoreExtension the file extension of the store
- @param aError populated when non-NULL and the backup is unsuccessful
+ @param aError populated when non-NULL and the swap is unsuccessful
  */
-- (BOOL) makeBackupsToPreserveSourceWithSourceStoreURL:(NSURL *) aSourceStoreURL
-                                   destinationStoreURL:(NSURL *) aDestinationStoreURL
-                                             modelName:(NSString *) aModelName
-                                        storeExtension:(NSString *) aStoreExtension
-                                                 error:(NSError **) aError {
-  NSString *storePath = [aDestinationStoreURL path];
+- (BOOL) swapSourceStoreURL:(NSURL *) aSourceStoreURL
+    withDestinationStoreURL:(NSURL *) aDestinationStoreURL
+                  modelName:(NSString *) aModelName
+             storeExtension:(NSString *) aStoreExtension
+                      error:(NSError **) aError {
+  @synchronized(self) {
+    
+    NSString *storePath = [aDestinationStoreURL path];
+    
+    NSString *guid = [LjsUUIDGen generateUUID];
+    guid = [guid stringByAppendingString:@"-ORIGINAL-"];
+    guid = [guid stringByAppendingFormat:@"-%@", aModelName];
+    guid = [guid stringByAppendingPathExtension:aStoreExtension];
+    NSString *appSupportPath = [storePath stringByDeletingLastPathComponent];
+    NSString *backupPath = [appSupportPath stringByAppendingPathComponent:guid];
+    
   
-  NSString *guid = [LjsUUIDGen generateUUID];
-  guid = [guid stringByAppendingString:@"-ORIGINAL-"];
-  guid = [guid stringByAppendingFormat:@"-%@", aModelName];
-  guid = [guid stringByAppendingPathExtension:aStoreExtension];
-  NSString *appSupportPath = [storePath stringByDeletingLastPathComponent];
-  NSString *backupPath = [appSupportPath stringByAppendingPathComponent:guid];
-  
-  
-  if ([[NSFileManager defaultManager] moveItemAtPath:[aSourceStoreURL path]
-                                              toPath:backupPath
-                                               error:aError] == NO) {
-    //Failed to move the file
-    return NO;
-  }
-  
-  //Move the destination to the source path
-  if ([[NSFileManager defaultManager] moveItemAtPath:storePath
+    NSError *moveToBackupError = nil;
+    
+    if ([[NSFileManager defaultManager] moveItemAtPath:[aSourceStoreURL path]
+                                                toPath:backupPath
+                                                 error:&moveToBackupError] == NO) {
+      DDLogError(@"could not move source store to the back up path");
+      DDLogError(@"source store:  '%@'", [aSourceStoreURL path]);
+      DDLogError(@" backup path:   '%@'", backupPath);
+      DDLogError(@"       error: %@", [moveToBackupError localizedDescription]);
+      if (aError != NULL) { *aError = moveToBackupError; }
+      return NO;
+    }
+    
+    // move the destination to the source path
+    NSError *moveDestinationToSourceError = nil;
+    if ([[NSFileManager defaultManager] moveItemAtPath:storePath
+                                                toPath:[aSourceStoreURL path]
+                                                 error:&moveDestinationToSourceError] == NO) {
+      DDLogError(@"could not move destination store to the source store");
+      DDLogError(@"destination store:  '%@'", storePath);
+      DDLogError(@"      source path:   '%@'", [aSourceStoreURL path]);
+      DDLogError(@"       error: %@", [moveDestinationToSourceError localizedDescription]);
+      if (aError != NULL) { *aError = moveDestinationToSourceError; }
+      
+      // try to back out the source move first, no point in checking it for errors
+      [[NSFileManager defaultManager] moveItemAtPath:backupPath
                                               toPath:[aSourceStoreURL path]
-                                               error:aError] == NO) {
-    //Try to back out the source move first, no point in checking it for errors
-    [[NSFileManager defaultManager] moveItemAtPath:backupPath
-                                            toPath:[aSourceStoreURL path]
-                                             error:nil];
-    DDLogError(@"ending backup with a failure!");
-    return NO;
+                                               error:nil];
+      return NO;
+    }
+        
+    return YES;
   }
-  return YES;
-}
-
-
-
-- (BOOL) migrateURL:(NSURL *) aSourceStoreURL
-          storeType:(NSString *) aStoreType
-            toModel:(NSManagedObjectModel *) aFinalModel
-              error:(NSError **) aError {
-  
-  uint16_t count = 0;
-  
-  //Find all of the mom and momd files in the Resources directory
-  NSArray *modelPaths = [self availableModelVersions];
-  if ([modelPaths has_objects] == NO) {
-    NSString *message = @"No models found in bundle.";
-    DDLogError(message); if (aError != NULL) { *aError = [self errorWithMessage:message]; }
-    return NO;
-  }
-  
-  NSDictionary *migrationOptions = @{};
-  NSDictionary *sourceMetadata = nil;
-  
-  BOOL success = NO;
-  
-  do {
-    NSError *metadataError = nil;
-    sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:aStoreType
-                                                                                URL:aSourceStoreURL
-                                                                              error:&metadataError];
-    // no metadata - return nil
-    if (sourceMetadata == nil) {
-      DDLogError(@"no source metadata");
-      if (aError != NULL) {  *aError = metadataError; }
-      success = NO;
-      break;
-    }
-
-    // model is already compatible
-    if ([aFinalModel isConfiguration:nil compatibleWithStoreMetadata:sourceMetadata] == YES) {
-      DDLogError(@"compatible model - returning YES!");
-      if (aError != NULL) { *aError = nil; }
-      success = YES;
-      break;
-    }
-
-    DDLogError(@"migration loop pass '%@'", [NSNumber numberWithUnsignedShort:++count]);
-    
-    
-    NSManagedObjectModel *sourceModel = [NSManagedObjectModel
-                                         mergedModelFromBundles:nil
-                                         forStoreMetadata:sourceMetadata];
-    
-    //Find the source model
-    if (sourceModel == nil) {
-      NSString *msg = [@"failed to create source model from metadata: "
-                       stringByAppendingFormat:@"%@", sourceMetadata];
-      DDLogError(msg); if (aError != NULL) { *aError = [self errorWithMessage:msg]; }
-      success = NO;
-      break;
-    }
-    
-    LjsCompatMapping *compat = [self compatibleMappingWithModelPaths:modelPaths
-                                                         sourceModel:sourceModel];
-    DDLogDebug(@"compat = %@", compat);
-    
-    if (compat == nil) {
-      NSString *message = @"Could not find matching destination MOM and mapping.";
-      DDLogError(message); if (aError != NULL) { *aError = [self errorWithMessage:message]; }
-      success = NO;
-      break;
-    }
-    
-    NSMappingModel *mappingModel = compat.mappingModel;
-    NSManagedObjectModel *destinationModel = compat.objectModel;
-    NSString *modelPath = compat.modelPath;
-    
-    
-    //We have a mapping model and a destination model.  Time to migrate
-    NSMigrationManager *manager = [[NSMigrationManager alloc]
-                                   initWithSourceModel:sourceModel
-                                   destinationModel:destinationModel];
-    
-    DDLogDebug(@"this is the manager: %@", manager);
-    
-    
-    NSError *urlError = nil;
-    NSString *modelName = [[modelPath lastPathComponent] stringByDeletingPathExtension];
-    NSString *storeExtension = [[aSourceStoreURL path] pathExtension];
-    NSURL *destinationStoreURL = [self URLforDestinationStoreWithSourceStoreURL:aSourceStoreURL
-                                                                      modelName:modelName
-                                                                 storeExtension:storeExtension
-                                                                          error:&urlError];
-    if (destinationStoreURL == nil) {
-      // error populated in the URLforDestinationStore
-      DDLogError(@"destination URL is NIL!");
-      if (aError != nil) { *aError = urlError; }
-      success = NO;
-      break;
-    }
-    
-  
-    // do migration - if returns NO, then we return NO
-    NSError *migrationError = nil;
-    
-    DDLogDebug(@"migration start");
-    BOOL migrationSuccess = [manager migrateStoreFromURL:aSourceStoreURL
-                                                    type:aStoreType
-                                                 options:migrationOptions
-                                        withMappingModel:mappingModel
-                                        toDestinationURL:destinationStoreURL
-                                         destinationType:aStoreType
-                                      destinationOptions:migrationOptions
-                                                   error:&migrationError];
-    
-    DDLogDebug(@"migration end");
-    
-    if (migrationSuccess == NO) {
-      NSLog(@"could not migrate!");
-      if (aError != NULL) { *aError = migrationError; }
-      success = NO;
-      break;
-    }
-    
-    
-    //Migration was successful, move the files around to preserve the source
-    NSError *backupError = nil;
-    if ([self makeBackupsToPreserveSourceWithSourceStoreURL:aSourceStoreURL
-                                        destinationStoreURL:destinationStoreURL
-                                                  modelName:modelName
-                                             storeExtension:storeExtension
-                                                      error:&backupError] == NO) {
-      DDLogError(@"could not make backup!");
-      if (aError != nil) { *aError = backupError; }
-      success = NO;
-      break;
-    }
-
-  
-    sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:aStoreType
-                                                                                URL:aSourceStoreURL
-                                                                              error:&metadataError];
-    // no metadata - return nil
-    if (sourceMetadata == nil) {
-      DDLogError(@"no source metadata");
-      if (aError != NULL) {  *aError = metadataError; }
-      success = NO;
-      break;
-    }
-    
-  } while ([aFinalModel isConfiguration:nil compatibleWithStoreMetadata:sourceMetadata] == NO);
-  
-  DDLogError(@"done migrating");
-  if (success == NO) { NSLog(@"failed: %@", *aError != NULL ? *aError : nil); }
-  return success;
 }
 
 
