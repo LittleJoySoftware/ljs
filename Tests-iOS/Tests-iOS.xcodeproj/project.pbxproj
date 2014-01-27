@@ -43,7 +43,6 @@
 		F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F802176CB5200097E147 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81B176CB5200097E147 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F804176CB5200097E147 /* DDLog.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81C176CB5200097E147 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F806176CB5200097E147 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
-		F5A7F81F176CB5200097E147 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F80C176CB5200097E147 /* README.txt */; };
 		F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F822176CB5200097E147 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F814176CB5200097E147 /* LjsLogFileManager.m */; };
 		F5A7F823176CB5200097E147 /* LjsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F816176CB5200097E147 /* LjsLogging.m */; };
@@ -894,7 +893,6 @@
 				F5450AD016DE06A300D9D01C /* Default~iphone-568h@2x.png in Resources */,
 				F5450AD316DE06FD00D9D01C /* Default~ipad@2x.png in Resources */,
 				F5450AD416DE06FD00D9D01C /* Default~iphone@2x.png in Resources */,
-				F5A7F81F176CB5200097E147 /* README.txt in Resources */,
 				F5A7F8B1176CB64A0097E147 /* com.littlejoysoftware.faker.addresses.us.plist in Resources */,
 				F5A7F8B2176CB64A0097E147 /* com.littlejoysoftware.faker.cities.us.plist in Resources */,
 				F5A7F8B3176CB64A0097E147 /* com.littlejoysoftware.faker.companies.us.plist in Resources */,
