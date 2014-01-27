@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A65C843717CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843417CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m */; };
-		A65C843817CB8A45007D42FD /* NSString+IOSSizeOfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843517CB8A45007D42FD /* NSString+IOSSizeOfTest.m */; };
-		A65C843917CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843617CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m */; };
-		A65C843C17CB8AA6007D42FD /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843B17CB8AA6007D42FD /* LjsDefaultLogFormatter.m */; };
 		A65C844117CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A65C843E17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m */; };
 		F50FE6A01410C6F60051FC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE69F1410C6F60051FC7E /* UIKit.framework */; };
 		F50FE6A21410C6F60051FC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50FE6A11410C6F60051FC7E /* Foundation.framework */; };
@@ -42,15 +38,11 @@
 		F589F553184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = F589F552184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m */; };
 		F589F5561843822D0087A461 /* NSString+IOSSizeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = F589F5551843822D0087A461 /* NSString+IOSSizeOf.m */; };
 		F5903F8F151B64A900995AF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5903F8E151B64A900995AF1 /* CoreData.framework */; };
-		F598923917C8B18C00356088 /* NSIndexPath+LjsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F598923817C8B18C00356088 /* NSIndexPath+LjsAdditions.m */; };
-		F598923B17C8B3C300356088 /* NSIndexPathLjsAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F598923A17C8B3C300356088 /* NSIndexPathLjsAdditionsTest.m */; };
 		F5A7F818176CB5200097E147 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F7FE176CB5200097E147 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F819176CB5200097E147 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F800176CB5200097E147 /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81A176CB5200097E147 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F802176CB5200097E147 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81B176CB5200097E147 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F804176CB5200097E147 /* DDLog.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81C176CB5200097E147 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F806176CB5200097E147 /* DDTTYLogger.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
-		F5A7F81D176CB5200097E147 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F809176CB5200097E147 /* ContextFilterLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
-		F5A7F81E176CB5200097E147 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80B176CB5200097E147 /* DispatchQueueLogFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F81F176CB5200097E147 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F80C176CB5200097E147 /* README.txt */; };
 		F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
 		F5A7F822176CB5200097E147 /* LjsLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F814176CB5200097E147 /* LjsLogFileManager.m */; };
@@ -129,7 +121,10 @@
 		F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */; };
 		F5A7F900176CB6730097E147 /* readlines-test.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5A7F8FF176CB6730097E147 /* readlines-test.txt */; };
 		F5AF842317C2C16800859330 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AF842217C2C16800859330 /* Accelerate.framework */; };
-		F5DAA6AF1806E1B900232294 /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA6AE1806E1B900232294 /* LjsDefaultLogFormatter.m */; };
+		F5DB148D1896D5C800CDA47F /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DB14881896D5C800CDA47F /* DDContextFilterLogFormatter.m */; };
+		F5DB148E1896D5C800CDA47F /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DB148A1896D5C800CDA47F /* DDDispatchQueueLogFormatter.m */; };
+		F5DB148F1896D5C800CDA47F /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DB148C1896D5C800CDA47F /* DDMultiFormatter.m */; };
+		F5DB14921896D62700CDA47F /* LjsDefaultLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DB14911896D62700CDA47F /* LjsDefaultLogFormatter.m */; };
 		F5FFC5D7175E2B450015696C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FFC5CF175E2B450015696C /* libOCMock.a */; };
 		F5FFC5EE175E2CA70015696C /* LjsTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5EB175E2CA70015696C /* LjsTestCase.m */; };
 		F5FFC5F0175E2CA70015696C /* OCMockWorkingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FFC5ED175E2CA70015696C /* OCMockWorkingTest.m */; };
@@ -140,8 +135,6 @@
 		A65C843417CB8A45007D42FD /* NSIndexPathLjsAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSIndexPathLjsAdditionsTest.m; sourceTree = "<group>"; };
 		A65C843517CB8A45007D42FD /* NSString+IOSSizeOfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IOSSizeOfTest.m"; sourceTree = "<group>"; };
 		A65C843617CB8A45007D42FD /* UIBarButtonItemAccessibilityIdentifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBarButtonItemAccessibilityIdentifierTest.m; sourceTree = "<group>"; };
-		A65C843A17CB8AA6007D42FD /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
-		A65C843B17CB8AA6007D42FD /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		A65C843D17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+LjsAdditions.h"; sourceTree = "<group>"; };
 		A65C843E17CB8B1A007D42FD /* NSIndexPath+LjsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+LjsAdditions.m"; sourceTree = "<group>"; };
 		F50FE69B1410C6F60051FC7E /* Tests-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tests-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,10 +183,6 @@
 		F5A7F804176CB5200097E147 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
 		F5A7F805176CB5200097E147 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		F5A7F806176CB5200097E147 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		F5A7F808176CB5200097E147 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		F5A7F809176CB5200097E147 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		F5A7F80A176CB5200097E147 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		F5A7F80B176CB5200097E147 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		F5A7F80C176CB5200097E147 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
@@ -325,8 +314,14 @@
 		F5A7F8EB176CB6540097E147 /* LjsGestaltTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsGestaltTests.m; sourceTree = "<group>"; };
 		F5A7F8FF176CB6730097E147 /* readlines-test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "readlines-test.txt"; sourceTree = "<group>"; };
 		F5AF842217C2C16800859330 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		F5DAA6AD1806E1B900232294 /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
-		F5DAA6AE1806E1B900232294 /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
+		F5DB14871896D5C800CDA47F /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		F5DB14881896D5C800CDA47F /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		F5DB14891896D5C800CDA47F /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		F5DB148A1896D5C800CDA47F /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		F5DB148B1896D5C800CDA47F /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		F5DB148C1896D5C800CDA47F /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		F5DB14901896D62700CDA47F /* LjsDefaultLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsDefaultLogFormatter.h; sourceTree = "<group>"; };
+		F5DB14911896D62700CDA47F /* LjsDefaultLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsDefaultLogFormatter.m; sourceTree = "<group>"; };
 		F5FFC5CF175E2B450015696C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = iOS/libOCMock.a; sourceTree = "<group>"; };
 		F5FFC5D1175E2B450015696C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		F5FFC5D2175E2B450015696C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -481,10 +476,12 @@
 		F5A7F807176CB5200097E147 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F5A7F808176CB5200097E147 /* ContextFilterLogFormatter.h */,
-				F5A7F809176CB5200097E147 /* ContextFilterLogFormatter.m */,
-				F5A7F80A176CB5200097E147 /* DispatchQueueLogFormatter.h */,
-				F5A7F80B176CB5200097E147 /* DispatchQueueLogFormatter.m */,
+				F5DB14871896D5C800CDA47F /* DDContextFilterLogFormatter.h */,
+				F5DB14881896D5C800CDA47F /* DDContextFilterLogFormatter.m */,
+				F5DB14891896D5C800CDA47F /* DDDispatchQueueLogFormatter.h */,
+				F5DB148A1896D5C800CDA47F /* DDDispatchQueueLogFormatter.m */,
+				F5DB148B1896D5C800CDA47F /* DDMultiFormatter.h */,
+				F5DB148C1896D5C800CDA47F /* DDMultiFormatter.m */,
 				F5A7F80C176CB5200097E147 /* README.txt */,
 			);
 			path = Extensions;
@@ -493,8 +490,8 @@
 		F5A7F80D176CB5200097E147 /* LJS */ = {
 			isa = PBXGroup;
 			children = (
-				F5DAA6AA1806E07600232294 /* LjsDefaultFormatter.h */,
-				F5DAA6AB1806E07600232294 /* LjsDefaultFormatter.m */,
+				F5DB14901896D62700CDA47F /* LjsDefaultLogFormatter.h */,
+				F5DB14911896D62700CDA47F /* LjsDefaultLogFormatter.m */,
 				F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */,
 				F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */,
 				F5A7F812176CB5200097E147 /* LjsLog.h */,
@@ -948,8 +945,6 @@
 				F589F553184382160087A461 /* UIBarButtonItem+AccessibilityIdentifier.m in Sources */,
 				F5A7F81B176CB5200097E147 /* DDLog.m in Sources */,
 				F5A7F81C176CB5200097E147 /* DDTTYLogger.m in Sources */,
-				F5A7F81D176CB5200097E147 /* ContextFilterLogFormatter.m in Sources */,
-				F5A7F81E176CB5200097E147 /* DispatchQueueLogFormatter.m in Sources */,
 				F5A7F820176CB5200097E147 /* DDFileLogger+CurrentFile.m in Sources */,
 				F5A7F822176CB5200097E147 /* LjsLogFileManager.m in Sources */,
 				F5A7F823176CB5200097E147 /* LjsLogging.m in Sources */,
@@ -980,6 +975,7 @@
 				F5A7F8AF176CB64A0097E147 /* LjsFaker.m in Sources */,
 				F5A7F8B0176CB64A0097E147 /* LjsLoremIpsum.m in Sources */,
 				F5A7F8BD176CB64A0097E147 /* LjsKeyboardInfo.m in Sources */,
+				F5DB14921896D62700CDA47F /* LjsDefaultLogFormatter.m in Sources */,
 				F5A7F8BE176CB64A0097E147 /* LjsLabelAttributes.m in Sources */,
 				F5A7F8C0176CB64A0097E147 /* LjsButton.m in Sources */,
 				F5A7F8C1176CB64A0097E147 /* LjsGlassButton.m in Sources */,
@@ -994,11 +990,13 @@
 				F5A7F8CA176CB64A0097E147 /* SFHFKeychainUtils.m in Sources */,
 				F5A7F8CB176CB64A0097E147 /* LjsBlocks.m in Sources */,
 				F5A7F8CC176CB64A0097E147 /* LjsFileUtilities.m in Sources */,
+				F5DB148E1896D5C800CDA47F /* DDDispatchQueueLogFormatter.m in Sources */,
 				F5A7F8CD176CB64A0097E147 /* LjsGestalt.m in Sources */,
 				F5A7F8CE176CB64A0097E147 /* LjsReasons.m in Sources */,
 				F5A7F8CF176CB64A0097E147 /* LjsUUIDGen.m in Sources */,
 				F5A7F8D0176CB64A0097E147 /* LjsVariates.m in Sources */,
 				F5A7F8EC176CB6540097E147 /* LjsDecimalAideTests.m in Sources */,
+				F5DB148D1896D5C800CDA47F /* DDContextFilterLogFormatter.m in Sources */,
 				F5A7F8ED176CB6540097E147 /* NSArrayLjsAdditionsTests.m in Sources */,
 				F5A7F8EE176CB6540097E147 /* NSAttributedStringLjsAdditionsTest.m in Sources */,
 				F5A7F8EF176CB6540097E147 /* NSDateLjsAdditionsTests.m in Sources */,
@@ -1013,13 +1011,11 @@
 				F5A7F8F9176CB6540097E147 /* LjsCaesarCipherTests.m in Sources */,
 				F5A7F8FA176CB6540097E147 /* LjsKeychainTests.m in Sources */,
 				F5A7F8FB176CB6540097E147 /* LjsBlocksTest.m in Sources */,
+				F5DB148F1896D5C800CDA47F /* DDMultiFormatter.m in Sources */,
 				F5A7F8FC176CB6540097E147 /* LjsFileUtiltiesTests.m in Sources */,
 				F5A7F8FD176CB6540097E147 /* LjsGestaltTests.m in Sources */,
 				F58937101770B11E00D9032D /* LjsVariatesTests.m in Sources */,
 				F58937121771ADD900D9032D /* LjsReasonsTests.m in Sources */,
-				F50F18F0179FD9370013852D /* NSIndexPathLjsAdditionsTest.m in Sources */,
-				F51888EE17B25A3B00262237 /* NString+IOS+SizeOf.m in Sources */,
-				F50F18F3179FD9710013852D /* NSIndexPath+LjsAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1212,7 +1208,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "875006D7-47B1-4E0C-AE8F-92A3EDCBCE8D";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WARNING_CFLAGS = (
@@ -1264,7 +1260,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "Tests-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E8C409C-B185-433A-BD92-E32795A19DF8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "875006D7-47B1-4E0C-AE8F-92A3EDCBCE8D";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 armv7 armv7s";
 				WARNING_CFLAGS = (
