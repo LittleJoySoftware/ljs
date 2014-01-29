@@ -116,7 +116,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
                             andServiceName:LjsKeychainTestsPasswordKeychainServiceName
                                      error:&error];
   if (error != nil) {
-    DDLogNotice(@"noticed this error but there is nothing to do: %@", error);
+    DDLogDebug(@"noticed this error but there is nothing to do: %@", error);
   }
   [super tearDown];
 }  

@@ -148,7 +148,6 @@
 		F5A7F6F4176C9E3C0097E147 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
 		F5A7F6FC176C9E3C0097E147 /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
-		F5A7F700176C9E3C0097E147 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
 		F5A7F701176C9E3C0097E147 /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F5A7F702176C9E3C0097E147 /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
 		F5A7F703176C9E3C0097E147 /* LjsLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogging.h; sourceTree = "<group>"; };
@@ -388,7 +387,6 @@
 				F5DAA6A81806DFE900232294 /* LjsDefaultLogFormatter.m */,
 				F5A7F6FC176C9E3C0097E147 /* DDFileLogger+CurrentFile.h */,
 				F5A7F6FD176C9E3C0097E147 /* DDFileLogger+CurrentFile.m */,
-				F5A7F700176C9E3C0097E147 /* LjsLog.h */,
 				F5A7F701176C9E3C0097E147 /* LjsLogFileManager.h */,
 				F5A7F702176C9E3C0097E147 /* LjsLogFileManager.m */,
 				F5A7F703176C9E3C0097E147 /* LjsLogging.h */,

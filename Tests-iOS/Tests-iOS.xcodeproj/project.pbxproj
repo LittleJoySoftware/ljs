@@ -185,7 +185,6 @@
 		F5A7F80C176CB5200097E147 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDFileLogger+CurrentFile.h"; sourceTree = "<group>"; };
 		F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDFileLogger+CurrentFile.m"; sourceTree = "<group>"; };
-		F5A7F812176CB5200097E147 /* LjsLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLog.h; sourceTree = "<group>"; };
 		F5A7F813176CB5200097E147 /* LjsLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogFileManager.h; sourceTree = "<group>"; };
 		F5A7F814176CB5200097E147 /* LjsLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LjsLogFileManager.m; sourceTree = "<group>"; };
 		F5A7F815176CB5200097E147 /* LjsLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LjsLogging.h; sourceTree = "<group>"; };
@@ -493,7 +492,6 @@
 				F5DB14911896D62700CDA47F /* LjsDefaultLogFormatter.m */,
 				F5A7F80E176CB5200097E147 /* DDFileLogger+CurrentFile.h */,
 				F5A7F80F176CB5200097E147 /* DDFileLogger+CurrentFile.m */,
-				F5A7F812176CB5200097E147 /* LjsLog.h */,
 				F5A7F813176CB5200097E147 /* LjsLogFileManager.h */,
 				F5A7F814176CB5200097E147 /* LjsLogFileManager.m */,
 				F5A7F815176CB5200097E147 /* LjsLogging.h */,

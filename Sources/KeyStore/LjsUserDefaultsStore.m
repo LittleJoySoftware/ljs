@@ -207,8 +207,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
       dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
       [defaults setObject:dict forKey:aDictName];
     } else {
-      // unreachable code (i think)
-      DDLogNotice(@"@joshua - need to test this");
+      DDLogDebug(@"@joshua - need to test that this is unreachable code");
       return NO;
     }
   } else {
