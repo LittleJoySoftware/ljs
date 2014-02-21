@@ -35,10 +35,11 @@
 #import "LjsReasons.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
+static const int __unused ddLogLevel = LOG_LEVEL_DEBUG;
 #else
-static const int ddLogLevel = LOG_LEVEL_WARN;
+static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
 @interface LjsCaesarCipher ()
 
 @property (nonatomic, strong) NSDictionary *encode;
