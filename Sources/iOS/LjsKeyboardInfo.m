@@ -59,10 +59,10 @@ static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrame
     self.frameChangedByUserInteraction = [number boolValue];
     
     number = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-    self.animationCurve = [number integerValue];
+    self.animationCurve = [number unsignedIntegerValue];
     
     number = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    self.animationDuration = [number doubleValue];
+    self.animationDuration = [number floatValue];
     
     self.beginTopOfFrame = self.frameBegin.origin.y;
     self.endTopOfFrame = self.frameEnd.origin.y;
@@ -113,8 +113,8 @@ static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrame
 - (NSString *) description {
   NSString *begin =  NSStringFromCGRect(self.frameBegin);
   NSString *end =   NSStringFromCGRect(self.frameEnd);
-  NSString *animation = [NSString stringWithFormat:@"(%d, %.2f)",
-                         self.animationCurve, self.animationDuration];
+  NSString *animation = [NSString stringWithFormat:@"(%@, %.2f)",
+                         @(self.animationCurve), self.animationDuration];
   
   
   return [NSString stringWithFormat:@"#<LjsKeyboardInfo begin: %@\nend: %@\nanimation: %@",

@@ -41,7 +41,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     return [layoutManager usedRectForTextContainer:textContainer].size;
   } else {
     DDLogDebug(@"Xcode 5 - iOS < 7: using constrained to size");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
     return [self sizeWithFont:aFont constrainedToSize:aSize lineBreakMode:aLineBreakMode];
+#pragma clang diagnostic pop
   }
 #else
   DDLogDebug(@"Xcode 4.6: using constrained to size");
@@ -87,11 +90,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     *aActualFontSize = currentFontSize;
     return CGSizeMake(currentSize.width, lineHeight);
   } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
     return [self sizeWithFont:aFont
                   minFontSize:aMinSize
                actualFontSize:aActualFontSize
                      forWidth:aWidth
                 lineBreakMode:aLineBreakMode];
+#pragma clang diagnostic pop
   }
 #else
   return [self sizeWithFont:aFont

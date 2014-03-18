@@ -136,7 +136,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   aLabel.font = _font;
   aLabel.text = _string;
   aLabel.lineBreakMode = _linebreakMode;
-  aLabel.numberOfLines = _maxNumberOfLines;
+  aLabel.numberOfLines = (NSInteger)_maxNumberOfLines;
   if (aShouldApplyWidthAndHeight == YES) {
     [aLabel setHeightWithHeight:_labelHeight];
     [aLabel setWidthWithWidth:_labelWidth];
@@ -175,8 +175,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (NSString *) description {
-  return [NSString stringWithFormat:@"#<LjsLabelAttributes line: %.2f height: %.2f lines: (%d, %d) width: %.2f>",
-          _lineHeight, _labelHeight, _num_lines_computed, _maxNumberOfLines, _labelWidth];
+  return [NSString stringWithFormat:@"#<LjsLabelAttributes line: %.2f height: %.2f lines: (%@, %@) width: %.2f>",
+          _lineHeight, _labelHeight, @(_num_lines_computed), @(_maxNumberOfLines), _labelWidth];
 }
 
 //text label = {{10, 8}, {153, 22}}

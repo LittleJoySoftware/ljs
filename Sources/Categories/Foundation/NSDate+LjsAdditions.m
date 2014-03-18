@@ -716,8 +716,8 @@ NSSecondCalendarUnit);
   //NSInteger flags = NSYearCalendarUnit | NSDayCalendarUnit;
   NSDateComponents *components = [[NSDateComponents alloc] init];
   
-  components.day = aDayOfYear;
-  components.year = aYear;
+  components.day = (NSInteger)aDayOfYear;
+  components.year = (NSInteger)aYear;
   NSDate *date = [calendar dateFromComponents:components];
   return date;
   

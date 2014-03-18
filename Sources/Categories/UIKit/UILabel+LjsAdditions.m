@@ -1,4 +1,5 @@
 #import "Lumberjack.h"
+#import "NSString+IOSSizeOf.h"
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int __unused ddLogLevel = LOG_LEVEL_DEBUG;
@@ -26,7 +27,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   label.highlightedTextColor = aHighlightedColor;
   label.backgroundColor = aBackgroundColor == nil ? [UIColor clearColor] : aBackgroundColor;
   label.lineBreakMode = aLineBreakMode;
-  label.numberOfLines = aNumberOfLines;
+  label.numberOfLines = (NSInteger)aNumberOfLines;
   return label;
 }
 
@@ -42,7 +43,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
                     originX:(CGFloat) aOriginX
    centeredToRectWithHeight:(CGFloat) aHeight
                       width:(CGFloat) aWidth {
-  CGSize size = [aText sizeWithFont:aFont];
+  CGSize size = [aText sizeOfStringWithFont:aFont];
   CGFloat y = (aHeight/2) - (size.height / 2);
   CGRect frame = CGRectMake(aOriginX, y, aWidth, size.height);
   return [UILabel labelWithFrame:frame

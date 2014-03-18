@@ -37,10 +37,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 - (NSMutableDictionary *)fullDescription {
   NSDictionary *frame =
   [NSDictionary dictionaryWithObjectsAndKeys:
-   [NSNumber numberWithFloat:self.frame.origin.x], @"x",
-   [NSNumber numberWithFloat:self.frame.origin.y], @"y",
-   [NSNumber numberWithFloat:self.frame.size.width], @"width",
-   [NSNumber numberWithFloat:self.frame.size.height], @"height",
+   @(self.frame.origin.x), @"x",
+   @(self.frame.origin.y), @"y",
+   @(self.frame.size.width), @"width",
+   @(self.frame.size.height), @"height",
    nil];
   NSMutableDictionary *description =
   [NSMutableDictionary dictionaryWithObjectsAndKeys:

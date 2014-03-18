@@ -51,7 +51,7 @@ static NSString *LjsKeychainTestsDefaultPassword = @"i have got a secret";
 
 #if TARGET_OS_IPHONE
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  GHTestLog(@"touched button at index: %d", buttonIndex);
+  GHTestLog(@"touched button at index: %@", @(buttonIndex));
 }
 #endif
 
