@@ -41,19 +41,19 @@
 - (NSString *) tableView:(UITableView *) aTableView reuseIdentifierAtIndexPath:(NSIndexPath *) aIndexPath;
 
 - (NSString *) tableView:(UITableView *) aTableView accessibilityIdForRowAtIndexPath:(NSIndexPath *) aIndexPath;
-- (NSUInteger) tableView:(UITableView *) aTableView tagForTitleLabelForRowAtIndexPath:(NSIndexPath *) aIndexPath;
+- (NSInteger) tableView:(UITableView *) aTableView tagForTitleLabelForRowAtIndexPath:(NSIndexPath *) aIndexPath;
 - (NSString *) tableView:(UITableView *) aTableView titleForRowAtIndexPath:(NSIndexPath *) aIndexPath;
 - (CGFloat) tableView:(UITableView *) aTableView widthOfTitleLabelAtIndexPath:(NSIndexPath *) aIndexPath;
 - (LjsLabelAttributes *) tableView:(UITableView *) aTableView attributesForTitleAtIndexPath:(NSIndexPath *) aIndexPath;
 - (UILabel *) tableView:(UITableView *) aTableView labelForTitleForRowAtIndexPath:(NSIndexPath *) aIndexPath;
 
-- (NSString *) tableView:(UITableView *) aTableView accessibilityIdForHeaderAtSection:(NSUInteger) aSection;
-- (NSUInteger) tableView:(UITableView *) aTableView tagForSectionHeaderAtSection:(NSUInteger) aSection;
-- (LjsLabelAttributes *) tableView:(UITableView *) aTableView attributesForHeaderLabelAtSection:(NSUInteger) aSection;
+- (NSString *) tableView:(UITableView *) aTableView accessibilityIdForHeaderAtSection:(NSInteger) aSection;
+- (NSInteger) tableView:(UITableView *) aTableView tagForSectionHeaderAtSection:(NSInteger) aSection;
+- (LjsLabelAttributes *) tableView:(UITableView *) aTableView attributesForHeaderLabelAtSection:(NSInteger) aSection;
 
-- (NSString *) tableView:(UITableView *) aTableView accessibilityIdForFooterAtSection:(NSUInteger) aSection;
-- (NSUInteger) tableView:(UITableView *) aTableView tagForSectionFooterAtSection:(NSUInteger) aSection;
-- (LjsLabelAttributes *)tableView:(UITableView *) aTableView  attributesForFooterLabelAtSection:(NSUInteger) aSection;
+- (NSString *) tableView:(UITableView *) aTableView accessibilityIdForFooterAtSection:(NSInteger) aSection;
+- (NSInteger) tableView:(UITableView *) aTableView tagForSectionFooterAtSection:(NSInteger) aSection;
+- (LjsLabelAttributes *)tableView:(UITableView *) aTableView  attributesForFooterLabelAtSection:(NSInteger) aSection;
 
 
 /** @name Optional Methods */
