@@ -70,7 +70,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 - (NSArray *) mapcar:(id (^)(id key, id val)) aBlock {
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
   for (id _key in [self allKeys]) {
-    id _val = [self objectForKey:_key];
+    id _val = self[_key];
     id result = aBlock(_key, _val);
     if (result != nil) {
       [array addObject:result];
@@ -86,7 +86,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
     return NO;
   }
   for (id key in aKeys) {
-    if ([self objectForKey:key] == nil) { return NO; }
+    if (self[key] == nil) { return NO; }
   }
   return YES;
 }

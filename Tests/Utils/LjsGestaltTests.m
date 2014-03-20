@@ -133,7 +133,7 @@
 
 - (void) test_currentLangCodeIsCorrect {
   NSArray *prefLang = [NSLocale preferredLanguages];
-  NSString *code = [prefLang objectAtIndex:0];
+  NSString *code = prefLang[0];
   GHAssertTrue([self.gestalt currentLangCodeIsEqualToCode:code],
                @"< %@ > should be equal to the current language code: < %@ >",
                code, [self.gestalt currentLanguageCode]);

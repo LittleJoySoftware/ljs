@@ -23,9 +23,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
     userInfo = [NSMutableDictionary dictionaryWithDictionary:aOtherUserInfo];
   }
 
-  [userInfo setObject:aLocalizedDescription forKey:NSLocalizedDescriptionKey];
-  [userInfo setObject:[NSNumber numberWithInteger:NSUTF8StringEncoding]
-               forKey:NSStringEncodingErrorKey];
+  userInfo[NSLocalizedDescriptionKey] = aLocalizedDescription;
+  userInfo[NSStringEncodingErrorKey] = @(NSUTF8StringEncoding);
   return [NSError errorWithDomain:aDomain
                              code:aCode
                          userInfo:userInfo];
@@ -77,9 +76,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
     userInfo = [NSMutableDictionary dictionaryWithDictionary:aOtherUserInfo];
   }
   
-  [userInfo setObject:aLocalizedDescription forKey:NSLocalizedDescriptionKey];
-  [userInfo setObject:[NSNumber numberWithInteger:NSUTF8StringEncoding]
-               forKey:NSStringEncodingErrorKey];
+  userInfo[NSLocalizedDescriptionKey] = aLocalizedDescription;
+  userInfo[NSStringEncodingErrorKey] = @(NSUTF8StringEncoding);
   return [NSError errorWithDomain:[LjsErrorFactory errorDomain]
                              code:aCode
                          userInfo:userInfo];
@@ -90,7 +88,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
        localizedDescription:(NSString *) aLocalizedDescription
              userInfoObject:(id) aObject
                 userInfoKey:(id) aKey {
-  NSDictionary *ui = [NSDictionary dictionaryWithObject:aObject forKey:aKey];
+  NSDictionary *ui = @{aKey: aObject};
   return [LjsErrorFactory errorWithCode:aCode
                    localizedDescription:aLocalizedDescription
                           otherUserInfo:ui];

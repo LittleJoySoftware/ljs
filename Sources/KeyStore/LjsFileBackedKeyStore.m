@@ -132,8 +132,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
     DDLogError(@"%@", [NSString stringWithFormat:@"%@: %@ - returning nil",
                        message, aDirectoryPath]);
     if (error != NULL) {
-      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:aDirectoryPath
-                                                           forKey:LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey];
+      NSDictionary *userInfo = @{LjsFileUtilitiesFileOrDirectoryErrorUserInfoKey: aDirectoryPath};
       
       *error = [NSError errorWithDomain:LjsFileUtilitiesErrorDomain
                                    code:kLjsFileUtilitiesErrorCodeFileDoesNotExist
@@ -216,7 +215,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 - (NSString *) stringForKey:(NSString *) aKey 
                defaultValue:(NSString *) aDefault 
              storeIfMissing:(BOOL) aPersistMissing {
-  NSString *result = (NSString *) [self.store objectForKey:aKey];
+  NSString *result = (NSString *) (self.store)[aKey];
   if (result == nil && aPersistMissing && aDefault != nil) {
     [self storeObject:aDefault forKey:aKey];
   }
@@ -229,7 +228,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 - (NSNumber *) numberForKey:(NSString *) aKey 
                defaultValue:(NSNumber *) aDefault
              storeIfMissing:(BOOL) aPersistMissing {
-  NSNumber *result = (NSNumber *) [self.store objectForKey:aKey];
+  NSNumber *result = (NSNumber *) (self.store)[aKey];
   if (result == nil && aPersistMissing && aDefault != nil) {
     [self storeObject:aDefault forKey:aKey];
   }
@@ -248,7 +247,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
                          storeIfMissing:NO];
   
   if (number == nil && aPersistMissing) {
-    number = [NSNumber numberWithBool:aDefault];
+    number = @(aDefault);
     [self storeObject:number forKey:aKey];
   }
   BOOL result;
@@ -265,7 +264,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 - (NSDate *) dateForKey:(NSString *) aKey
            defaultValue:(NSDate *) aDefault
          storeIfMissing:(BOOL) aPersistMissing {
-  NSDate *result = (NSDate *) [self.store objectForKey:aKey];
+  NSDate *result = (NSDate *) (self.store)[aKey];
   if (result == nil && aPersistMissing && aDefault != nil) {
     [self storeObject:aDefault forKey:aKey];
   }
@@ -279,7 +278,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 - (NSData *) dataForKey:(NSString *) aKey
            defaultValue:(NSData *) aDefault
          storeIfMissing:(BOOL) aPersistMissing {
-  NSData *result = (NSData *) [self.store objectForKey:aKey];
+  NSData *result = (NSData *) (self.store)[aKey];
   if (result == nil && aPersistMissing && aDefault != nil) {
     [self storeObject:aDefault forKey:aKey];
   }
@@ -293,7 +292,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 - (NSArray *) arrayForKey:(NSString *) aKey
              defaultValue:(NSArray *) aDefault
            storeIfMissing:(BOOL) aPersistMissing {
-  NSArray *result = (NSArray *) [self.store objectForKey:aKey];
+  NSArray *result = (NSArray *) (self.store)[aKey];
   if (result == nil && aPersistMissing && aDefault != nil) {
     [self storeObject:aDefault forKey:aKey];
   }
@@ -307,7 +306,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 - (NSDictionary *) dictionaryForKey:(NSString *) aKey
                        defaultValue:(NSDictionary *) aDefault
                      storeIfMissing:(BOOL) aPersistMissing {
-  NSDictionary *result = (NSDictionary *) [self.store objectForKey:aKey];
+  NSDictionary *result = (NSDictionary *) (self.store)[aKey];
   if (result == nil && aPersistMissing && aDefault != nil) {
     [self storeObject:aDefault forKey:aKey];
   }
@@ -338,14 +337,14 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
                                storeIfMissing:NO];  
   if (dict == nil) {
     if (aPersistMissing == YES && aDefaultValue != nil) {
-      dict = [NSDictionary dictionaryWithObject:aDefaultValue forKey:aValueKey];
+      dict = @{aValueKey: aDefaultValue};
       [self storeObject:dict forKey:aDictName];
     } 
   } else {
-    result = [dict objectForKey:aValueKey];
+    result = dict[aValueKey];
     if (result == nil && aPersistMissing && aDefaultValue != nil) {
       NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
-      [mdict setObject:aDefaultValue forKey:aValueKey];
+      mdict[aValueKey] = aDefaultValue;
       [self storeObject:mdict forKey:aDictName];
     }
   }
@@ -375,11 +374,11 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
                                  defaultValue:nil
                                storeIfMissing:NO];
   if (dict == nil) {
-    dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
+    dict = @{aValueKey: aValue};
     [self storeObject:dict forKey:aDictName];
   } else {
     NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
-    [mdict setObject:aValue forKey:aValueKey];
+    mdict[aValueKey] = aValue;
       [self storeObject:mdict forKey:aDictName];
     
   }
@@ -399,7 +398,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
   }
 
   [self postNotification:kWillChangeNotification];
-  [self.store setObject:object forKey:aKey];
+  (self.store)[aKey] = object;
   if ([LjsFileUtilities writeDictionary:self.store toFile:self.filepath] == NO) {
     DDLogError(@"could not store change - will not post 'did change' notification");
     return NO;
@@ -409,7 +408,7 @@ shouldPostNotifications:(BOOL) aShouldPostNotifications
 }
 
 - (BOOL) storeBool:(BOOL) aBool forKey:(NSString *) aKey {
-  NSNumber *number = [NSNumber numberWithBool:aBool];
+  NSNumber *number = @(aBool);
   return [self storeObject:number forKey:aKey];
 }
 

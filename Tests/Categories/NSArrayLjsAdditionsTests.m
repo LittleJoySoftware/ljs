@@ -94,31 +94,31 @@
   actual = [array nth:index];
   GHAssertNil(actual, nil);
   
-  array = [NSArray array];
+  array = @[];
   index = 0;
   actual = [array nth:index];
   GHAssertNil(actual, nil);
   
   expected = @"foo";
-  array = [NSArray arrayWithObject:expected];
+  array = @[expected];
   index = 0;
   actual = [array nth:index];
   GHAssertEqualObjects(actual, expected, nil);
   
   expected = @"foo";
-  array = [NSArray arrayWithObjects:@"bar", expected, @"ble", nil];
+  array = @[@"bar", expected, @"ble"];
   index = 1;
   actual = [array nth:index];
   GHAssertEqualObjects(actual, expected, nil);
   
   expected = @"foo";
-  array = [NSArray arrayWithObjects:@"bar", @"ble", expected, nil];
+  array = @[@"bar", @"ble", expected];
   index = 2;
   actual = [array nth:index];
   GHAssertEqualObjects(actual, expected, nil);
   
   expected = nil;
-  array = [NSArray arrayWithObjects:@"bar", @"ble", nil];
+  array = @[@"bar", @"ble"];
   index = 2;
   actual = [array nth:index];
   GHAssertEqualObjects(actual, expected, nil);
@@ -143,17 +143,17 @@
   GHAssertNil(actual, nil);
   
   expected = nil;
-  array = [NSArray array];
+  array = @[];
   actual = [array rest];
   GHAssertNil(actual, nil);
   
   expected = nil;
-  array = [NSArray arrayWithObject:@"foo"];
+  array = @[@"foo"];
   actual = [array rest];
   GHAssertNil(actual, nil);
   
   
-  array = [NSArray arrayWithObjects:@"first", @"foo", nil];
+  array = @[@"first", @"foo"];
   actual = [array rest];
   GHAssertEqualStrings([actual first], @"foo", nil);
 }
@@ -167,14 +167,14 @@
   actual = [array reverse];
   GHAssertNil(actual, nil);
   
-  array = [NSArray array];
+  array = @[];
   actual = [array reverse];
   actualCount = [actual count];
   expectedCount = 0;
   GHAssertEquals((NSUInteger) actualCount, (NSUInteger) expectedCount, nil);
   
-  array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  expected = [NSArray arrayWithObjects:@"c", @"b", @"a", nil];
+  array = @[@"a", @"b", @"c"];
+  expected = @[@"c", @"b", @"a"];
   expectedCount = [expected count];
   actual = [array reverse];
   actualCount = [actual count];
@@ -200,7 +200,7 @@
 
 - (void) test_append_nil_obj {
   id object = nil;
-  NSArray *array = [NSArray array];
+  NSArray *array = @[];
   NSArray *actual = [array append:object];
   GHAssertFalse([actual has_objects], @"should have not objects: %@", array);
 }
@@ -224,7 +224,7 @@
 #pragma mark - not_empty and has_objects
 
 - (void) test_has_objects_false {
-  NSArray *array = [NSArray array];
+  NSArray *array = @[];
   GHAssertFalse([array has_objects], @"should not have objects: '%@'", array);
   NSMutableArray *marray = [NSMutableArray array];
   GHAssertFalse([marray has_objects], @"should not have objects: '%@'", marray);
@@ -233,7 +233,7 @@
 }
 
 - (void) test_not_empty_false {
-  NSArray *array = [NSArray array];
+  NSArray *array = @[];
   GHAssertFalse([array not_empty], @"should not have objects: '%@'", array);
   NSMutableArray *marray = [NSMutableArray array];
   GHAssertFalse([marray not_empty], @"should not have objects: '%@'", marray);
@@ -258,7 +258,7 @@
 #pragma mark - Mapping
 
 - (void) test_mapcar {
-  NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+  NSArray *array = @[@"a", @"b", @"c"];
   NSArray *upcased = [array mapcar:^(id obj) {
     return [obj uppercaseString];
   }];
@@ -313,30 +313,30 @@
 }
 
 - (void) test_arrayByRemovingObjectInArray_nil_array {
-  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *array = @[@"a"];
   NSArray *actual = [array arrayByRemovingObjectsInArray:nil];
   GHAssertTrue([actual count] == 1, @"array should have object");
   GHAssertTrue([actual containsObject:@"a"], @"array should contain < a >");
 }
 
 - (void) test_arrayByRemovingObjectInArray_empty_array {
-  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *array = @[@"a"];
   NSArray *actual = [array arrayByRemovingObjectsInArray:nil];
   GHAssertTrue([actual count] == 1, @"array should have object");
   GHAssertTrue([actual containsObject:@"a"], @"array should contain < a >");
 }
 
 - (void) test_arrayByRemovingObjectInArray_array_with_one_object_found {
-  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
-  NSArray *toRemove = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *array = @[@"a"];
+  NSArray *toRemove = @[@"a"];
   NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
   GHAssertFalse([actual has_objects], @"array should be emptyp");
 }
 
 
 - (void) test_arrayByRemovingObjectInArray_array_with_no_objects_found {
-  NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  NSArray *toRemove = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+  NSArray *array = @[@"a", @"b", @"c"];
+  NSArray *toRemove = @[@"1", @"2", @"3"];
   NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
   NSOrderedSet *e = [NSOrderedSet orderedSetWithArray:array];
   NSOrderedSet *a = [NSOrderedSet orderedSetWithArray:actual];
@@ -344,8 +344,8 @@
 }
 
 - (void) test_arrayByRemovingObjectInArray_array_with_some_objects_found {
-  NSArray *array = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  NSArray *toRemove = [NSArray arrayWithObjects:@"1", @"b", @"c", nil];
+  NSArray *array = @[@"a", @"b", @"c"];
+  NSArray *toRemove = @[@"1", @"b", @"c"];
   NSArray *actual = [array arrayByRemovingObjectsInArray:toRemove];
   NSOrderedSet *e = [NSOrderedSet orderedSetWithArray:@[@"a"]];
   NSOrderedSet *a = [NSOrderedSet orderedSetWithArray:actual];
@@ -353,7 +353,7 @@
 }
 
 - (void) test_string_with_enum_empty_array {
-  NSArray *array = [NSArray array];
+  NSArray *array = @[];
   NSString *actual = [array stringWithEnum:0];
   GHAssertNil(actual, @"string should be nil because array is empty");
   actual = [array stringWithEnum:1];
@@ -361,7 +361,7 @@
 }
 
 - (void) test_string_with_enum_one_element_array {
-  NSArray *array = [NSArray arrayWithObjects:@"a", nil];
+  NSArray *array = @[@"a"];
   NSString *actual = [array stringWithEnum:0];
   GHAssertEqualStrings(actual, @"a", @"strings should be the same");
   actual = [array stringWithEnum:1];

@@ -81,9 +81,9 @@
 #pragma mark - tests
 
 - (void) test_emptyp_with_empty_dictionary {
-  BOOL actual = [[NSDictionary dictionary] has_objects];
+  BOOL actual = [@{} has_objects];
   GHAssertFalse(actual, @"empty dictionary should be emptyp");
-  actual = [[NSDictionary dictionary] not_empty];
+  actual = [@{} not_empty];
   GHAssertFalse(actual, @"empty dictionary should be emptyp");
 }
 
@@ -97,9 +97,9 @@
 
 
 - (void) test_emptyp_with_non_empty_dict {
-  BOOL actual = [[NSDictionary dictionaryWithObject:@"foo" forKey:@"bar"] has_objects];
+  BOOL actual = [@{@"bar": @"foo"} has_objects];
   GHAssertTrue(actual, @"non-empty dictionaries should not be emptyp");
-  actual = [[NSDictionary dictionaryWithObject:@"foo" forKey:@"bar"] not_empty];
+  actual = [@{@"bar": @"foo"} not_empty];
   GHAssertTrue(actual, @"non-empty dictionaries should not be emptyp");
 
 }
@@ -112,7 +112,7 @@
 }
 
 - (void) test_keySet_with_empty_dict {
-  NSSet *set = [[NSDictionary dictionary] keySet];
+  NSSet *set = [@{} keySet];
   GHAssertNotNil(set, @"set should not be nil");
   GHAssertTrue([set count] == 0, @"set should contain no elements");
 }
@@ -124,10 +124,9 @@
 }
 
 - (void) test_keySet_with_non_empty_dict {
-  NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                        @"1", @"a",
-                        @"2", @"b",
-                        @"3", @"c", nil];
+  NSDictionary *dict = @{@"a": @"1",
+                        @"b": @"2",
+                        @"c": @"3"};
   NSSet *set = [dict keySet];
   GHAssertTrue([set containsObject:@"a"], @"set should contain a");
   GHAssertTrue([set containsObject:@"b"], @"set should contain b");

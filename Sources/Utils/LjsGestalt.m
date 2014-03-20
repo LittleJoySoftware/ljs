@@ -220,7 +220,7 @@ fail:
 }
 
 - (NSString *) currentLanguageCode {
-  return [[NSLocale preferredLanguages] objectAtIndex:0];
+  return [NSLocale preferredLanguages][0];
 }
 
 - (BOOL) currentLangCodeIsEqualToCode:(NSString *) aCode {

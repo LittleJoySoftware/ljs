@@ -26,7 +26,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   if (index >= count) {
     return nil;
   } else {
-    return [self objectAtIndex:index];
+    return self[index];
   }
 }
 

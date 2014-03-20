@@ -172,13 +172,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   NSDictionary *dict = (NSDictionary *) [defaults objectForKey:aDictName];
   
   if (dict == nil && aPersistMissing && aDefaultValue != nil) {
-    dict = [NSDictionary dictionaryWithObject:aDefaultValue forKey:aValueKey];
+    dict = @{aValueKey: aDefaultValue};
     [defaults setObject:dict forKey:aDictName];
   } else {
-    result = [dict objectForKey:aValueKey];
+    result = dict[aValueKey];
     if (result == nil && aPersistMissing && aDefaultValue != nil) {
       NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
-      [mdict setObject:aDefaultValue forKey:aValueKey];
+      mdict[aValueKey] = aDefaultValue;
       [defaults setObject:mdict forKey:aDictName];
     } 
   }
@@ -205,7 +205,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   NSDictionary *dict = (NSDictionary *) [defaults objectForKey:aDictName];
   if (dict == nil) {
     if (aValue != nil) {
-      dict = [NSDictionary dictionaryWithObject:aValue forKey:aValueKey];
+      dict = @{aValueKey: aValue};
       [defaults setObject:dict forKey:aDictName];
     } else {
       DDLogDebug(@"@joshua - need to test that this is unreachable code");
@@ -213,7 +213,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
     }
   } else {
     NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithDictionary:dict];
-    [mdict setObject:aValue forKey:aValueKey];
+    mdict[aValueKey] = aValue;
     [defaults setObject:mdict forKey:aDictName];
   }
   return YES;

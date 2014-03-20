@@ -73,7 +73,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   
   for (NSString *key in sorted) {
     NSString *escapedk = [key stringByEncodingForUrl];
-    NSString *v = [[self objectForKey:key] isKindOfClass:[NSString class]] ? [self objectForKey:key] : [[self objectForKey:key] stringValue];
+    NSString *v = [self[key] isKindOfClass:[NSString class]] ? self[key] : [self[key] stringValue];
     NSString *escapedv = [v stringByEncodingForUrl];
     [parameters addObject:[NSString stringWithFormat:@"%@=%@", escapedk, escapedv]];
   }

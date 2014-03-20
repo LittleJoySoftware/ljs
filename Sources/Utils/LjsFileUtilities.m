@@ -89,7 +89,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
                                       NSUserDomainMask, 
                                       YES);
-  return [dirPaths objectAtIndex:0];
+  return dirPaths[0];
 }
 
 
@@ -104,7 +104,7 @@ static NSString *LjsFileUtilitiesPreferencesDirectory = @"Preferences";
   NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,
                                       mask, 
                                       YES);
-  return [dirPaths objectAtIndex:0];
+  return dirPaths[0];
 }
 
 + (NSString *) findCoreDataStoreDirectoryForUserp:(BOOL) forUser {

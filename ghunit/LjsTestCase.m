@@ -36,18 +36,16 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 
 - (NSMutableDictionary *)fullDescription {
   NSDictionary *frame =
-  [NSDictionary dictionaryWithObjectsAndKeys:
-   @(self.frame.origin.x), @"x",
-   @(self.frame.origin.y), @"y",
-   @(self.frame.size.width), @"width",
-   @(self.frame.size.height), @"height",
-   nil];
+  @{@"x": @(self.frame.origin.x),
+   @"y": @(self.frame.origin.y),
+   @"width": @(self.frame.size.width),
+   @"height": @(self.frame.size.height)};
   NSMutableDictionary *description =
   [NSMutableDictionary dictionaryWithObjectsAndKeys:
-   [NSNumber numberWithInteger:(NSInteger)self], @"address",
+   @((NSInteger)self), @"address",
    NSStringFromClass([self class]), @"className",
    frame, @"frame",
-   [NSNumber numberWithInteger:[self tag]], @"tag",
+   @([self tag]), @"tag",
    [self valueForKeyPath:@"subviews.fullDescription"], @"subviews",
    nil];
   
@@ -332,7 +330,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (NSArray *) arrayOfAbcStrings {
-  return [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+  return @[@"a", @"b", @"c"];
 }
 
 - (NSSet *) setOfAbcStrings {
@@ -357,11 +355,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 
 
 - (NSArray *) arrayOfMutableStrings {
-  NSArray *array = [NSArray arrayWithObjects:
-                    [@"a" mutableCopy],
+  NSArray *array = @[[@"a" mutableCopy],
                     [@"b" mutableCopy],
-                    [@"c" mutableCopy],
-                    nil];
+                    [@"c" mutableCopy]];
   return array;
 }
 
@@ -397,7 +393,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   GHAssertEquals((NSUInteger)[aActual count], (NSUInteger)[aExpected count],
                  @"arrays should have the same number of elements");
   [aActual enumerateObjectsUsingBlock:^(id actual, NSUInteger idx, BOOL *stop) {
-    id expected = [aExpected objectAtIndex:idx];
+    id expected = aExpected[idx];
     if (aCompareElementsAsStrings) {
       GHAssertEqualStrings(actual, expected, @"expected string equality - failed at index '%d'", idx);
     } else {

@@ -93,7 +93,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
  @param aInteger an integer
  */
 + (NSDecimalNumber *) dnWithInteger:(NSInteger) aInteger {
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:aInteger] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(aInteger) decimalValue]];
 }
 
 /**
@@ -101,7 +101,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
  @param aUInteger a uinteger
  */
 + (NSDecimalNumber *) dnWithUInteger:(NSUInteger) aUInteger {
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithUnsignedInteger:aUInteger] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(aUInteger) decimalValue]];
 }
 
 /**
@@ -109,7 +109,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
  @param aDouble a double
  */ 
 + (NSDecimalNumber *) dnWithDouble:(double) aDouble {
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:aDouble] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(aDouble) decimalValue]];
 }
 
 + (NSDecimalNumber *) dnWithFloat:(CGFloat) aFloat {

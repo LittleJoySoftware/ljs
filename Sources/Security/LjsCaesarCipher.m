@@ -79,8 +79,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
       }
       NSString *value = [NSString stringWithFormat:@"%c", (unichar)shift];
    
-      [encodeDict setObject:value forKey:key];
-      [decodeDict setObject:key forKey:value];
+      encodeDict[key] = value;
+      decodeDict[value] = key;
     }
     self.encode = [NSDictionary dictionaryWithDictionary:encodeDict];
     self.decode = [NSDictionary dictionaryWithDictionary:decodeDict];
@@ -96,7 +96,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   for (NSUInteger index = 0; index < count; index ++) {
     unichar charAt = [aString characterAtIndex:index];
     NSString *key = [NSString stringWithFormat:@"%c", charAt];
-    NSString *encoded = [self.encode objectForKey:key];
+    NSString *encoded = (self.encode)[key];
     if (encoded == nil) {
       encoded = key;
     }
@@ -111,7 +111,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   for (NSUInteger index = 0; index < count; index ++) {
     unichar charAt = [aString characterAtIndex:index];
     NSString *key = [NSString stringWithFormat:@"%c", charAt];
-    NSString *decoded = [self.decode objectForKey:key];
+    NSString *decoded = (self.decode)[key];
     if (decoded == nil) {
       decoded = key;
     }

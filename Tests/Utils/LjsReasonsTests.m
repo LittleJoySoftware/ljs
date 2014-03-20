@@ -226,7 +226,7 @@
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"foo" 
                       ifElement:@"a"
-                     notInArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+                     notInArray:@[@"a", @"b", @"c"]];
   GHAssertFalse([reasons hasReasons], @"should not have reasons");
 }
 
@@ -234,7 +234,7 @@
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"foo" 
                       ifElement:@"q"
-                     notInArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+                     notInArray:@[@"a", @"b", @"c"]];
   GHAssertTrue([reasons hasReasons], @"should have reasons");  
 }
 
@@ -258,7 +258,7 @@
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"foo"
                       ifElement:@"a"
-                        inArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+                        inArray:@[@"a", @"b", @"c"]];
   GHAssertTrue([reasons hasReasons], @"should have reasons");  
 }
 
@@ -266,7 +266,7 @@
   LjsReasons *reasons = [LjsReasons new];
   [reasons addReasonWithVarName:@"foo"
                       ifElement:@"q"
-                        inArray:[NSArray arrayWithObjects:@"a", @"b", @"c", nil]];
+                        inArray:@[@"a", @"b", @"c"]];
   GHAssertFalse([reasons hasReasons], @"should not have reasons");  
 }
 
@@ -394,7 +394,7 @@
 #pragma mark - Array Testing 
 - (void) test_if_empty_array_empty {
   LjsReasons *reasons = [LjsReasons new];
-  [reasons ifEmptyArray:[NSArray array] addReasonWithVarName:@"array"];
+  [reasons ifEmptyArray:@[] addReasonWithVarName:@"array"];
   GHAssertTrue([reasons hasReasons], @"should have reason if array is empty");
 }
 
