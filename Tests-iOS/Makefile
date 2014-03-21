@@ -1,6 +1,6 @@
 # requires Xcode 5.0.2 to run on the CLI
 XCODEBUILD := /Xcode/5.0.2/Xcode.app/Contents/Developer/usr/bin/xcodebuild
-FOO := /Xcode/11
+
 default:
 
 clean:
