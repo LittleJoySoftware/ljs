@@ -99,11 +99,11 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 }  
 
 - (NSArray *) listOfTestKeys {
-  return [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+  return @[@"a", @"b", @"c"];
 }
 
 - (NSArray *) listOfTestValues {
-  return [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+  return @[@"1", @"2", @"3"];
 }
 
 - (NSDictionary *) testMap {
@@ -117,13 +117,13 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 - (void) test_removeKeys {
   NSDictionary *map = [self testMap];
   for (NSString *key in [map allKeys]) {
-    [self.store storeObject:[map objectForKey:key] forKey:key];
+    [self.store storeObject:map[key] forKey:key];
   }
   NSUInteger actualCount = [[self.store allKeys] count];
   NSUInteger expectedCount = [map count];
   GHAssertEquals(actualCount, expectedCount, @"should be same number of keys");
   NSString *first = [[self listOfTestKeys] first];
-  NSArray *toRemove = [NSArray arrayWithObject:first];
+  NSArray *toRemove = @[first];
   [self.store removeKeys:toRemove];
   
   NSString *found = [self.store stringForKey:first
@@ -140,7 +140,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 - (void) test_allKeys {
   NSDictionary *map = [self testMap];
   for (NSString *key in [map allKeys]) {
-    [self.store storeObject:[map objectForKey:key] forKey:key];
+    [self.store storeObject:map[key] forKey:key];
   }
   GHAssertTrue([[self.store allKeys] containsObjects:[map keySet] allowsOthers:NO],
                @"store should contain %@ keys and no others",
@@ -220,7 +220,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
                                        defaultValue:nil
                                      storeIfMissing:NO];
   GHAssertNotNil(dict, @"dictionary for name should not be nil storeIfMissing was YES and there was default value provided");
-  GHAssertEqualStrings([dict objectForKey:@"key"], @"default", 
+  GHAssertEqualStrings(dict[@"key"], @"default", 
                        @"dictionary should contain < default > for key < key >");
   
 }
@@ -249,7 +249,7 @@ static NSString *LjsTestStoreFilename = @"com.littlejoysoftware.LjsTestStore.pli
 
 
 - (void) test_updating_value_in_dictionary {
-  NSDictionary *dict = [NSDictionary dictionaryWithObject:@"old" forKey:@"key"];
+  NSDictionary *dict = @{@"key": @"old"};
   [self.store storeObject:dict forKey:@"name"];
   
   [self.store updateValueInDictionaryNamed:@"name"

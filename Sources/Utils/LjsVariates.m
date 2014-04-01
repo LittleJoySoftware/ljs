@@ -88,7 +88,7 @@ static double const LjsE = 2.71828;
 
 + (NSDecimalNumber *) randomDecimalDouble {
   double random = [LjsVariates randomDouble];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:random] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(random) decimalValue]];
 }
 
 + (double) randomDoubleWithMin:(double) min max:(double) max {
@@ -107,7 +107,7 @@ static double const LjsE = 2.71828;
                                              max:(NSDecimalNumber *) max {
   double random = [LjsVariates randomDoubleWithMin:[min doubleValue]
                                                max:[max doubleValue]];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithDouble:random] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(random) decimalValue]];
 }
 
 + (NSUInteger) randomInteger {
@@ -116,7 +116,7 @@ static double const LjsE = 2.71828;
 
 + (NSDecimalNumber *) randomDecimalInteger {
   NSInteger random = (NSInteger)[LjsVariates randomInteger];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:random] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(random) decimalValue]];
 }
 
 + (NSUInteger) _randomIntegerHelperWithMin:(NSUInteger) aMin
@@ -148,7 +148,7 @@ static double const LjsE = 2.71828;
   
   NSUInteger random = [LjsVariates randomIntegerWithMin:[min unsignedIntegerValue]
                                                     max:[max unsignedIntegerValue]];
-  return [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithUnsignedInteger:random] decimalValue]];
+  return [NSDecimalNumber decimalNumberWithDecimal:[@(random) decimalValue]];
 }
 
 + (NSArray *) sampleWithReplacement:(NSArray *) array number:(NSUInteger) number {
@@ -157,7 +157,7 @@ static double const LjsE = 2.71828;
   NSUInteger maxArrayIndex = [array count] - 1;
   for (NSUInteger loopVar = 0; loopVar < number; loopVar++) {
     randomIndex = [LjsVariates randomIntegerWithMin:0 max:maxArrayIndex];
-    [sampled addObject:[array objectAtIndex:randomIndex]];
+    [sampled addObject:array[randomIndex]];
   }
   
   NSArray *result = [NSArray arrayWithArray:sampled];
@@ -191,12 +191,12 @@ static double const LjsE = 2.71828;
   
   NSUInteger count = [array count];
   if (count == 1) {
-    return [array objectAtIndex:0];
+    return array[0];
   }
   
   NSUInteger max = count - 1;
   NSUInteger index = [LjsVariates randomIntegerWithMin:0 max:max];
-  return [array objectAtIndex:index];
+  return array[index];
 }
 
 + (NSArray *) shuffle:(NSArray *) array {

@@ -47,21 +47,21 @@ static NSString *Ljs_UIKeyboardFrameChangedByUserInteraction = @"UIKeyboardFrame
     NSDictionary *userInfo = [aNotification userInfo];
     id rect;
     
-    rect = [userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    rect = userInfo[UIKeyboardFrameBeginUserInfoKey];
     self.frameBegin = [rect CGRectValue];
 
-    rect = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    rect = userInfo[UIKeyboardFrameEndUserInfoKey];
     self.frameEnd = [rect CGRectValue];
     
     NSNumber *number;
     
-    number = [userInfo objectForKey:Ljs_UIKeyboardFrameChangedByUserInteraction];
+    number = userInfo[Ljs_UIKeyboardFrameChangedByUserInteraction];
     self.frameChangedByUserInteraction = [number boolValue];
     
-    number = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    number = userInfo[UIKeyboardAnimationCurveUserInfoKey];
     self.animationCurve = [number unsignedIntegerValue];
     
-    number = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    number = userInfo[UIKeyboardAnimationDurationUserInfoKey];
     self.animationDuration = [number floatValue];
     
     self.beginTopOfFrame = self.frameBegin.origin.y;

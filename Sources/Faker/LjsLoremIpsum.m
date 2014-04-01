@@ -69,8 +69,7 @@
 
 - (id) init {
   if ((self = [super init]))  {
-    self.loremIpsumWords = [NSArray arrayWithObjects:
-                            @"lorem",
+    self.loremIpsumWords = @[@"lorem",
                             @"ipsum",
                             @"dolor",
                             @"sit",
@@ -1069,8 +1068,7 @@
                             @"morbi",
                             @"vulputate",
                             @"vestibulum",
-                            @"elit",
-                            nil];
+                            @"elit"];
 
   }
   return self;

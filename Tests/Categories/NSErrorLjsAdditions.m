@@ -44,11 +44,9 @@
 }
 
 - (void) test_error_domain_with_user_info {
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"val 0", @"key 0",
-                            @"val 1", @"key 1",
-                            @"val 2", @"key 2",
-                            nil];
+  NSDictionary *userInfo = @{@"key 0": @"val 0",
+                            @"key 1": @"val 1",
+                            @"key 2": @"val 2"};
   
   NSError *error = [NSError errorWithDomain:@"my domain"
                                        code:0

@@ -75,9 +75,8 @@
   // The horse rac...
   // pluto, ipad 5.0 sim (non-retina/non-retina)
   // The horse ra...
-  NSArray *candidates = [NSArray arrayWithObjects:
-                         @"The horse rac...",
-                         @"The horse ra...", nil];
+  NSArray *candidates = @[@"The horse rac...",
+                         @"The horse ra..."];
   
   GHAssertTrue([candidates containsObject:actual], 
                @"%@ should be one of these strings: %@", actual, candidates);

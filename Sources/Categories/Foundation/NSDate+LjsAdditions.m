@@ -244,8 +244,7 @@ NSSecondCalendarUnit);
     if (aError != NULL) {
       NSString *message = [NSString stringWithFormat:@"invalid argument: aInterval = '%d' is > 59",
                            (int)aInterval];
-      NSDictionary *ui = [NSDictionary dictionaryWithObject:message
-                                                     forKey:NSLocalizedDescriptionKey];
+      NSDictionary *ui = @{NSLocalizedDescriptionKey: message};
       *aError = [NSError errorWithDomain:@"com.littlejoysoftware.NSError+LjsAdditons"
                                     code:1
                                 userInfo:ui];

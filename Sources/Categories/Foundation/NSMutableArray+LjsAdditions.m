@@ -81,7 +81,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   if ([self count] == 0) {
     return nil;
   }
-  id object = [self objectAtIndex:0];
+  id object = self[0];
   [self removeObjectAtIndex:0];
   return object;
 }

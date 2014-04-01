@@ -82,7 +82,7 @@
   GHTestLog(@"expected = %@", expected);
   GHTestLog(@"actual = %@", actual);
   [actual enumerateObjectsUsingBlock:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
-    GHAssertTrue([num compare:[expected objectAtIndex:idx]] == NSOrderedSame,
+    GHAssertTrue([num compare:expected[idx]] == NSOrderedSame,
                  @"should be able to cons up a list from a range");
 
   }];

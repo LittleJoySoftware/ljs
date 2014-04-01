@@ -18,7 +18,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (NSArray *) sortedArrayUsingDescriptor:(NSSortDescriptor *) aSorter {
-  NSArray *array = [NSArray arrayWithObject:aSorter];
+  NSArray *array = @[aSorter];
   return [self sortedArrayUsingDescriptors:array];
 }
 

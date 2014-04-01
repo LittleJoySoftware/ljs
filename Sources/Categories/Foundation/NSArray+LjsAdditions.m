@@ -25,7 +25,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
   if (index >= count) {
     return nil;
   } else {
-    return [self objectAtIndex:index];
+    return self[index];
   }
 }
 
@@ -74,7 +74,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 #pragma mark - Sorting
 
 - (NSArray *) sortedArrayUsingDescriptor:(NSSortDescriptor *) aSorter {
-  NSArray *array = [NSArray arrayWithObject:aSorter];
+  NSArray *array = @[aSorter];
   return [self sortedArrayUsingDescriptors:array];
 }
 
@@ -131,7 +131,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_WARN;
 - (NSString *) stringWithEnum:(NSUInteger) enumVal {
   NSString *result = nil;
   if (enumVal < [self count]) {
-    result = [self objectAtIndex:enumVal];
+    result = self[enumVal];
   }
   return result;
 }
