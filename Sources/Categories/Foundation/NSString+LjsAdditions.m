@@ -46,7 +46,10 @@
 #endif
 
 #import "Lumberjack.h"
+
+#if TARGET_OS_IPHONE
 #import "NSString+IOSSizeOf.h"
+#endif
 
 #ifdef LOG_CONFIGURATION_DEBUG
 static const int __unused ddLogLevel = LOG_LEVEL_DEBUG;
