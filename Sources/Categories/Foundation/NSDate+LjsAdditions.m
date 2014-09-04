@@ -598,7 +598,10 @@ NSSecondCalendarUnit);
   if ([components respondsToSelector:@selector(weekOfYear)]) {
     result = (NSUInteger) [components weekOfYear];
   } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
     result = (NSUInteger) [components week];
+#pragma clang diagnostic pop
   }
   return result;
 }
@@ -621,7 +624,10 @@ NSSecondCalendarUnit);
   if ([dc respondsToSelector:@selector(setWeekOfYear:)]) {
     [dc setWeekOfYear:(NSInteger)aWeek];
   } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
     [dc setWeek:(NSInteger)aWeek];
+#pragma clang diagnostic pop
   }
   
   [dc setWeekday:2];
